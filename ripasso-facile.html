@@ -122,7 +122,8 @@ h2 .num { font: 700 2rem/1 var(--f-display); background: var(--teal); color: var
 .hint { color: var(--pen-blue); background: var(--teal-soft); border-radius: 8px; padding: 8px 10px; }
 .fb { min-height: 1.3em; font-weight: 600; }
 .fb.ok { color: var(--ok); } .fb.ko { color: var(--ko); } .fb.shown { color: var(--warn); }
-.end { background: var(--ok-bg); border: 1px solid var(--ok); border-radius: 8px; padding: 10px 12px; display: grid; gap: 10px; }
+.end { background: var(--ok-bg); border: 1px solid var(--ok); border-radius: 8px; padding: 10px 12px; display: block; }
+.end .row { margin-top: 10px; }
 .done { display: inline-flex; gap: 10px; align-items: center; justify-self: start; padding: 10px 16px; border: 1px solid var(--rule-strong); border-radius: 99px; font-weight: 600; cursor: pointer; }
 .done:has(input:checked) { background: var(--ok-bg); border-color: var(--ok); color: var(--ok); }
 .done input, .qz input { width: 1.2em; height: 1.2em; accent-color: var(--teal); }
@@ -151,6 +152,49 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
 }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; } }
 
+.gloss { margin: 0; display: grid; gap: 4px; }
+.gloss dt { font-weight: 700; color: var(--teal-ink); margin-top: 8px; }
+.gloss dd { margin: 0; }
+
+/* ---------- glossario: parole toccabili ---------- */
+.term { cursor: help; text-decoration: underline dotted var(--teal); text-decoration-thickness: 2px; text-underline-offset: 3px; border-radius: 3px; }
+.term:hover, .term[aria-expanded="true"] { background: var(--teal-soft); color: var(--teal-ink); }
+.term-demo { text-decoration: underline dotted var(--teal); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+#pop { position: absolute; z-index: 40; width: min(340px, calc(100vw - 24px)); background: var(--sheet); color: var(--ink); border: 1px solid var(--teal); border-radius: 12px; box-shadow: 0 10px 30px rgba(0, 0, 0, .22); padding: 12px 14px 14px; display: grid; gap: 6px; }
+#pop.pop-sheet { position: fixed; left: max(12px, env(safe-area-inset-left, 0px)); right: max(12px, env(safe-area-inset-right, 0px)); bottom: calc(12px + env(safe-area-inset-bottom, 0px)); top: auto; width: auto; }
+.pop-h { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+.pop-t { font: 700 1.25rem/1.15 var(--f-display); color: var(--teal-ink); }
+.pop-x { font: 600 1.4rem/1 var(--f-ui); width: 40px; height: 40px; border-radius: 8px; border: 1px solid var(--rule-strong); background: var(--paper); color: var(--ink); cursor: pointer; flex: none; }
+.pop-b { font: 400 1.02rem/1.55 var(--f-body); }
+/* ---------- grafica ---------- */
+.pill { margin-left: auto; font: 700 .95rem/1 var(--f-display); letter-spacing: .04em; color: var(--on-teal); background: var(--teal); border-radius: 99px; padding: 7px 11px; }
+.top-in .pill + .btn { margin-left: 0; }
+.hero { padding: 18px 20px 20px; background: var(--sheet); border: 1px solid var(--rule); border-radius: 16px; }
+.hero-wave svg { width: 100%; height: 90px; display: block; }
+.tip { background: var(--teal-soft); border-radius: 10px; padding: 10px 12px; }
+.toc.tiles { grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)); gap: 8px; }
+.toc.tiles a { border: 1px solid var(--rule); background: var(--paper); padding: 10px 12px; border-radius: 10px; align-items: center; min-height: 3.2em; }
+.toc.tiles a::before { background: var(--teal); color: var(--on-teal); border-radius: 8px; min-width: 2em; text-align: center; padding: 2px 0; }
+.toc.tiles a.ok { border-color: var(--ok); background: var(--ok-bg); }
+.fbig::before { content: "Formula"; display: block; text-align: left; font: 700 .72rem/1.2 var(--f-ui); letter-spacing: .12em; text-transform: uppercase; color: var(--teal-ink); margin-bottom: 4px; }
+.means b:first-child { color: var(--teal-ink); }
+.lab { display: inline-block; justify-self: start; background: var(--teal); color: var(--on-teal); padding: 5px 10px; border-radius: 99px; }
+.solved .lab { background: var(--ok); color: var(--sheet); }
+.ssteps, .gsteps { list-style: none; padding-left: 0; counter-reset: s; }
+.ssteps li, .gsteps li { counter-increment: s; position: relative; padding-left: 2.4em; }
+.ssteps li::before, .gsteps li::before { content: counter(s); position: absolute; left: 0; top: 0; width: 1.8em; height: 1.8em; border-radius: 50%; display: grid; place-items: center; font: 700 .95rem/1 var(--f-ui); background: var(--teal-soft); color: var(--teal-ink); }
+.ssteps li::before { background: var(--ok-bg); color: var(--ok); }
+.gsteps li.passed::before { content: "✓"; background: var(--ok); color: var(--sheet); }
+.gsteps li:not(.passed):not([hidden]) { background: var(--teal-soft); border-radius: 10px; padding: 10px 10px 10px 2.8em; }
+.gsteps li:not(.passed):not([hidden])::before { left: 8px; top: 10px; background: var(--teal); color: var(--on-teal); }
+.endrow { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; border-top: 1px solid var(--rule); padding-top: 14px; }
+.btn.next { background: var(--teal-soft); border-color: var(--teal); color: var(--teal-ink); }
+@media (max-width: 600px) { .top-in .brand-t { font-size: 1.05rem; } .top-in .btn.small { padding: 7px 9px; font-size: .82rem; } .hero { padding: 14px; } .hero-wave svg { height: 64px; } .pill { padding: 6px 9px; } }
+
+.show-s { display: none; }
+@media (max-width: 600px) { .hide-s { display: none; } .show-s { display: inline; } }
+.top-in .brand-t, .top-in .btn { white-space: nowrap; }
+
 </style>
 </head>
 <body>
@@ -159,21 +203,24 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
   <div class="wrap top-in">
     <span class="a3" aria-hidden="true">A3</span>
     <div><div class="brand-t">Ripasso facile</div><div class="brand-s">Corrente alternata spiegata da zero</div></div>
-    <a class="btn small" href="ripasso-corrente-alternata.html">Versione completa</a>
+    <span class="pill" id="pill" aria-live="polite">0/11</span>
+    <a class="btn small" href="ripasso-corrente-alternata.html"><span class="hide-s">Versione completa</span><span class="show-s">Completa</span></a>
   </div>
 </header>
 
 <main class="wrap">
   <section class="hero">
+    <div class="hero-wave" id="hero-wave" aria-hidden="true"></div>
     <p class="eyebrow">Per chi parte da zero</p>
     <h1>Capire la corrente alternata e i numeri complessi, un passo alla volta</h1>
     <p class="lead">Nessuna formula senza spiegazione. Si parte dalle basi di matematica che servono, poi si sale una tappa alla volta. In ogni tappa c'è un esempio svolto e un esercizio guidato: la pagina ti fa fare un solo conto per volta e ti aiuta se ti blocchi.</p>
-    <div class="progress"><div class="bar"><i id="bar"></i></div><span id="bar-txt">0 tappe su 10</span></div>
+    <p class="tip"><span class="term-demo">Le parole sottolineate a puntini</span> si possono toccare: si apre una piccola spiegazione. Toccale ogni volta che una parola non ti è chiara.</p>
+    <div class="progress"><div class="bar"><i id="bar"></i></div><span id="bar-txt">0 tappe su 11</span></div>
   </section>
 
   <nav class="card" aria-label="Tappe">
     <h2>Le tappe</h2>
-    <ol class="toc" id="toc">
+    <ol class="toc tiles" id="toc">
       <li><a href="#t0">Le basi di matematica che servono</a></li>
       <li><a href="#t1">Le onde che si ripetono: periodo e frequenza</a></li>
       <li><a href="#t2">Massimo, picco-picco ed efficace</a></li>
@@ -184,6 +231,7 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
       <li><a href="#t7">Somma e differenza</a></li>
       <li><a href="#t8">Prodotto e rapporto</a></li>
       <li><a href="#t9">La ricetta per il compito</a></li>
+      <li><a href="#t10">Le parole della teoria</a></li>
     </ol>
     <p class="small muted">In fondo trovi il foglietto con tutte le formule spiegate e otto domande di verifica.</p>
   </nav>
@@ -192,6 +240,14 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
 <article class="tappa" id="t0" data-t="t0">
   <h2><span class="num">0</span> Le basi di matematica che servono</h2>
   <p class="lead2">Leggi questa tappa anche se ti sembra facile: ogni pezzo qui sotto si usa più avanti.</p>
+
+  <section class="base">
+    <h3>Tensione, corrente e resistenza</h3>
+    <p>Pensa all'acqua in un tubo. La <b>tensione</b> è la «spinta» che fa muovere l'acqua: in elettricità spinge le cariche elettriche nei fili. Si misura in volt (V). La <b>corrente</b> è quanta acqua passa: quante cariche attraversano il filo ogni secondo. Si misura in ampere (A).</p>
+    <p>Una <b>resistenza</b> è un componente che frena la corrente e si scalda, come il filo di una stufetta o di un phon.</p>
+    <p>In <b>corrente continua</b>, come nelle pile, la spinta è sempre uguale e la corrente va sempre nello stesso verso. In <b>corrente alternata</b>, come nelle prese di casa, la spinta cambia continuamente e la corrente va avanti e indietro.</p>
+    <p class="why">Tutto il capitolo parla di tensioni e correnti alternate.</p>
+  </section>
 
   <section class="base">
     <h3>Numeri negativi e segni</h3>
@@ -254,7 +310,7 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
 
   <section class="base">
     <h3>Il numero π e i radianti</h3>
-    <p>π («pi greco») vale circa 3,14 ed è quante volte il diametro sta nella circonferenza. In fisica gli angoli si misurano anche in <b>radianti</b>: un giro completo, cioè 360°, vale 2π radianti, circa <span data-k="2pi"></span>. Per questo 2π compare quando si parla di giri.</p>
+    <p>π («pi greco») vale circa 3,14 ed è quante volte il diametro sta nella circonferenza. In fisica gli angoli si misurano anche in <b>radianti</b>: un giro completo, cioè 360°, vale 2π radianti, circa <span data-k="2pi"></span>. Non devi saper calcolare i radianti: basta ricordare che un giro intero vale 2π. Per questo 2π compare quando si parla di cose che girano.</p>
   </section>
 
   <section class="base">
@@ -280,7 +336,7 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
     <li>La <b>frequenza</b> si indica con <i>f</i>: è quante oscillazioni complete ci sono in un secondo. Si misura in hertz (Hz). La corrente di casa fa 50 oscillazioni al secondo: 50 Hz.</li>
   </ul>
   <div class="formula"><div class="fbig"><i>f</i> = <span class="frac"><span>1</span><span><i>T</i></span></span></div>
-    <div class="means"><b>Cosa vuol dire:</b> la frequenza è 1 diviso il periodo. <i>f</i> = frequenza in Hz; <i>T</i> = periodo in secondi. <b>Perché:</b> se un'oscillazione dura 0,02 secondi, in un secondo ne stanno 1 ÷ 0,02 = <span data-k="f002"></span>. Al contrario, <i>T</i> = 1 ÷ <i>f</i>.</div></div>
+    <div class="means"><b>Cosa vuol dire:</b> la frequenza è 1 diviso il periodo. <i>f</i> = frequenza in Hz; <i>T</i> = periodo in secondi. <b>Perché:</b> se un'oscillazione dura 0,02 secondi, in un secondo ne stanno 1 ÷ 0,02 = <span data-k="n002"></span>, quindi la frequenza è <span data-k="n002"></span> Hz. Al contrario, <i>T</i> = 1 ÷ <i>f</i>.</div></div>
   <p class="warn"><b>Trappola:</b> se il periodo è in millisecondi (ms), prima dividi per 1000.</p>
   <div class="solved" data-g="periodo" data-p='{"Tms":20}'></div>
   <div class="try" data-g="periodo"></div>
@@ -294,8 +350,8 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
   <figure class="fig" data-fig="valori"><figcaption>Il massimo <i>V</i><sub>M</sub>, il picco-picco <i>V</i><sub>pp</sub> (dal basso all'alto) e il valore efficace <i>V</i>.</figcaption></figure>
   <ul class="plain">
     <li><b>Valore massimo</b> <i>V</i><sub>M</sub> (la M piccola sta per «massimo»): il punto più alto, detto anche picco. Il punto più basso è uguale ma negativo: −<i>V</i><sub>M</sub>.</li>
-    <li><b>Valore picco-picco</b> <i>V</i><sub>pp</sub>: la distanza dal punto più basso al più alto.</li>
-    <li><b>Valore efficace</b> <i>V</i> (senza lettere piccole): la tensione continua, cioè sempre uguale, che scalderebbe una resistenza esattamente come la nostra onda. Il 230 V scritto sulle prese è il valore efficace.</li>
+    <li><b>Valore picco-picco</b> <i>V</i><sub>pp</sub> (le lettere piccole pp stanno per «picco-picco»): la distanza dal punto più basso al più alto.</li>
+    <li><b>Valore efficace</b> <i>V</i> (senza lettere piccole): la tensione continua, cioè sempre uguale (come quella di una pila), che scalderebbe una resistenza esattamente quanto la nostra onda (tappa 0). Il 230 V scritto sulle prese è il valore efficace.</li>
   </ul>
   <div class="formula"><div class="fbig"><i>V</i><sub>pp</sub> = 2 × <i>V</i><sub>M</sub></div>
     <div class="means"><b>Cosa vuol dire:</b> il picco-picco è il doppio del massimo. <b>Perché:</b> dal punto più basso (−<i>V</i><sub>M</sub>) allo zero c'è <i>V</i><sub>M</sub>, e dallo zero al punto più alto c'è un altro <i>V</i><sub>M</sub>.</div></div>
@@ -320,7 +376,7 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
     <li><i>v</i>(<i>t</i>): «la tensione all'istante <i>t</i>». <i>t</i> è il tempo che passa.</li>
     <li><span class="hl1">311</span> è il valore <b>massimo</b> <i>V</i><sub>M</sub>, in volt.</li>
     <li>sen è il seno: l'onda ha la forma del seno.</li>
-    <li><span class="hl2">314</span> è la pulsazione <b>ω</b>. Da qui trovi la frequenza: 314 ÷ <span data-k="2pi"></span> ≈ <span data-k="f314"></span> Hz.</li>
+    <li><span class="hl2">314</span> è la pulsazione <b>ω</b>. Da qui trovi la frequenza: <i>f</i> = ω ÷ 2π = 314 ÷ 2π = <span data-k="f314"></span> Hz, cioè circa 50 Hz (314 è 2π × 50 arrotondato).</li>
     <li><span class="hl3">30°</span> è la <b>fase</b> φ (si legge «fi»): da dove parte la lancetta all'istante zero. Per sapere quanto vale la tensione all'inizio fai <i>V</i><sub>M</sub> × sen(φ) = 311 × sen 30° = <span data-k="v0"></span> V.</li>
   </ul>
   <div class="solved" data-g="omega" data-p='{"f":50}'></div>
@@ -335,7 +391,7 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
   <ul class="plain">
     <li>Il primo numero (senza j) si chiama <b>parte reale</b>: dice quanti passi verso destra. Se è negativo, i passi sono verso sinistra.</li>
     <li>Il numero attaccato alla <b>j</b> si chiama <b>parte immaginaria</b>: dice quanti passi verso l'alto. Se è negativo, verso il basso.</li>
-    <li>La <b>j</b> non è un numero da calcolare: è un'etichetta che vuol dire «questo va in verticale». In matematica j = √−1, e moltiplicare per j fa girare una freccia di 90°.</li>
+    <li>La <b>j</b> non è un numero da calcolare: è un'etichetta che vuol dire «questo va in verticale». Moltiplicare per j fa girare una freccia di 90° (un quarto di giro) al contrario delle lancette. Moltiplicare due volte per j la fa girare di 180°, cioè la fa puntare al contrario: per questo j × j = −1. Nessun numero normale moltiplicato per sé stesso dà −1 (tappa 0): per questo j si chiama <b>unità immaginaria</b> e si scrive j = √−1.</li>
     <li>Il disegno con l'asse orizzontale (reale) e l'asse verticale (immaginario) si chiama <b>piano di Gauss</b>. La barra sopra la lettera, <span class="v">A</span>, ricorda che è una freccia (un vettore).</li>
   </ul>
   <div class="formula"><div class="fbig"><span class="v">A</span> = <i>a</i> + <i>jb</i></div>
@@ -368,7 +424,7 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
   <h2><span class="num">6</span> Dove punta la freccia (angolo) e il coniugato</h2>
   <p class="lead2"><b>In una frase:</b> l'<b>argomento</b> α (si legge «alfa») è l'angolo della freccia, misurato da destra girando verso l'alto.</p>
   <div class="formula"><div class="fbig">α = arctg <span class="frac"><span><i>b</i></span><span><i>a</i></span></span> &nbsp;(+ 180° se <i>a</i> è negativo)</div>
-    <div class="means"><b>Cosa vuol dire:</b> dividi la parte immaginaria per la parte reale e fai l'arcotangente (SHIFT tan). <b>Perché:</b> nel triangolo della freccia <i>b</i> è il cateto opposto all'angolo e <i>a</i> quello vicino, e l'arcotangente trova l'angolo dal loro rapporto (tappa 0). <b>Perché il +180°:</b> la calcolatrice dà solo angoli tra −90° e +90°, cioè frecce che vanno verso destra. Se <i>a</i> è negativo la freccia va verso sinistra, cioè dalla parte opposta: mezzo giro in più, 180°.</div></div>
+    <div class="means"><b>Cosa vuol dire:</b> dividi la parte immaginaria per la parte reale e fai l'arcotangente (SHIFT tan). <b>Perché:</b> nel triangolo della freccia <i>b</i> è il cateto opposto all'angolo e <i>a</i> quello vicino, e l'arcotangente trova l'angolo dal loro rapporto (tappa 0). <b>Perché il +180°:</b> la calcolatrice dà solo angoli tra −90° e +90°, cioè frecce che vanno verso destra. Se <i>a</i> è negativo la freccia va verso sinistra, cioè dalla parte opposta: mezzo giro in più, 180°. <b>Due casi particolari:</b> se dopo aver aggiunto 180° viene più di 180°, puoi anche togliere 360° (per esempio 233,1° e −126,9° sono la stessa direzione, va bene scrivere tutti e due). Se <i>a</i> è 0 la freccia è verticale: l'angolo è 90° se <i>b</i> è positivo, −90° se è negativo.</div></div>
   <div class="solved" data-g="angolo" data-p='{"a":-3,"b":4}'></div>
   <div class="try" data-g="angolo"></div>
   <h3>Il complesso coniugato</h3>
@@ -396,7 +452,11 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
   <h2><span class="num">8</span> Prodotto e rapporto</h2>
   <p class="lead2"><b>In una frase:</b> per moltiplicare e dividere conviene scrivere la freccia come «lunghezza e angolo».</p>
   <div class="formula"><div class="fbig"><span class="v">A</span> = |<span class="v">A</span>|<i>e</i><sup><i>j</i>α</sup> &nbsp;=&nbsp; |<span class="v">A</span>|∠α</div>
-    <div class="means"><b>Cosa vuol dire:</b> è la stessa freccia scritta con la sua lunghezza e il suo angolo. La scrittura con la <i>e</i> si chiama <b>forma esponenziale</b> e si legge «modulo per e alla j alfa»; il simbolo ∠ (angolo) è un modo breve per dire la stessa cosa. Esempio: 3 + j4 = 5∠<span data-k="a34"></span>. C'è anche la <b>forma trigonometrica</b> |<span class="v">A</span>|(cos α + j sen α): stesse informazioni scritte con coseno e seno.</div></div>
+    <div class="means"><b>Cosa vuol dire:</b> è la stessa freccia scritta con la sua lunghezza e il suo angolo. La scrittura con la <i>e</i> si chiama <b>forma esponenziale</b> e si legge «modulo per e alla j alfa». La <i>e</i> è un numero speciale come π (vale circa <span data-k="e"></span>), ma qui non si calcola: <i>e</i><sup><i>j</i>α</sup> è solo un modo per dire «girato di α». Il simbolo ∠ (angolo) è un modo breve per dire la stessa cosa. Esempio: 3 + j4 = 5∠<span data-k="a34"></span>. C'è anche la <b>forma trigonometrica</b> |<span class="v">A</span>|(cos α + j sen α): stesse informazioni scritte con coseno e seno.</div></div>
+  <div class="formula"><div class="fbig"><i>a</i> = |<span class="v">A</span>| × cos α &nbsp;&nbsp;&nbsp; <i>b</i> = |<span class="v">A</span>| × sen α</div>
+    <div class="means"><b>Cosa vuol dire:</b> se conosci lunghezza e angolo e vuoi i passi (la forma <i>a</i> + <i>jb</i>), moltiplichi la lunghezza per il coseno dell'angolo (passi in orizzontale) e per il seno (passi in verticale). <b>Perché:</b> nel triangolo della freccia la lunghezza è l'ipotenusa; il coseno è cateto vicino ÷ ipotenusa e il seno è cateto opposto ÷ ipotenusa (tappa 0), quindi i cateti sono ipotenusa × coseno e ipotenusa × seno. È anche quello che dice la forma trigonometrica.</div></div>
+  <div class="solved" data-g="polbin" data-p='{"M":10,"th":120}'></div>
+  <div class="try" data-g="polbin"></div>
   <div class="formula"><div class="fbig">prodotto: lunghezze × , angoli + &nbsp;&nbsp;&nbsp; rapporto: lunghezze ÷ , angoli −</div>
     <div class="means"><b>Cosa vuol dire:</b> per moltiplicare due frecce moltiplichi le lunghezze e sommi gli angoli; per dividerle dividi le lunghezze e sottrai gli angoli (quello di sopra meno quello di sotto). <b>Perché:</b> moltiplicare per una freccia vuol dire allungare e anche girare: le lunghezze si moltiplicano, le rotazioni si aggiungono una all'altra. Dividere è l'operazione contraria.</div></div>
   <div class="solved" data-g="prodotto" data-p='{"M1":4,"t1":30,"M2":2,"t2":20}'></div>
@@ -416,6 +476,7 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
     <li><b>Argomento:</b> arctg(b ÷ a), più 180° se a è negativo (tappa 6).</li>
     <li><b>Forma esponenziale:</b> scrivi modulo e<sup>j argomento</sup> (tappa 8).</li>
     <li><b>Forma trigonometrica:</b> modulo(cos argomento + j sen argomento).</li>
+    <li>Se invece ti danno lunghezza e angolo e chiedono la forma binomia: a = modulo × cos α, b = modulo × sen α (tappa 8).</li>
     <li><b>Coniugato:</b> cambia il segno del numero con la j (tappa 6).</li>
   </ol></div>
   <div class="recipe"><h3>Esercizio «dati Ā e B̄ trova somma, differenza, prodotto, rapporto»</h3><ol>
@@ -426,6 +487,26 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
   <div class="try" data-g="compito"></div>
   <p>Quando ti senti pronto, prova gli esercizi e la simulazione nella <a href="ripasso-corrente-alternata.html">versione completa</a>.</p>
   <label class="done"><input type="checkbox" data-done="t9"> Conosco la ricetta</label>
+</article>
+
+<!-- ===================== TAPPA 10 ===================== -->
+<article class="tappa" id="t10" data-t="t10">
+  <h2><span class="num">10</span> Le parole della teoria</h2>
+  <p class="lead2">Nel compito ci sono anche domande di teoria. Ecco le parole che escono più spesso, spiegate semplici.</p>
+  <dl class="gloss">
+    <dt>Grandezza periodica</dt><dd>Una grandezza che si ripete uguale a intervalli di tempo regolari, cioè ogni periodo <i>T</i>.</dd>
+    <dt>Grandezza alternata</dt><dd>Una grandezza periodica che va sopra e sotto lo zero, con la parte sopra grande quanto quella sotto. La sinusoide è alternata, ma esistono anche alternate con altre forme.</dd>
+    <dt>Valore medio</dt><dd>La media di tutti i valori in un periodo. Per una grandezza alternata è <b>zero</b>, perché i valori positivi e quelli negativi si annullano.</dd>
+    <dt>Valore efficace</dt><dd>La tensione continua che scalderebbe una resistenza quanto l'onda. Per la sinusoide è il massimo diviso √2 (tappa 2).</dd>
+    <dt>Fattore di forma</dt><dd>Il valore efficace diviso il valore medio: <i>k</i><sub>f</sub> = <i>V</i> ÷ <i>V</i><sub>m</sub> (la m piccola sta per «medio»). Dice com'è fatta l'onda.</dd>
+    <dt>Fase</dt><dd>L'angolo da cui parte la lancetta all'istante zero (tappa 3).</dd>
+    <dt>Grandezze isofrequenziali</dt><dd>Onde con la stessa frequenza («iso» vuol dire «uguale»). Le loro lancette girano insieme alla stessa velocità, quindi la distanza tra loro, lo <b>sfasamento</b>, non cambia mai. Per questo si possono disegnare ferme.</dd>
+    <dt>Piano di Gauss</dt><dd>Il disegno con l'asse orizzontale reale e l'asse verticale j (tappa 4). Mostra lunghezza e angolo della freccia ma <b>non la frequenza</b>, perché la freccia è disegnata ferma e non si vede quanto velocemente gira.</dd>
+    <dt>Unità immaginaria j</dt><dd>Fa girare una freccia di 90°; j × j = −1 perché due giri di 90° fanno mezzo giro (tappa 4).</dd>
+    <dt>Forma binomia, trigonometrica, esponenziale</dt><dd>Tre modi di scrivere la stessa freccia: <i>a</i> + <i>jb</i> (i passi), |A|(cos α + j sen α) e |A|e<sup>jα</sup> (lunghezza e angolo).</dd>
+    <dt>Complesso coniugato</dt><dd>La freccia specchiata: stesso primo numero, segno cambiato al numero con la j (tappa 6).</dd>
+  </dl>
+  <label class="done"><input type="checkbox" data-done="t10"> Conosco le parole della teoria</label>
 </article>
 
 <!-- ===================== FOGLIETTO ===================== -->
@@ -440,6 +521,7 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
     <div><b><span class="v">A</span> = <i>a</i> + <i>jb</i></b><span>freccia: a passi in orizzontale, b in verticale</span></div>
     <div><b>|<span class="v">A</span>| = √(<i>a</i>² + <i>b</i>²)</b><span>lunghezza della freccia (Pitagora)</span></div>
     <div><b>α = arctg(<i>b</i> ÷ <i>a</i>)</b><span>angolo della freccia; +180° se a è negativo</span></div>
+    <div><b><i>a</i> = |<span class="v">A</span>| cos α, <i>b</i> = |<span class="v">A</span>| sen α</b><span>dalla lunghezza e dall'angolo ai passi</span></div>
     <div><b><i>a</i> − <i>jb</i></b><span>coniugato: cambia il segno del numero con la j</span></div>
     <div><b>|<span class="v">A</span>|<i>e</i><sup><i>j</i>α</sup> = |<span class="v">A</span>|∠α</b><span>la stessa freccia scritta con lunghezza e angolo</span></div>
     <div><b>prodotto / rapporto</b><span>lunghezze × o ÷, angoli + o −</span></div>
@@ -1645,6 +1727,21 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
       };
     },
   };
+  G.polbin = {
+    title: 'Da lunghezza e angolo ai passi',
+    gen: r => ({ M: r.pick([2, 4, 5, 6, 8, 10]), th: r.pick([30, 45, 60, 120, 135, 150, -30, -45, -60]) }),
+    make: p => {
+      const a = p.M * T.cosd(p.th), b = p.M * T.sind(p.th);
+      return {
+        intro: 'Una freccia è lunga <b>' + fmt(p.M) + '</b> e punta a <b>' + fdeg(p.th, 0) + '</b>: <span class="v">A</span> = ' + fmt(p.M) + '∠' + fdeg(p.th, 0) + '. Scrivila nella forma <i>a</i> + <i>jb</i>.',
+        steps: [
+          N('Passi in orizzontale: lunghezza × coseno dell\'angolo.<br>' + fmt(p.M) + ' × cos(' + fdeg(p.th, 0) + ') = ?', a, { neg: true, hint: 'Calcolatrice in gradi: ' + fmt(p.M) + ' × cos ' + fmt(p.th) + ' =' }),
+          N('Passi in verticale: lunghezza × seno dell\'angolo.<br>' + fmt(p.M) + ' × sen(' + fdeg(p.th, 0) + ') = ?', b, { neg: true, hint: 'Calcolatrice in gradi: ' + fmt(p.M) + ' × sin ' + fmt(p.th) + ' =' }),
+        ],
+        end: 'In forma binomia: <span class="v">A</span> = <b>' + T.fmtCH(T.C(a, b)) + '</b>.',
+      };
+    },
+  };
   G.prodotto = {
     title: 'Prodotto',
     gen: r => ({ M1: r.pick([2, 3, 4, 5]), t1: r.pick([10, 20, 30, 40, 45, 60]), M2: r.pick([2, 3, 4]), t2: r.pick([10, 15, 20, 30, 50]) }),
@@ -1673,15 +1770,18 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
     title: 'Esercizio da compito, guidato',
     gen: r => { const t = r.pick(TRIPLES); return { a: t[0] * sgn(r), b: t[1] * sgn(r) }; },
     make: p => {
-      const m = Math.hypot(p.a, p.b), raw = Math.atan(p.b / p.a) * R2D, fin = p.a < 0 ? raw + 180 : raw;
+      const m = Math.hypot(p.a, p.b), raw = Math.atan(p.b / p.a) * R2D, neg = p.a < 0, fin = neg ? raw + 180 : raw;
       return {
-        intro: 'Dato <span class="v">A</span> = ' + cx(p.a, p.b) + ', trova modulo, argomento e coniugato, e scrivi la forma esponenziale.',
+        intro: 'Dato <span class="v">A</span> = ' + cx(p.a, p.b) + ', trova modulo, argomento e coniugato, e scrivi la forma esponenziale. Un passo alla volta.',
         steps: [
-          N('Modulo: √(primo² + secondo²).<br>√(' + p2(p.a) + '² + ' + p2(p.b) + '²) = ?', m, { hint: 'Quadrati, somma, radice.' }),
-          { kind: 'ang', q: 'Argomento: arctg(' + p2(p.b) + ' ÷ ' + p2(p.a) + ')' + (p.a < 0 ? ', e siccome il primo numero è negativo aggiungi 180°' : '') + '. Quanto viene?', ans: fin, hint: p.a < 0 ? 'Calcolatrice: SHIFT tan (' + fmt(p.b) + ' ÷ ' + fmt(p.a) + '), poi + 180.' : 'Calcolatrice: SHIFT tan (' + fmt(p.b) + ' ÷ ' + fmt(p.a) + ').' },
-          N('Coniugato: il primo numero resta, quale numero va con la j?', -p.b, { neg: true, hint: 'Cambia il segno del numero con la j.' }),
+          N('Modulo, primo passo: somma i due quadrati.<br>' + p2(p.a) + '² + ' + p2(p.b) + '² = ?', p.a * p.a + p.b * p.b, { hint: 'Fai i due quadrati (sempre positivi) e sommali.' }),
+          N('Modulo, secondo passo: fai la radice.<br>√' + fmt(p.a * p.a + p.b * p.b) + ' = ?', m, { hint: 'Tasto √ della calcolatrice.' }),
+          N('Argomento, primo passo: numero con la j diviso primo numero.<br>' + p2(p.b) + ' ÷ ' + p2(p.a) + ' = ?', p.b / p.a, { tolAbs: 0.006, hint: 'Attento ai segni.' }),
+          { kind: 'ang', q: 'Argomento, secondo passo: arctg del numero di prima (SHIFT tan).<br>arctg(' + fmt(p.b / p.a, 4) + ') = ?', ans: raw, hint: 'Calcolatrice in gradi: SHIFT tan ' + fmt(p.b / p.a, 4) + ' =' },
+          { kind: 'ang', q: 'Argomento, ultimo passo: il primo numero (' + fmt(p.a) + ') è ' + (neg ? 'negativo, quindi aggiungi 180°.<br>' + fdeg(raw) + ' + 180° = ?' : 'positivo, quindi l\'angolo resta quello. Scrivilo.'), ans: fin, hint: neg ? 'Aggiungi 180 al numero di prima.' : 'È lo stesso numero di prima.' },
+          N('Coniugato: il primo numero resta ' + fmt(p.a) + '. Quale numero va con la j?', -p.b, { neg: true, hint: 'Cambia il segno del numero con la j.' }),
         ],
-        end: 'Modulo <b>' + fmt(m) + '</b>, argomento <b>' + fdeg(fin) + '</b>, coniugato <b>' + cx(p.a, -p.b) + '</b>. La forma esponenziale è <b>' + fmt(m) + 'e<sup>j' + fdeg(fin) + '</sup></b>, cioè ' + fmt(m) + '∠' + fdeg(fin) + '.',
+        end: 'Modulo <b>' + fmt(m) + '</b>, argomento <b>' + fdeg(fin) + '</b>, coniugato <b>' + cx(p.a, -p.b) + '</b>. La forma esponenziale è <b>' + fmt(m) + 'e<sup>j' + fdeg(fin) + '</sup></b>, cioè ' + fmt(m) + '∠' + fdeg(fin) + ' (lunghezza e angolo).',
       };
     },
   };
@@ -1698,6 +1798,150 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
     return fmt(step.ans, step.d === undefined ? 2 : step.d);
   }
   root.FACILE = { G: G, check: check, answerText: answerText };
+})(typeof globalThis !== 'undefined' ? globalThis : this);
+
+</script>
+<script>
+/* Glossario: le parole difficili nel testo diventano toccabili e aprono una spiegazione breve. */
+(function (root) {
+  'use strict';
+  const fmt = root.TLC.fmt;
+  // [chiave, titolo, spiegazione, forme da riconoscere nel testo (minuscole)]
+  const G = [
+    ['corrente-alternata', 'Corrente alternata', 'Corrente che cambia verso di continuo, avanti e indietro, sempre allo stesso modo. È quella delle prese di casa.', ['corrente alternata', 'correnti alternate']],
+    ['corrente-continua', 'Corrente continua', 'Corrente che va sempre nello stesso verso con la stessa intensità, come quella di una pila.', ['corrente continua', 'correnti continue', 'tensione continua', 'grandezza continua']],
+    ['tensione', 'Tensione', 'La «spinta» che fa muovere le cariche elettriche nei fili, come la pressione che spinge l\'acqua in un tubo. Si misura in volt (V).', ['tensione', 'tensioni']],
+    ['corrente', 'Corrente', 'Quante cariche elettriche passano in un filo ogni secondo, come la quantità d\'acqua che scorre in un tubo. Si misura in ampere (A).', ['corrente', 'correnti']],
+    ['resistenza', 'Resistenza', 'Un componente che frena la corrente e si scalda quando la corrente passa, come il filo di una stufetta.', ['resistenza', 'resistenze']],
+    ['volt', 'Volt (V)', 'L\'unità di misura della tensione. Le prese di casa danno 230 volt (valore efficace).', ['volt']],
+    ['ampere', 'Ampere (A)', 'L\'unità di misura della corrente.', ['ampere']],
+    ['hertz', 'Hertz (Hz)', 'L\'unità di misura della frequenza: 1 hertz vuol dire una volta al secondo.', ['hertz']],
+    ['periodo', 'Periodo (T)', 'Il tempo che serve all\'onda per fare un\'oscillazione completa e tornare uguale a prima. Si misura in secondi.', ['periodo', 'periodi']],
+    ['frequenza', 'Frequenza (f)', 'Quante oscillazioni complete fa l\'onda in un secondo. Si misura in hertz. È 1 diviso il periodo.', ['frequenza', 'frequenze']],
+    ['oscillazione', 'Oscillazione', 'Un «su e giù» completo dell\'onda, come un\'andata e ritorno di un\'altalena.', ['oscillazione', 'oscillazioni']],
+    ['sinusoide', 'Sinusoide', 'Un\'onda che ha la forma della funzione seno: sale e scende in modo morbido e regolare. La corrente alternata di casa è una sinusoide.', ['sinusoide', 'sinusoidi', 'sinusoidale', 'sinusoidali']],
+    ['pulsazione', 'Pulsazione (ω)', 'Dice quanto velocemente gira la lancetta che disegna l\'onda. Si misura in radianti al secondo (rad/s) e vale 2π × la frequenza.', ['pulsazione']],
+    ['lancetta', 'La lancetta che gira (vettore rotante)', 'Una freccia lunga quanto il valore massimo che gira al contrario dell\'orologio. La sua altezza, istante per istante, disegna l\'onda.', ['lancetta', 'vettore rotante']],
+    ['fase', 'Fase (φ)', 'L\'angolo da cui parte la lancetta all\'istante zero. Dice se l\'onda parte da zero o già più in alto o più in basso.', ['fase']],
+    ['sfasamento', 'Sfasamento', 'La differenza tra le fasi di due onde: dice di quanto una è avanti o indietro rispetto all\'altra.', ['sfasamento']],
+    ['valore-massimo', 'Valore massimo (V con M piccola)', 'Il punto più alto dell\'onda, detto anche picco.', ['valore massimo', 'massimo', 'picco', 'picchi']],
+    ['picco-picco', 'Picco-picco (V con pp piccole)', 'La distanza tra il punto più basso e il punto più alto dell\'onda: per una sinusoide è il doppio del massimo.', ['picco-picco', 'valore picco-picco']],
+    ['valore-efficace', 'Valore efficace', 'La tensione continua che scalderebbe una resistenza quanto l\'onda. Per una sinusoide è il massimo diviso √2. È il numero scritto sulle prese (230 V).', ['valore efficace', 'efficace']],
+    ['valore-medio', 'Valore medio', 'La media di tutti i valori dell\'onda in un periodo. Per una grandezza alternata è zero, perché i valori positivi e negativi si annullano.', ['valore medio']],
+    ['fattore-forma', 'Fattore di forma', 'Il valore efficace diviso il valore medio. Dice com\'è fatta l\'onda.', ['fattore di forma']],
+    ['periodica', 'Grandezza periodica', 'Una grandezza che si ripete uguale a intervalli di tempo regolari, cioè ogni periodo.', ['grandezza periodica', 'grandezze periodiche', 'periodica', 'periodiche']],
+    ['alternata', 'Grandezza alternata', 'Una grandezza periodica che va sopra e sotto lo zero, con la parte sopra grande quanto quella sotto.', ['grandezza alternata', 'grandezze alternate', 'alternata', 'alternate']],
+    ['isofrequenziali', 'Grandezze isofrequenziali', 'Onde con la stessa frequenza. Le loro lancette girano insieme, quindi lo sfasamento tra loro non cambia mai.', ['isofrequenziali']],
+    ['negativo', 'Numero negativo', 'Un numero più piccolo di zero, scritto con il meno davanti, come −3. Meno per meno fa più, più per meno fa meno.', ['numero negativo', 'numeri negativi']],
+    ['quadrato', 'Quadrato', 'Un numero moltiplicato per sé stesso: 3² = 3 × 3. Il quadrato di un numero negativo è positivo.', ['quadrato', 'quadrati']],
+    ['radice', 'Radice quadrata (√)', 'Il contrario del quadrato: il numero che moltiplicato per sé stesso dà quello sotto la radice. √25 = 5 perché 5 × 5 = 25.', ['radice quadrata', 'radice']],
+    ['milli', 'Milli (m)', 'Davanti a un\'unità vuol dire «diviso 1000»: 1 millisecondo (ms) è un millesimo di secondo.', ['milli', 'millisecondi', 'millisecondo']],
+    ['kilo', 'Kilo (k)', 'Davanti a un\'unità vuol dire «per 1000»: 1 kHz = 1000 Hz.', ['kilo']],
+    ['angolo', 'Angolo', 'Quanto hai girato. Un giro completo è 360°, mezzo giro 180°, un quarto di giro 90°.', ['angolo', 'angoli']],
+    ['angolo-retto', 'Angolo retto', 'Un angolo di 90°, come l\'angolo di un foglio.', ['angolo retto']],
+    ['antiorario', 'Senso antiorario', 'Girare al contrario delle lancette dell\'orologio. È il verso in cui si misurano gli angoli.', ['senso antiorario', 'antiorario', 'al contrario delle lancette']],
+    ['radiante', 'Radiante (rad)', 'Un altro modo di misurare gli angoli: un giro completo vale 2π radianti, circa ' + fmt(2 * Math.PI, 2) + '.', ['radiante', 'radianti']],
+    ['pi', 'Pi greco (π)', 'Un numero che vale circa ' + fmt(Math.PI, 2) + ': quante volte il diametro di un cerchio sta nella sua circonferenza.', ['pi greco']],
+    ['triangolo-rettangolo', 'Triangolo rettangolo', 'Un triangolo con un angolo retto (90°).', ['triangolo rettangolo']],
+    ['cateto', 'Cateto', 'Uno dei due lati corti di un triangolo rettangolo, quelli che formano l\'angolo retto.', ['cateto', 'cateti']],
+    ['ipotenusa', 'Ipotenusa', 'Il lato lungo e obliquo di un triangolo rettangolo, opposto all\'angolo retto.', ['ipotenusa']],
+    ['pitagora', 'Teorema di Pitagora', 'In un triangolo rettangolo: ipotenusa = radice quadrata di (cateto² + cateto²).', ['teorema di pitagora', 'pitagora']],
+    ['seno', 'Seno (sen)', 'In un triangolo rettangolo: cateto opposto all\'angolo diviso l\'ipotenusa. Sulla calcolatrice è il tasto sin.', ['seno']],
+    ['coseno', 'Coseno (cos)', 'In un triangolo rettangolo: cateto vicino all\'angolo diviso l\'ipotenusa. Tasto cos.', ['coseno']],
+    ['tangente', 'Tangente (tg)', 'In un triangolo rettangolo: cateto opposto diviso cateto vicino. Tasto tan.', ['tangente']],
+    ['arcotangente', 'Arcotangente (arctg)', 'Il contrario della tangente: gli dai il rapporto tra i cateti e ti dice l\'angolo. Sulla calcolatrice: SHIFT poi tan.', ['arcotangente']],
+    ['vettore', 'Vettore', 'Una freccia: ha una lunghezza e una direzione. Si scrive con una barra sopra la lettera.', ['vettore', 'vettori']],
+    ['complesso', 'Numero complesso', 'Un numero fatto di due parti, come 3 + j4, che si disegna come una freccia: 3 passi in orizzontale e 4 in verticale.', ['numero complesso', 'numeri complessi']],
+    ['parte-reale', 'Parte reale', 'Il numero senza j: dice quanti passi fa la freccia in orizzontale (destra se positivo, sinistra se negativo).', ['parte reale']],
+    ['parte-immaginaria', 'Parte immaginaria', 'Il numero attaccato alla j: dice quanti passi fa la freccia in verticale (su se positivo, giù se negativo).', ['parte immaginaria']],
+    ['j', 'Unità immaginaria (j)', 'Un simbolo che vuol dire «in verticale»: moltiplicare per j fa girare una freccia di 90°. Due volte j fa mezzo giro, per questo j × j = −1.', ['unità immaginaria']],
+    ['gauss', 'Piano di Gauss', 'Il disegno su cui si mettono le frecce: asse orizzontale reale e asse verticale j. Mostra lunghezza e angolo, non la frequenza.', ['piano di gauss']],
+    ['modulo', 'Modulo', 'La lunghezza della freccia. Si calcola con Pitagora: √(a² + b²).', ['modulo']],
+    ['argomento', 'Argomento (α)', 'L\'angolo della freccia, misurato da destra girando in senso antiorario. Si calcola con l\'arcotangente, +180° se la parte reale è negativa.', ['argomento']],
+    ['coniugato', 'Complesso coniugato', 'La freccia specchiata rispetto all\'asse orizzontale: stesso primo numero, segno cambiato al numero con la j.', ['complesso coniugato', 'coniugato']],
+    ['binomia', 'Forma binomia', 'Il numero complesso scritto come a + jb, cioè con i passi in orizzontale e in verticale.', ['forma binomia']],
+    ['esponenziale', 'Forma esponenziale', 'Il numero complesso scritto con lunghezza e angolo: |A|e^(jα), che si può scrivere anche |A|∠α.', ['forma esponenziale']],
+    ['trigonometrica', 'Forma trigonometrica', 'Il numero complesso scritto come |A|(cos α + j sen α): lunghezza e angolo scritti con coseno e seno.', ['forma trigonometrica']],
+    ['formula', 'Formula', 'Una ricetta scritta in breve: le lettere stanno al posto dei numeri. Sostituisci i numeri alle lettere e fai i conti.', ['formula', 'formule']],
+  ];
+  const BY = {}; G.forEach(g => { BY[g[0]] = g; });
+  const forms = []; G.forEach(g => g[3].forEach(f => forms.push([f, g[0]])));
+  forms.sort((a, b) => b[0].length - a[0].length);
+  const esc = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const RE = new RegExp('(^|[^\\p{L}\\-])(' + forms.map(f => esc(f[0])).join('|') + ')(?![\\p{L}\\-])', 'giu');
+  const KEY = {}; forms.forEach(f => { KEY[f[0]] = f[1]; });
+  const SKIP = 'h1, h2, h3, h4, dt, button, label, input, textarea, select, svg, script, style, .fbig, .readme, .term, .top, .toc, #pop, .tiles, .chips, a, .hint, .fb';
+  const BLOCK = 'p, li, dd, td, figcaption, .means, .end, .warn';
+
+  function link(rootEl, exclude) {
+    const walker = document.createTreeWalker(rootEl, NodeFilter.SHOW_TEXT, {
+      acceptNode: n => (!n.textContent.trim() || (n.parentElement && n.parentElement.closest(SKIP))) ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT,
+    });
+    const nodes = []; while (walker.nextNode()) nodes.push(walker.currentNode);
+    const seen = new Map();
+    let count = 0;
+    nodes.forEach(node => {
+      const block = (node.parentElement && node.parentElement.closest(BLOCK)) || rootEl;
+      if (!seen.has(block)) seen.set(block, new Set(exclude ? [exclude] : []));
+      const used = seen.get(block);
+      const txt = node.textContent; let last = 0, m, frag = null;
+      RE.lastIndex = 0;
+      while ((m = RE.exec(txt))) {
+        const word = m[2], key = KEY[word.toLowerCase()];
+        if (!key || used.has(key)) continue;
+        used.add(key);
+        const start = m.index + m[1].length;
+        frag = frag || document.createDocumentFragment();
+        frag.appendChild(document.createTextNode(txt.slice(last, start)));
+        const b = document.createElement('span');
+        b.className = 'term'; b.dataset.term = key; b.textContent = word;
+        b.setAttribute('role', 'button'); b.setAttribute('tabindex', '0'); b.setAttribute('aria-haspopup', 'dialog');
+        frag.appendChild(b); last = start + word.length; count++;
+      }
+      if (frag) { frag.appendChild(document.createTextNode(txt.slice(last))); node.parentNode.replaceChild(frag, node); }
+    });
+    return count;
+  }
+
+  let pop = null, opener = null;
+  function close() { if (!pop || pop.hidden) return; pop.hidden = true; if (opener) { opener.setAttribute('aria-expanded', 'false'); opener.focus({ preventScroll: true }); } opener = null; }
+  function open(btn) {
+    const g = BY[btn.dataset.term]; if (!g) return;
+    if (opener) opener.setAttribute('aria-expanded', 'false');
+    opener = btn; btn.setAttribute('aria-expanded', 'true');
+    pop.querySelector('.pop-t').textContent = g[1];
+    const body = pop.querySelector('.pop-b'); body.textContent = g[2]; link(body, g[0]);
+    pop.hidden = false;
+    const r = btn.getBoundingClientRect(), small = window.innerWidth < 640;
+    pop.classList.toggle('pop-sheet', small);
+    if (small) { pop.style.left = ''; pop.style.top = ''; }
+    else {
+      const w = pop.offsetWidth, h = pop.offsetHeight;
+      let left = r.left + r.width / 2 - w / 2; left = Math.max(12, Math.min(left, window.innerWidth - w - 12));
+      let top = r.bottom + 8; if (top + h > window.innerHeight - 12) top = r.top - h - 8;
+      pop.style.left = (left + window.scrollX) + 'px'; pop.style.top = (top + window.scrollY) + 'px';
+    }
+    pop.querySelector('.pop-x').focus({ preventScroll: true });
+  }
+  function init(rootEl) {
+    pop = document.createElement('div');
+    pop.id = 'pop'; pop.hidden = true; pop.setAttribute('role', 'dialog'); pop.setAttribute('aria-label', 'Spiegazione della parola');
+    pop.innerHTML = '<div class="pop-h"><b class="pop-t"></b><button type="button" class="pop-x" aria-label="Chiudi">×</button></div><p class="pop-b"></p>';
+    document.getElementById('app').appendChild(pop);
+    document.addEventListener('click', ev => {
+      const t = ev.target.closest('.term');
+      if (t) { ev.preventDefault(); if (opener === t && !pop.hidden) close(); else open(t); return; }
+      if (ev.target.closest('.pop-x') || !ev.target.closest('#pop')) close();
+    });
+    document.addEventListener('keydown', ev => {
+      if (ev.key === 'Escape') close();
+      const t = ev.target.closest && ev.target.closest('.term');
+      if (t && (ev.key === 'Enter' || ev.key === ' ')) { ev.preventDefault(); open(t); }
+    });
+    window.addEventListener('resize', close);
+    return link(rootEl);
+  }
+  root.GLOSS = { init: init, link: link, list: G, close: close };
 })(typeof globalThis !== 'undefined' ? globalThis : this);
 
 </script>
@@ -1722,7 +1966,7 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
     ms20: () => fmt(20 / 1000, 3), k2: () => fmt(2 * 1000), f002: () => fmt(1 / 0.02) + ' Hz',
     sin30: () => fmt(Math.sin(Math.PI / 6), 2), atan1: () => fdeg(Math.atan(1) * 180 / Math.PI, 0),
     '2pi': () => fmt(2 * Math.PI, 2), sqrt2: () => fmt(Math.SQRT2, 3), f314: () => fmt(314 / (2 * Math.PI)),
-    v0: () => fmt(311 * Math.sin(Math.PI / 6), 1), a34: () => fdeg(Math.atan2(4, 3) * 180 / Math.PI),
+    v0: () => fmt(311 * Math.sin(Math.PI / 6), 1), n002: () => fmt(1 / 0.02), e: () => fmt(Math.E, 3), a34: () => fdeg(Math.atan2(4, 3) * 180 / Math.PI),
   };
   window.__facileK = K;
 
@@ -1820,6 +2064,7 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
       const p = g.gen(T.makeRng(newSeed())), ex = g.make(p);
       api.ex = ex; api.p = p;
       const id = box.dataset.g + '-' + GX.indexOf(api);
+      setTimeout(() => { if (window.GLOSS && window.GLOSS.ready) window.GLOSS.link(box); }, 0);
       box.innerHTML = '<p class="lab">Prova tu · ' + g.title + '</p><p>' + ex.intro + '</p><ol class="gsteps">' + ex.steps.map((st, i) => {
         const inp = st.kind === 'choice' ? '<div class="choices">' + st.options.map((o, j) => '<button type="button" class="btn" data-c="' + j + '">' + o + '</button>').join('') + '</div>' :
           '<div class="inrow"><input type="text" id="' + id + '-s' + i + '" inputmode="' + (st.neg || st.kind === 'ang' || st.ans < 0 ? 'text' : 'decimal') + '" autocomplete="off" aria-label="Risposta del passo ' + (i + 1) + '"><span class="unit">' + (st.unit || (st.kind === 'ang' ? '°' : '')) + '</span><button type="button" class="btn small" data-a="minus" aria-label="Inserisci il segno meno">−</button></div>';
@@ -1858,6 +2103,7 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
     });
     box.addEventListener('keydown', ev => { if (ev.key === 'Enter' && ev.target.tagName === 'INPUT') { ev.preventDefault(); judge(ev.target.closest('li'), ev.target.value); } });
     GX.push(api); build();
+    api.rebuild = build;
     return api;
   }
 
@@ -1866,6 +2112,7 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
     const all = $$('[data-done]'), n = all.filter(c => S.done[c.dataset.done]).length;
     $('#bar').style.width = (100 * n / all.length) + '%';
     $('#bar-txt').textContent = n + (n === 1 ? ' tappa' : ' tappe') + ' su ' + all.length;
+    $('#pill').textContent = n + '/' + all.length;
     $$('#toc a').forEach((a, i) => a.classList.toggle('ok', !!S.done['t' + i]));
   }
 
@@ -1895,6 +2142,27 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
     if (S.quiz != null) $('#quiz-score').textContent = 'Il tuo record: ' + S.quiz + ' su ' + QUIZ.length + '.';
   }
 
+  function heroWave() {
+    const box = $('#hero-wave'); if (!box) return;
+    const s = svg(800, 120, ''); s.setAttribute('preserveAspectRatio', 'xMidYMid slice');
+    const c = [60, 60], r = 42, a = 50 * Math.PI / 180;
+    el('circle', { cx: c[0], cy: c[1], r: r, class: 'st c1 dash' }, s);
+    arrow(s, c[0], c[1], c[0] + r * Math.cos(a), c[1] - r * Math.sin(a), 'c1');
+    el('line', { x1: c[0] + r * Math.cos(a), y1: c[1] - r * Math.sin(a), x2: 130, y2: c[1] - r * Math.sin(a), class: 'st c3 dash' }, s);
+    let d = ''; for (let i = 0; i <= 300; i++) { const x = 130 + i * 2.2, ph = (x - 130) / 140 * 2 * Math.PI + a; d += (i ? 'L' : 'M') + x.toFixed(1) + ' ' + (c[1] - r * Math.sin(ph)).toFixed(1); }
+    el('path', { d: d, class: 'st c1 w3' }, s);
+    box.appendChild(s);
+  }
+  function nextLinks() {
+    const ts = $$('.tappa[data-t]');
+    ts.forEach((t, i) => {
+      const lab = $('label.done', t); if (!lab) return;
+      const nx = ts[i + 1], a = document.createElement('a');
+      a.className = 'btn next'; a.href = nx ? '#' + nx.id : '#foglietto'; a.textContent = nx ? 'Tappa successiva →' : 'Vai al foglietto →';
+      const row = document.createElement('div'); row.className = 'endrow';
+      lab.parentNode.insertBefore(row, lab); row.appendChild(lab); row.appendChild(a);
+    });
+  }
   function init() {
     $$('[data-k]').forEach(e => { e.textContent = K[e.dataset.k](); });
     $$('figure[data-fig]').forEach(f => f.insertBefore(FIG[f.dataset.fig](), f.firstChild));
@@ -1903,6 +2171,8 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
     frecce();
     $$('[data-done]').forEach(c => { c.checked = !!S.done[c.dataset.done]; c.addEventListener('change', () => { S.done[c.dataset.done] = c.checked; save(); progress(); }); });
     progress(); quiz();
+    heroWave(); nextLinks();
+    window.GLOSS.ready = true; window.__facileTerms = window.GLOSS.init($('main'));
     window.__facile = { GX: GX, F: F, T: T };
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
