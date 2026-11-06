@@ -401,10 +401,10 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
 }
 
 /* ===== Il compito vero: bollino e disegni dei vettori / delle sinusoidi ===== */
-.bollino { display: inline-flex; align-items: center; gap: 5px; font: 700 .74rem/1.15 var(--f-ui); letter-spacing: .06em; text-transform: uppercase; color: var(--pen-red); background: var(--sheet); border: 2px solid var(--pen-red); border-radius: 99px; padding: 3px 9px 3px 7px; white-space: nowrap; vertical-align: middle; }
-.bollino::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--pen-red); flex: none; }
-.bollino.sm { font-size: .64rem; padding: 2px 7px 2px 5px; border-width: 1.5px; }
-.bollino.sm::before { width: 6px; height: 6px; }
+.bollino { display: inline-flex; align-items: center; gap: 5px; font: 800 .78rem/1.15 var(--f-ui); letter-spacing: .07em; text-transform: uppercase; color: var(--sheet); background: var(--pen-red); border: 0; border-radius: 99px; padding: 4px 11px 4px 8px; white-space: nowrap; vertical-align: middle; box-shadow: 0 1px 2px rgba(0, 0, 0, .18); }
+.bollino::before { content: "★"; font-size: 1.1em; line-height: 1; }
+.bollino.sm { font-size: .68rem; padding: 3px 8px 3px 6px; }
+.is-comp { border-color: var(--pen-red) !important; box-shadow: inset 6px 0 0 var(--pen-red); }
 .compbox { border: 2px solid var(--pen-red) !important; }
 .cd-grid4, .cd-grid2 { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); margin-top: 6px; }
 .cd-grid2 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
@@ -444,6 +444,10 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
 .comp-rules { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); margin: 0; padding: 0; list-style: none; }
 .comp-rules li { background: var(--sheet); border: 1px solid var(--rule); border-radius: 10px; padding: 12px 14px; font: 400 .98rem/1.5 var(--f-body); }
 .comp-rules b.k { display: block; font: 700 1.1rem/1.2 var(--f-display); color: var(--pen-red); margin-bottom: 4px; letter-spacing: .02em; }
+.th.is-comp { border-top: 5px solid var(--pen-red) !important; box-shadow: none; }
+.plan li.is-comp { box-shadow: inset 5px 0 0 var(--pen-red); padding-left: 12px; border-radius: 4px; }
+.ex.is-comp, .card.is-comp { padding-left: 24px; }
+.comp-legend { display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; font: 600 .95rem/1.4 var(--f-ui); }
 .ex .ex-what { font: 400 .95rem/1.4 var(--f-ui); color: var(--ink-2); margin: -4px 0 6px; }
 </style>
 </head>
@@ -488,6 +492,7 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
     <section class="card compbox">
       <h2>Il compito vero <span class="bollino">Domande del compito</span></h2>
       <p class="muted small">Ora abbiamo la traccia della verifica (4ª B INF, 5 novembre 2026): quattro esercizi, tutti di calcolo con sinusoidi e numeri complessi. Nessuna domanda di teoria e niente circuiti.</p>
+      <p class="comp-legend"><span class="bollino">compito</span> Bollino rosso o riga rossa sul bordo = cosa del compito, in tutta la pagina.</p>
       <ol class="expect">
         <li><span class="n">1</span><span><b>Due sinusoidi con la stessa ω</b>: trasformarle in vettori, fare somma, differenza, prodotto e rapporto, disegnare i vettori dei risultati.</span></li>
         <li><span class="n">2</span><span><b>Lo stesso con altre due sinusoidi</b>: una ha fase 0° e le pulsazioni sono diverse (100 e 500 rad/s), da far notare.</span></li>
@@ -2665,6 +2670,9 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
       li.innerHTML = '<a href="#' + a.id + '" data-toc="' + key + '"><span class="ck">' + (key ? '✓' : '!') + '</span><span>' + (a.dataset.num !== '!' ? a.dataset.num + ' · ' : '') + a.dataset.title + (a.dataset.extra ? '<span class="x">oltre il compito</span>' : '') + (a.dataset.comp ? '<span class="cmp">● nel compito · ' + a.dataset.comp + '</span>' : '') + '</span></a>';
       list.appendChild(li);
     });
+    $$('#theory .th[data-comp]').forEach(a => a.classList.add('is-comp'));
+    $$('#plan li').forEach(li => { if (li.querySelector('.bollino')) li.classList.add('is-comp'); });
+    $$('.compbox').forEach(c => c.classList.add('is-comp'));
     $$('[data-gotit]').forEach(ck => {
       const k = ck.dataset.gotit;
       ck.checked = !!S.theory[k];
@@ -2856,6 +2864,9 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
   function renderExercise(ex, o) {
     const card = document.createElement('article');
     card.className = 'ex'; card.id = o.key;
+    const compLike = ['vsinops', 'sinvec', 'cplx2sin'].indexOf(ex.type) >= 0;
+    if (compLike) card.classList.add('is-comp');
+    if (compLike && !/bollino/.test(o.title || '') && !o.noHead) o = Object.assign({}, o, { title: '<span class="bollino sm">come il compito</span> ' + (o.title || ex.title) });
     card.innerHTML = (o.noHead ? '' : '<header class="ex-h"><span class="ex-n">' + o.label + '</span><h3>' + (o.title || ex.title) + '</h3>' + (o.pts != null ? '<span class="ex-pts">' + ptsTxt(o.pts) + '</span>' : '') + '</header>') +
       (ex.prompt ? '<div class="ex-prompt">' + ex.prompt + '</div>' : '') + '<div class="ex-fields"></div>' +
       (o.sim ? '' : '<div class="ex-actions"></div><div class="ex-fb" aria-live="polite"></div>') +
