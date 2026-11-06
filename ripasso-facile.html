@@ -195,6 +195,74 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
 @media (max-width: 600px) { .hide-s { display: none; } .show-s { display: inline; } }
 .top-in .brand-t, .top-in .btn { white-space: nowrap; }
 
+/* ===== Il compito vero: bollino e disegni dei vettori / delle sinusoidi ===== */
+.bollino { display: inline-flex; align-items: center; gap: 5px; font: 700 .74rem/1.15 var(--f-ui); letter-spacing: .06em; text-transform: uppercase; color: var(--pen-red); background: var(--sheet); border: 2px solid var(--pen-red); border-radius: 99px; padding: 3px 9px 3px 7px; white-space: nowrap; vertical-align: middle; }
+.bollino::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--pen-red); flex: none; }
+.bollino.sm { font-size: .64rem; padding: 2px 7px 2px 5px; border-width: 1.5px; }
+.bollino.sm::before { width: 6px; height: 6px; }
+.compbox { border: 2px solid var(--pen-red) !important; }
+.cd-grid4, .cd-grid2 { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); margin-top: 6px; }
+.cd-grid2 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+.cd-fig { margin: 0; display: grid; gap: 6px; align-content: start; min-width: 0; background: var(--sheet); border: 1px solid var(--rule); border-radius: 10px; padding: 10px; }
+.cd-figw { grid-column: 1 / -1; }
+.cd-svg { width: 100%; height: auto; display: block; max-width: 300px; justify-self: center; }
+.cd-svg.cd-wide { max-width: 620px; }
+.cd-fig figcaption { font: 400 .92rem/1.45 var(--f-ui); color: var(--ink); display: grid; gap: 4px; }
+.cd-leg { list-style: none; margin: 0; padding: 0; display: grid; gap: 3px; }
+.cd-leg li { display: flex; gap: 8px; align-items: baseline; }
+.cd-sw { flex: none; width: 16px; height: 0; border-top: 3px solid currentColor; transform: translateY(-3px); }
+.cd-sw.cd-swd { border-top-style: dashed; }
+.cd-ax { stroke: var(--ink-2); stroke-width: 1.2; }
+.cd-axf { fill: var(--ink-2); }
+.cd-grid { stroke: var(--rule); stroke-width: 1; fill: none; }
+.cd-dash2 { stroke-dasharray: 3 4; }
+.cd-t { fill: var(--ink-2); font: 600 11px var(--f-ui); }
+.cd-t.cd-b { font-weight: 700; font-size: 12px; }
+.cd-t.cd-s { font-size: 10px; }
+.cd-l { stroke-width: 2.6; fill: none; stroke-linecap: round; }
+.cd-l.cd-w { stroke-width: 2.2; }
+.cd-l.cd-dash { stroke-width: 1.6; stroke-dasharray: 5 4; }
+.cd-arc { fill: none; stroke-width: 1.4; }
+.cd-l.c1, .cd-arc.c1 { stroke: var(--teal); } .cd-f.c1, .cd-t.c1 { fill: var(--teal); } .cd-sw.c1 { color: var(--teal); }
+.cd-l.c2, .cd-arc.c2 { stroke: var(--amber); } .cd-f.c2, .cd-t.c2 { fill: var(--amber); } .cd-sw.c2 { color: var(--amber); }
+.cd-l.c3, .cd-arc.c3 { stroke: var(--pen-red); } .cd-f.c3, .cd-t.c3 { fill: var(--pen-red); } .cd-sw.c3 { color: var(--pen-red); }
+.cd-l.c4, .cd-arc.c4 { stroke: var(--pen-blue); } .cd-f.c4, .cd-t.c4 { fill: var(--pen-blue); } .cd-sw.c4 { color: var(--pen-blue); }
+.cd-l.c5, .cd-arc.c5 { stroke: var(--ok); } .cd-f.c5, .cd-t.c5 { fill: var(--ok); } .cd-sw.c5 { color: var(--ok); }
+.steps { margin: 0; padding-left: 1.4em; display: grid; gap: .55em; font: 400 1.02rem/1.6 var(--f-body); }
+.steps li { padding-left: .2em; }
+.solnote { font-size: .95rem; color: var(--ink-2); border-left: 3px solid var(--rule); padding-left: 10px; margin: 0; }
+.eqtag { color: var(--ink-2); }
+h2 .bollino { margin-left: 4px; white-space: normal; }
+.toc a > span .bollino { display: flex; width: max-content; margin-top: 5px; }
+.compcard { display: grid; gap: 12px; }
+.compcard ol { margin: 0; padding-left: 0; list-style: none; display: grid; gap: 8px; }
+.compcard li { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 10px; align-items: start; background: var(--paper); border-radius: 10px; padding: 10px 12px; }
+.compcard li .n { font: 700 1.3rem/1 var(--f-display); color: var(--on-teal); background: var(--pen-red); border-radius: 8px; min-width: 1.8em; text-align: center; padding: 4px 0; }
+.compcard li small { display: block; color: var(--ink-2); margin-top: 2px; }
+.traccia { background: var(--paper); border-left: 4px solid var(--pen-red); border-radius: 6px; padding: 12px 14px; font: 400 1.05rem/1.6 var(--f-body); }
+.traccia::before { content: "Il testo della domanda"; display: block; font: 700 .72rem/1.2 var(--f-ui); letter-spacing: .1em; text-transform: uppercase; color: var(--pen-red); margin-bottom: 4px; }
+.domanda { display: grid; gap: 12px; grid-template-columns: minmax(0, 1fr); border-top: 2px dashed var(--rule); padding-top: 18px; scroll-margin-top: 90px; }
+.domanda > * { min-width: 0; }
+.domanda > h3 { font: 700 1.6rem/1.1 var(--f-display); color: var(--pen-red); margin: 0; }
+.steplab { font: 700 1.05rem/1.2 var(--f-ui); color: var(--teal-ink); margin: 6px 0 0; }
+.plainsteps { margin: 0; padding-left: 0; list-style: none; display: grid; gap: 4px; }
+.compnav { display: flex; flex-wrap: wrap; gap: 8px; }
+details.sol { border: 2px solid var(--ok); border-radius: 10px; padding: 10px 14px; background: var(--sheet); display: block; }
+details.sol > summary { cursor: pointer; font-weight: 700; color: var(--ok); }
+details.sol[open] > summary { margin-bottom: 12px; }
+details.sol .sol-in { display: grid; gap: 12px; min-width: 0; }
+.cdx { min-width: 0; }
+#fl-cats, #fl-lens { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+#fl-cats .btn[aria-pressed="true"], #fl-lens .btn[aria-pressed="true"] { background: var(--teal); border-color: var(--teal); color: var(--on-teal); }
+.fl-n { font-weight: 400; opacity: .75; margin-left: 2px; }
+.flcard { border: 2px solid var(--teal); border-radius: 12px; padding: 16px; display: grid; gap: 12px; grid-template-columns: minmax(0, 1fr); background: var(--sheet); }
+.flcard > * { min-width: 0; }
+.fl-meta { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; font: 600 .85rem/1.2 var(--f-ui); color: var(--ink-2); }
+.fl-bar { flex: 1 1 120px; height: 6px; background: var(--rule); border-radius: 99px; overflow: hidden; }
+.fl-bar i { display: block; height: 100%; background: var(--teal); }
+.fl-q { font: 400 1.2rem/1.55 var(--f-body); margin: 0; }
+.fl-w { font-weight: 400; color: var(--ink); }
+.fl-wrong { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; font: 400 .98rem/1.5 var(--f-body); }
 </style>
 </head>
 <body>
@@ -203,7 +271,7 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
   <div class="wrap top-in">
     <span class="a3" aria-hidden="true">A3</span>
     <div><div class="brand-t">Ripasso facile</div><div class="brand-s">Corrente alternata spiegata da zero</div></div>
-    <span class="pill" id="pill" aria-live="polite">0/11</span>
+    <span class="pill" id="pill" aria-live="polite">0/13</span>
     <a class="btn small" href="ripasso-corrente-alternata.html"><span class="hide-s">Versione completa</span><span class="show-s">Completa</span></a>
   </div>
 </header>
@@ -215,7 +283,19 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
     <h1>Capire la corrente alternata e i numeri complessi, un passo alla volta</h1>
     <p class="lead">Nessuna formula senza spiegazione. Si parte dalle basi di matematica che servono, poi si sale una tappa alla volta. In ogni tappa c'è un esempio svolto e un esercizio guidato: la pagina ti fa fare un solo conto per volta e ti aiuta se ti blocchi.</p>
     <p class="tip"><span class="term-demo">Le parole sottolineate a puntini</span> si possono toccare: si apre una piccola spiegazione. Toccale ogni volta che una parola non ti è chiara.</p>
-    <div class="progress"><div class="bar"><i id="bar"></i></div><span id="bar-txt">0 tappe su 11</span></div>
+    <div class="progress"><div class="bar"><i id="bar"></i></div><span id="bar-txt">0 tappe su 13</span></div>
+  </section>
+
+  <section class="card compbox compcard" id="compito">
+    <h2>Il compito vero <span class="bollino">domande del compito</span></h2>
+    <p>Abbiamo la traccia della verifica (4ª B INF, 5 novembre 2026): quattro domande, tutte di conti con sinusoidi e frecce. Nessuna domanda di teoria. Le tappe con il <span class="bollino sm">bollino rosso</span> sono quelle che servono per il compito.</p>
+    <ol>
+      <li><span class="n">1</span><span><b>Due sinusoidi: somma, differenza, prodotto e rapporto</b>, poi il disegno delle frecce.<small>Servono le tappe 3, 4, 5, 6, 7, 8 e 9.</small></span></li>
+      <li><span class="n">2</span><span><b>Lo stesso con altri numeri</b>: un angolo è 0° e le due ω sono diverse (da far notare).<small>Come la 1.</small></span></li>
+      <li><span class="n">3</span><span><b>Una sinusoide da scrivere come freccia</b>, con l'angolo −270° (che è uguale a +90°).<small>Servono le tappe 0 (angoli), 8 e 9.</small></span></li>
+      <li><span class="n">4</span><span><b>Tre numeri complessi da trasformare in onde</b> e da disegnare su assi cartesiani.<small>Servono le tappe 5, 6 e 9.</small></span></li>
+    </ol>
+    <div class="row"><a class="btn primary" href="#tc">Vai alle domande risolte passo passo</a><a class="btn" href="#ts">Prima la tappa che manca: sinusoide e freccia</a><a class="btn" href="#flash" data-flash="compito">Domande flash sul compito</a></div>
   </section>
 
   <nav class="card" aria-label="Tappe">
@@ -224,16 +304,18 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
       <li><a href="#t0">Le basi di matematica che servono</a></li>
       <li><a href="#t1">Le onde che si ripetono: periodo e frequenza</a></li>
       <li><a href="#t2">Massimo, picco-picco ed efficace</a></li>
-      <li><a href="#t3">La pulsazione ω e come si legge una sinusoide</a></li>
-      <li><a href="#t4">I numeri complessi sono frecce</a></li>
-      <li><a href="#t5">Quanto è lunga la freccia (modulo)</a></li>
-      <li><a href="#t6">Dove punta la freccia (angolo) e il coniugato</a></li>
-      <li><a href="#t7">Somma e differenza</a></li>
-      <li><a href="#t8">Prodotto e rapporto</a></li>
-      <li><a href="#t9">La ricetta per il compito</a></li>
+      <li><a href="#t3"><span>La pulsazione ω e come si legge una sinusoide<span class="bollino sm">compito</span></span></a></li>
+      <li><a href="#t4"><span>I numeri complessi sono frecce<span class="bollino sm">compito</span></span></a></li>
+      <li><a href="#t5"><span>Quanto è lunga la freccia (modulo)<span class="bollino sm">compito</span></span></a></li>
+      <li><a href="#t6"><span>Dove punta la freccia (angolo) e il coniugato<span class="bollino sm">compito</span></span></a></li>
+      <li><a href="#t7"><span>Somma e differenza<span class="bollino sm">compito</span></span></a></li>
+      <li><a href="#t8"><span>Prodotto e rapporto<span class="bollino sm">compito</span></span></a></li>
+      <li><a href="#ts"><span>Dalla sinusoide alla freccia, e ritorno<span class="bollino sm">compito</span></span></a></li>
+      <li><a href="#t9"><span>La ricetta per il compito<span class="bollino sm">compito</span></span></a></li>
+      <li><a href="#tc"><span>Il compito vero, domanda per domanda<span class="bollino sm">compito</span></span></a></li>
       <li><a href="#t10">Le parole della teoria</a></li>
     </ol>
-    <p class="small muted">In fondo trovi il foglietto con tutte le formule spiegate e otto domande di verifica.</p>
+    <p class="small muted">In fondo trovi il foglietto con tutte le formule spiegate, undici domande vero/falso e le <a href="#flash">domande flash</a> con la risposta da scrivere.</p>
   </nav>
 
 <!-- ===================== TAPPA 0 ===================== -->
@@ -284,7 +366,7 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
   </section>
 
   <section class="base">
-    <h3>Angoli e gradi</h3>
+    <h3>Angoli e gradi <span class="bollino sm">domanda 3</span></h3>
     <p>Un angolo dice di quanto hai girato. Un giro completo è 360°, mezzo giro 180°, un quarto di giro 90° (l'angolo retto, quello degli angoli di un foglio). Gli angoli si misurano partendo dalla direzione «verso destra» e girando <b>al contrario delle lancette dell'orologio</b> (senso antiorario). Un angolo negativo, come −90°, vuol dire che hai girato nel verso delle lancette.</p>
     <figure class="fig" data-fig="angoli"><figcaption>0° verso destra, 90° verso l'alto, 180° verso sinistra, 270° (cioè −90°) verso il basso.</figcaption></figure>
     <p class="why">Aggiungere o togliere 360° non cambia la direzione: 270° e −90° sono la stessa cosa.</p>
@@ -365,7 +447,7 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
 
 <!-- ===================== TAPPA 3 ===================== -->
 <article class="tappa" id="t3" data-t="t3">
-  <h2><span class="num">3</span> La pulsazione ω e come si legge una sinusoide</h2>
+  <h2><span class="num">3</span> <span>La pulsazione ω e come si legge una sinusoide <span class="bollino">nel compito · domande 1, 2, 3</span></span></h2>
   <p class="lead2"><b>In una frase:</b> l'onda si può disegnare con una freccia che gira in cerchio; ω dice quanto velocemente gira.</p>
   <p>Immagina una lancetta lunga <i>V</i><sub>M</sub> che gira al contrario dell'orologio. La sua altezza, istante per istante, disegna l'onda: quando punta in alto l'onda è al massimo, quando è orizzontale l'onda vale zero. Un giro completo della lancetta è un periodo.</p>
   <div class="formula"><div class="fbig">ω = 2π × <i>f</i> ≈ <span data-k="2pi"></span> × <i>f</i></div>
@@ -386,7 +468,7 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
 
 <!-- ===================== TAPPA 4 ===================== -->
 <article class="tappa" id="t4" data-t="t4">
-  <h2><span class="num">4</span> I numeri complessi sono frecce</h2>
+  <h2><span class="num">4</span> <span>I numeri complessi sono frecce <span class="bollino">nel compito · domande 1–4</span></span></h2>
   <p class="lead2"><b>In una frase:</b> un numero complesso come 3 + j4 è una freccia che parte dal centro: 3 passi verso destra e 4 passi verso l'alto.</p>
   <ul class="plain">
     <li>Il primo numero (senza j) si chiama <b>parte reale</b>: dice quanti passi verso destra. Se è negativo, i passi sono verso sinistra.</li>
@@ -408,7 +490,7 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
 
 <!-- ===================== TAPPA 5 ===================== -->
 <article class="tappa" id="t5" data-t="t5">
-  <h2><span class="num">5</span> Quanto è lunga la freccia (modulo)</h2>
+  <h2><span class="num">5</span> <span>Quanto è lunga la freccia (modulo) <span class="bollino">nel compito · domande 1, 2, 4</span></span></h2>
   <p class="lead2"><b>In una frase:</b> il <b>modulo</b> è la lunghezza della freccia, e si trova con Pitagora.</p>
   <p>Guarda la freccia di 3 + j4: i 3 passi a destra e i 4 in alto sono i due cateti di un triangolo rettangolo, e la freccia è l'ipotenusa. Per questo si usa il teorema di Pitagora (tappa 0).</p>
   <div class="formula"><div class="fbig">|<span class="v">A</span>| = <span class="sqrt">√<span><i>a</i>² + <i>b</i>²</span></span></div>
@@ -421,7 +503,7 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
 
 <!-- ===================== TAPPA 6 ===================== -->
 <article class="tappa" id="t6" data-t="t6">
-  <h2><span class="num">6</span> Dove punta la freccia (angolo) e il coniugato</h2>
+  <h2><span class="num">6</span> <span>Dove punta la freccia (angolo) e il coniugato <span class="bollino">nel compito · domande 1, 2, 4</span></span></h2>
   <p class="lead2"><b>In una frase:</b> l'<b>argomento</b> α (si legge «alfa») è l'angolo della freccia, misurato da destra girando verso l'alto.</p>
   <div class="formula"><div class="fbig">α = arctg <span class="frac"><span><i>b</i></span><span><i>a</i></span></span> &nbsp;(+ 180° se <i>a</i> è negativo)</div>
     <div class="means"><b>Cosa vuol dire:</b> dividi la parte immaginaria per la parte reale e fai l'arcotangente (SHIFT tan). <b>Perché:</b> nel triangolo della freccia <i>b</i> è il cateto opposto all'angolo e <i>a</i> quello vicino, e l'arcotangente trova l'angolo dal loro rapporto (tappa 0). <b>Perché il +180°:</b> la calcolatrice dà solo angoli tra −90° e +90°, cioè frecce che vanno verso destra. Se <i>a</i> è negativo la freccia va verso sinistra, cioè dalla parte opposta: mezzo giro in più, 180°. <b>Due casi particolari:</b> se dopo aver aggiunto 180° viene più di 180°, puoi anche togliere 360° (per esempio 233,1° e −126,9° sono la stessa direzione, va bene scrivere tutti e due). Se <i>a</i> è 0 la freccia è verticale: l'angolo è 90° se <i>b</i> è positivo, −90° se è negativo.</div></div>
@@ -437,7 +519,7 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
 
 <!-- ===================== TAPPA 7 ===================== -->
 <article class="tappa" id="t7" data-t="t7">
-  <h2><span class="num">7</span> Somma e differenza</h2>
+  <h2><span class="num">7</span> <span>Somma e differenza <span class="bollino">nel compito · domande 1, 2</span></span></h2>
   <p class="lead2"><b>In una frase:</b> sommi i numeri senza j tra loro e i numeri con la j tra loro, come le mele con le mele e le pere con le pere.</p>
   <div class="formula"><div class="fbig">(<i>a</i> + <i>jb</i>) + (<i>c</i> + <i>jd</i>) = (<i>a</i> + <i>c</i>) + <i>j</i>(<i>b</i> + <i>d</i>)</div>
     <div class="means"><b>Cosa vuol dire:</b> la parte orizzontale del risultato è la somma delle parti orizzontali, quella verticale è la somma delle parti verticali. <b>Perché:</b> mettere due frecce una dopo l'altra vuol dire fare i passi della prima e poi quelli della seconda. Nella <b>differenza</b> fai lo stesso con il meno, e il meno vale per tutti e due i numeri della seconda freccia.</div></div>
@@ -449,7 +531,7 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
 
 <!-- ===================== TAPPA 8 ===================== -->
 <article class="tappa" id="t8" data-t="t8">
-  <h2><span class="num">8</span> Prodotto e rapporto</h2>
+  <h2><span class="num">8</span> <span>Prodotto e rapporto <span class="bollino">nel compito · domande 1, 2, 3</span></span></h2>
   <p class="lead2"><b>In una frase:</b> per moltiplicare e dividere conviene scrivere la freccia come «lunghezza e angolo».</p>
   <div class="formula"><div class="fbig"><span class="v">A</span> = |<span class="v">A</span>|<i>e</i><sup><i>j</i>α</sup> &nbsp;=&nbsp; |<span class="v">A</span>|∠α</div>
     <div class="means"><b>Cosa vuol dire:</b> è la stessa freccia scritta con la sua lunghezza e il suo angolo. La scrittura con la <i>e</i> si chiama <b>forma esponenziale</b> e si legge «modulo per e alla j alfa». La <i>e</i> è un numero speciale come π (vale circa <span data-k="e"></span>), ma qui non si calcola: <i>e</i><sup><i>j</i>α</sup> è solo un modo per dire «girato di α». Il simbolo ∠ (angolo) è un modo breve per dire la stessa cosa. Esempio: 3 + j4 = 5∠<span data-k="a34"></span>. C'è anche la <b>forma trigonometrica</b> |<span class="v">A</span>|(cos α + j sen α): stesse informazioni scritte con coseno e seno.</div></div>
@@ -467,10 +549,77 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
   <label class="done"><input type="checkbox" data-done="t8"> Ho capito prodotto e rapporto</label>
 </article>
 
-<!-- ===================== TAPPA 9 ===================== -->
+<!-- ===================== TAPPA 9: SINUSOIDE E FRECCIA ===================== -->
+<article class="tappa" id="ts" data-t="ts">
+  <h2><span class="num">9</span> <span>Dalla sinusoide alla freccia, e ritorno <span class="bollino">nel compito · domande 1–4</span></span></h2>
+  <p class="lead2"><b>In una frase:</b> ogni sinusoide si può scrivere come una freccia. La lunghezza è il numero davanti a «sen», l'angolo è quello dentro la parentesi. È il ponte tra le onde (tappe 1–3) e i numeri complessi (tappe 4–8), ed è proprio quello che chiedono tutte e quattro le domande del compito.</p>
+  <p>Ricordi la lancetta della tappa 3? L'onda è l'altezza di una lancetta che gira. Se fermiamo la lancetta all'istante zero resta una freccia ferma: è il <b>vettore</b> della sinusoide. Le lancette con la stessa ω girano tutte insieme, quindi si possono disegnare ferme.</p>
+  <p class="readme"><i>v</i>(<i>t</i>) = <span class="hl1">125</span> sen(<span class="hl2">500</span><i>t</i> <span class="hl3">+ 45°</span>) &nbsp;→&nbsp; <span class="v">V</span> = <span class="hl1">125</span>∠<span class="hl3">45°</span></p>
+  <ul class="plain">
+    <li><span class="hl1">125</span>, il valore massimo, diventa la <b>lunghezza</b> della freccia (il modulo).</li>
+    <li><span class="hl3">+ 45°</span>, la fase, diventa l'<b>angolo</b> della freccia. Attento al segno: in sen(500<i>t</i> − 30°) l'angolo è <b>−30°</b>. Se nella parentesi non c'è nessun angolo, come in 15 sen(100<i>t</i>), l'angolo è <b>0°</b>.</li>
+    <li><span class="hl2">500</span>, la pulsazione ω, <b>non entra</b> nella freccia: dice solo quanto velocemente gira la lancetta.</li>
+  </ul>
+  <div class="formula"><div class="fbig"><i>V</i><sub>M</sub> sen(ω<i>t</i> + φ) &nbsp;→&nbsp; <span class="v">V</span> = <i>V</i><sub>M</sub>∠φ = <i>V</i><sub>M</sub> cos φ + <i>j</i> <i>V</i><sub>M</sub> sen φ</div>
+    <div class="means"><b>Cosa vuol dire:</b> scrivi lunghezza e angolo. Se ti servono i passi (per sommare o sottrarre) usi la formula della tappa 8: passi in orizzontale = lunghezza × cos dell'angolo, passi in verticale = lunghezza × sen dell'angolo. <b>Perché:</b> la freccia ferma all'istante zero ha proprio quella lunghezza e quell'angolo. <b>Quale lunghezza:</b> negli appunti del prof è il valore massimo, e nel compito si usa quello.</div></div>
+  <div class="solved" data-g="sin2freccia" data-p='{"VM":20,"phi":-60,"w":314}'></div>
+  <div class="try" data-g="sin2freccia"></div>
+
+  <h3>Angoli oltre il giro: −270° è uguale a +90° <span class="bollino sm">domanda 3</span></h3>
+  <p>Un giro intero è 360° (tappa 0). Se aggiungi o togli 360°, la freccia torna a puntare nello stesso posto. Quindi, quando l'angolo è più piccolo di −180° o più grande di 180°, lo riporti nel giro «normale»: <b>se è negativo aggiungi 360°, se è positivo togli 360°</b>.</p>
+  <figure class="fig" data-fig="meno270"><figcaption>Girare di 270° nel verso delle lancette (−270°) o di 90° al contrario (+90°) porta nello stesso punto: la freccia punta in alto.</figcaption></figure>
+  <p class="readme">100 sen(314<i>t</i> − 270°) = 100 sen(314<i>t</i> + 90°) &nbsp;→&nbsp; <span class="v">V</span> = 100∠90° = <i>j</i>100</p>
+  <div class="try" data-g="faseequiv"></div>
+
+  <h3>Il ritorno: dalla freccia alla sinusoide <span class="bollino sm">domanda 4</span></h3>
+  <p>Se ti danno un numero complesso, per esempio <span class="v">V</span> = −3 + <i>j</i>4, fai i conti delle tappe 5 e 6: la lunghezza (modulo) è il valore massimo, l'angolo (argomento) è la fase. Poi li scrivi nella sinusoide.</p>
+  <div class="formula"><div class="fbig"><i>a</i> + <i>jb</i> &nbsp;→&nbsp; <i>v</i>(<i>t</i>) = <span class="sqrt">√<span><i>a</i>² + <i>b</i>²</span></span> sen(ω<i>t</i> + α)</div>
+    <div class="means"><b>Cosa vuol dire:</b> davanti a «sen» metti il modulo, dentro la parentesi l'angolo α (con i 180° in più se <i>a</i> è negativo, tappa 6). Se ω non è data, scrivi proprio la lettera ω. <b>Controllo veloce:</b> all'istante zero la sinusoide vale <i>b</i>, il numero con la j. Esempio: 3 + <i>j</i>4 → 5 sen(ω<i>t</i> + 53,1°), e infatti 5 × sen 53,1° = 4.</div></div>
+  <div class="solved" data-g="freccia2sin" data-p='{"a":-3,"b":4}'></div>
+  <div class="try" data-g="freccia2sin"></div>
+
+  <h3>I due disegni che chiede il compito</h3>
+  <div class="recipe"><h3>«Rappresentazione vettoriale»: le frecce sul piano di Gauss</h3><ol>
+    <li>Disegna due assi: quello orizzontale (reale, +1) e quello verticale (immaginario, +j).</li>
+    <li>Scegli una <b>scala</b> e scrivila, per esempio «1 cm = 20 V». La freccia più lunga deve stare nel foglio.</li>
+    <li>Ogni freccia parte dal centro. Con il goniometro misura l'angolo dall'asse orizzontale verso destra, girando al contrario delle lancette (gli angoli negativi nel verso delle lancette).</li>
+    <li>Scrivi vicino a ogni freccia il nome e il valore, per esempio <span class="v">V</span><sub>1</sub> = 125∠45°.</li>
+    <li>Per la somma usa la <b>regola del parallelogramma</b>: dalla punta di <span class="v">V</span><sub>1</sub> disegna <span class="v">V</span><sub>2</sub> tratteggiata. La somma va dal centro alla punta finale. Per la differenza fai lo stesso con −<span class="v">V</span><sub>2</sub> (la freccia girata al contrario).</li>
+    <li>Prodotto e rapporto hanno numeri molto diversi dalle tensioni: disegnali in un piano a parte, ognuno con la sua scala.</li>
+  </ol></div>
+  <div class="cdx" data-cd="somma"></div>
+  <div class="recipe"><h3>«Rappresentazione cartesiana del segnale»: l'onda nel tempo</h3><ol>
+    <li>Disegna l'asse orizzontale del tempo. Scrivi ω<i>t</i> e segna 0°, 90°, 180°, 270° e 360°: è un periodo, un giro intero della lancetta.</li>
+    <li>Disegna l'asse verticale della tensione e segna +<i>V</i><sub>M</sub> e −<i>V</i><sub>M</sub>: l'onda non va mai oltre.</li>
+    <li>Segna il punto di partenza: all'istante 0 l'onda vale <i>b</i>, il numero con la j (cioè <i>V</i><sub>M</sub> × sen φ).</li>
+    <li>Da lì disegna l'onda: sale fino a +<i>V</i><sub>M</sub>, scende fino a −<i>V</i><sub>M</sub> e torna al punto di partenza dopo 360°.</li>
+  </ol></div>
+  <div class="cdx" data-cd="cart"></div>
+  <label class="done"><input type="checkbox" data-done="ts"> Ho capito come passare dalla sinusoide alla freccia e ritorno</label>
+</article>
+
+<!-- ===================== TAPPA 10: LA RICETTA ===================== -->
 <article class="tappa" id="t9" data-t="t9">
-  <h2><span class="num">9</span> La ricetta per il compito</h2>
-  <p class="lead2">Gli esercizi del compito sono come i due esempi del libro. Ecco i passi da seguire, sempre nello stesso ordine.</p>
+  <h2><span class="num">10</span> <span>La ricetta per il compito <span class="bollino">nel compito · domande 1–4</span></span></h2>
+  <p class="lead2">Ecco i passi da seguire, sempre nello stesso ordine. Le prime tre ricette sono quelle delle domande della verifica vera; le ultime due sono quelle degli esempi del libro, che servono come pezzi.</p>
+  <div class="recipe compbox"><h3>Domande 1 e 2 «date due sinusoidi, trova somma, differenza, prodotto, rapporto e disegna» <span class="bollino sm">compito</span></h3><ol>
+    <li><b>Frecce:</b> lunghezza = numero davanti a «sen», angolo = fase (tappa 9). Se le ω sono diverse, scrivilo in una riga.</li>
+    <li><b>Passi di ogni freccia:</b> a = lunghezza × cos angolo, b = lunghezza × sen angolo (tappa 8).</li>
+    <li><b>Somma e differenza</b> con i passi (tappa 7), poi lunghezza e angolo del risultato (tappe 5 e 6).</li>
+    <li><b>Prodotto:</b> lunghezze ×, angoli +. <b>Rapporto:</b> lunghezze ÷, angoli − (tappa 8).</li>
+    <li><b>Disegno:</b> le frecce sul piano di Gauss, con la scala scritta (tappa 9).</li>
+  </ol></div>
+  <div class="recipe compbox"><h3>Domanda 3 «scrivi in forma vettoriale una sinusoide» <span class="bollino sm">compito</span></h3><ol>
+    <li>Lunghezza = numero davanti a «sen».</li>
+    <li>Angolo: se è fuori da −180°…180°, aggiungi o togli 360° (−270° → +90°).</li>
+    <li>Scrivi <span class="v">V</span> = lunghezza∠angolo e i passi a + jb. Disegna la freccia.</li>
+  </ol></div>
+  <div class="recipe compbox"><h3>Domanda 4 «dal numero complesso al segnale» <span class="bollino sm">compito</span></h3><ol>
+    <li><b>Quadrante:</b> guarda i segni di a e di b.</li>
+    <li><b>Lunghezza</b> √(a² + b²) = valore massimo (tappa 5).</li>
+    <li><b>Angolo</b> arctg(b ÷ a), +180° se a è negativo (tappa 6) = fase.</li>
+    <li>Scrivi <i>v</i>(<i>t</i>) = lunghezza × sen(ω<i>t</i> + angolo) e disegna l'onda: parte da b, arriva a ± lunghezza (tappa 9).</li>
+  </ol></div>
   <div class="recipe"><h3>Esercizio «dato Ā = a + jb trova tutto»</h3><ol>
     <li><b>Modulo:</b> √(a² + b²) (tappa 5).</li>
     <li><b>Argomento:</b> arctg(b ÷ a), più 180° se a è negativo (tappa 6).</li>
@@ -485,14 +634,92 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
     <li><b>Prodotto:</b> moduli moltiplicati, argomenti sommati. <b>Rapporto:</b> moduli divisi, argomenti sottratti (tappa 8).</li>
   </ol></div>
   <div class="try" data-g="compito"></div>
-  <p>Quando ti senti pronto, prova gli esercizi e la simulazione nella <a href="ripasso-corrente-alternata.html">versione completa</a>.</p>
+  <p>Quando ti senti pronto, passa alla tappa successiva: <a href="#tc">le quattro domande vere del compito</a>, risolte un conto alla volta. Poi prova la <a href="ripasso-corrente-alternata.html#simulazione">simulazione nella versione completa</a>, che ha la stessa struttura della verifica.</p>
   <label class="done"><input type="checkbox" data-done="t9"> Conosco la ricetta</label>
 </article>
 
-<!-- ===================== TAPPA 10 ===================== -->
+<!-- ===================== TAPPA 11: IL COMPITO VERO ===================== -->
+<article class="tappa compbox" id="tc" data-t="tc">
+  <h2><span class="num">11</span> <span>Il compito vero, domanda per domanda <span class="bollino">domande del compito</span></span></h2>
+  <p class="lead2">Queste sono le quattro domande della verifica vera (4ª B INF, 5 novembre 2026), ricopiate dalla foto. Per ognuna trovi: il testo, cosa ti chiede in parole semplici, gli esercizi guidati con <b>gli stessi numeri</b> e la soluzione completa da scrivere sul foglio, con i disegni.</p>
+  <p class="tip"><b>Prima di iniziare:</b> calcolatrice in gradi (la D sullo schermo). In tutte le domande la lunghezza della freccia è il <b>valore massimo</b>, cioè il numero davanti a «sen». Nelle prove guidate, dopo l'ultimo passo, il tasto «Un altro esercizio» ti dà numeri nuovi per allenarti.</p>
+  <nav class="compnav" aria-label="Le quattro domande"><a class="btn small" href="#tc1">Domanda 1</a><a class="btn small" href="#tc2">Domanda 2</a><a class="btn small" href="#tc3">Domanda 3</a><a class="btn small" href="#tc4">Domanda 4</a></nav>
+
+  <section class="domanda" id="tc1">
+    <h3>Domanda 1 <span class="bollino sm">compito</span></h3>
+    <div class="traccia" data-ct="0"></div>
+    <p><b>Cosa ti chiede, in parole semplici:</b> ci sono due tensioni che vanno su e giù. Devi trasformarle in due frecce, poi sommare, sottrarre, moltiplicare e dividere le frecce, e alla fine disegnare le frecce dei risultati. Il numero accanto a <i>t</i> è 500 per tutte e due: le frecce girano insieme, quindi va tutto bene.</p>
+    <ol class="plainsteps">
+      <li><b>A.</b> Le due frecce (tappa 9).</li>
+      <li><b>B.</b> Somma e differenza: servono i passi <i>a</i> + <i>jb</i> (tappa 7), poi lunghezza e angolo del risultato (tappe 5 e 6).</li>
+      <li><b>C.</b> Prodotto e rapporto: bastano lunghezze e angoli (tappa 8).</li>
+      <li><b>D.</b> Il disegno delle frecce (tappa 9, «rappresentazione vettoriale»).</li>
+    </ol>
+    <p class="steplab">A. Le due frecce</p>
+    <div class="try" data-g="sin2freccia" data-p='{"VM":125,"phi":45,"w":500,"n":"1"}'></div>
+    <div class="try" data-g="sin2freccia" data-p='{"VM":30,"phi":-30,"w":500,"n":"2"}'></div>
+    <p class="steplab">B. Somma e differenza</p>
+    <div class="try" data-g="sinsomma" data-p='{"V1":125,"p1":45,"V2":30,"p2":-30,"op":"+"}'></div>
+    <div class="try" data-g="sinsomma" data-p='{"V1":125,"p1":45,"V2":30,"p2":-30,"op":"-"}'></div>
+    <p class="steplab">C. Prodotto e rapporto</p>
+    <div class="try" data-g="sinprod" data-p='{"V1":125,"p1":45,"V2":30,"p2":-30,"op":"x"}'></div>
+    <div class="try" data-g="sinprod" data-p='{"V1":125,"p1":45,"V2":30,"p2":-30,"op":"/"}'></div>
+    <p class="steplab">D. Il disegno, e la soluzione completa</p>
+    <p>Somma e differenza si possono anche riscrivere come sinusoidi, con lo stesso 500: per esempio la somma diventa <i>v</i><sub>s</sub>(<i>t</i>) = 135,89 sen(500<i>t</i> + 32,7°) V. Il prodotto si misura in V² e il rapporto non ha unità (volt diviso volt).</p>
+    <details class="sol" data-cs="0"><summary>Apri la soluzione completa, come scriverla sul foglio (con i disegni)</summary></details>
+  </section>
+
+  <section class="domanda" id="tc2">
+    <h3>Domanda 2 <span class="bollino sm">compito</span></h3>
+    <div class="traccia" data-ct="1"></div>
+    <p><b>Cosa ti chiede, in parole semplici:</b> è uguale alla domanda 1, con altri numeri. Due cose nuove:</p>
+    <ul class="plain">
+      <li>In 15 sen(100<i>t</i>) nella parentesi non c'è nessun angolo: l'angolo è <b>0°</b>, e la freccia è 15 + <i>j</i>0 = 15, tutta in orizzontale.</li>
+      <li>Il numero accanto a <i>t</i> è <b>100 in una e 500 nell'altra</b>: le due onde vanno a velocità diverse.</li>
+    </ul>
+    <p class="warn"><b>Perché le velocità diverse sono un problema:</b> le frecce si disegnano ferme solo se girano insieme, cioè con la stessa ω. Qui una gira cinque volte più veloce dell'altra, quindi a rigore non si potrebbero sommare. La domanda però chiede lo stesso le quattro operazioni: falle sui due numeri complessi come nella domanda 1, e scrivi sul foglio una riga come questa: <i>«Le due tensioni hanno pulsazioni diverse (100 e 500 rad/s): i vettori si sommano a rigore solo a pari frequenza. Eseguo comunque le operazioni sui numeri complessi, come richiesto.»</i> Per lo stesso motivo il risultato della somma non si riscrive come un'unica sinusoide.</p>
+    <p class="steplab">A. Le due frecce</p>
+    <div class="try" data-g="sin2freccia" data-p='{"VM":15,"phi":0,"w":100,"n":"1"}'></div>
+    <div class="try" data-g="sin2freccia" data-p='{"VM":30,"phi":55,"w":500,"n":"2"}'></div>
+    <p class="steplab">B. Somma e differenza</p>
+    <p class="tip">Nella differenza i due numeri vengono negativi: la freccia è nel 3° quadrante (in basso a sinistra), quindi all'angolo della calcolatrice aggiungi 180° e viene 264,9°. Nella soluzione completa trovi −95,1°: è la stessa direzione (264,9° − 360°).</p>
+    <div class="try" data-g="sinsomma" data-p='{"V1":15,"p1":0,"V2":30,"p2":55,"op":"+"}'></div>
+    <div class="try" data-g="sinsomma" data-p='{"V1":15,"p1":0,"V2":30,"p2":55,"op":"-"}'></div>
+    <p class="steplab">C. Prodotto e rapporto</p>
+    <div class="try" data-g="sinprod" data-p='{"V1":15,"p1":0,"V2":30,"p2":55,"op":"x"}'></div>
+    <div class="try" data-g="sinprod" data-p='{"V1":15,"p1":0,"V2":30,"p2":55,"op":"/"}'></div>
+    <p class="steplab">D. Il disegno, e la soluzione completa</p>
+    <details class="sol" data-cs="1"><summary>Apri la soluzione completa, come scriverla sul foglio (con i disegni)</summary></details>
+  </section>
+
+  <section class="domanda" id="tc3">
+    <h3>Domanda 3 <span class="bollino sm">compito</span></h3>
+    <div class="traccia" data-ct="2"></div>
+    <p><b>Cosa ti chiede, in parole semplici:</b> c'è una sola tensione e devi scriverla come freccia («forma vettoriale») e disegnarla. La trappola è l'angolo <b>−270°</b>: è fuori dal giro normale. Aggiungi 360° e diventa <b>+90°</b>: la freccia punta dritta in alto (tappa 9).</p>
+    <div class="try" data-g="faseequiv" data-p='{"VM":100,"w":314,"phi":-270}'></div>
+    <p>In più, se vuoi scriverlo: 314 è circa 2π × 50, quindi la frequenza è circa 50 Hz e il periodo 20 ms (tappe 1 e 3). E 100 sen(314<i>t</i> + 90°) è uguale a 100 cos(314<i>t</i>): un'onda che parte dal massimo.</p>
+    <details class="sol" data-cs="2"><summary>Apri la soluzione completa, come scriverla sul foglio (con i disegni)</summary></details>
+  </section>
+
+  <section class="domanda" id="tc4">
+    <h3>Domanda 4 <span class="bollino sm">compito</span></h3>
+    <div class="traccia" data-ct="3"></div>
+    <p><b>Cosa ti chiede, in parole semplici:</b> ti danno tre frecce già scritte con i passi (<i>a</i> + <i>jb</i>) e vogliono le onde che corrispondono. «Rappresentazione cartesiana» vuol dire: disegna le onde su due assi, il tempo in orizzontale e la tensione in verticale. Per ognuna: lunghezza, angolo, poi <i>v</i>(<i>t</i>) e il disegno (tappa 9, il ritorno).</p>
+    <p class="warn"><b>Occhio ai quadranti:</b> −5 − <i>j</i>5 ha il primo numero negativo (3° quadrante) e −15 + <i>j</i>30 anche (2° quadrante): in tutte e due devi aggiungere 180° all'angolo della calcolatrice. Solo 25 − <i>j</i>60 va bene così. Per −5 − <i>j</i>5 viene 225°; nella soluzione completa trovi −135°: è la stessa freccia (225° − 360° = −135°), puoi scrivere tutti e due.</p>
+    <div class="try" data-g="freccia2sin" data-p='{"a":-5,"b":-5,"n":"1"}'></div>
+    <div class="try" data-g="freccia2sin" data-p='{"a":-15,"b":30,"n":"2"}'></div>
+    <div class="try" data-g="freccia2sin" data-p='{"a":25,"b":-60,"n":"3"}'></div>
+    <details class="sol" data-cs="3"><summary>Apri la soluzione completa, come scriverla sul foglio (con i disegni)</summary></details>
+  </section>
+  <p>Quando hai finito, prova la <a href="ripasso-corrente-alternata.html#simulazione">simulazione nella versione completa</a>: ha la stessa struttura della verifica, con numeri nuovi.</p>
+  <p>Per ripassare in fretta prima della verifica: <a href="#flash" data-flash="compito">domande flash sul compito</a>, in fondo alla pagina.</p>
+  <label class="done"><input type="checkbox" data-done="tc"> Ho rifatto da solo le quattro domande del compito</label>
+</article>
+
+<!-- ===================== TAPPA 12: LE PAROLE ===================== -->
 <article class="tappa" id="t10" data-t="t10">
-  <h2><span class="num">10</span> Le parole della teoria</h2>
-  <p class="lead2">Nel compito ci sono anche domande di teoria. Ecco le parole che escono più spesso, spiegate semplici.</p>
+  <h2><span class="num">12</span> Le parole della teoria</h2>
+  <p class="lead2">Nella verifica vera non c'erano domande di teoria: questa tappa è di riserva, per un'interrogazione o per capire meglio le parole delle consegne. Ecco quelle che escono più spesso, spiegate semplici.</p>
   <dl class="gloss">
     <dt>Grandezza periodica</dt><dd>Una grandezza che si ripete uguale a intervalli di tempo regolari, cioè ogni periodo <i>T</i>.</dd>
     <dt>Grandezza alternata</dt><dd>Una grandezza periodica che va sopra e sotto lo zero, con la parte sopra grande quanto quella sotto. La sinusoide è alternata, ma esistono anche alternate con altre forme.</dd>
@@ -504,6 +731,8 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
     <dt>Piano di Gauss</dt><dd>Il disegno con l'asse orizzontale reale e l'asse verticale j (tappa 4). Mostra lunghezza e angolo della freccia ma <b>non la frequenza</b>, perché la freccia è disegnata ferma e non si vede quanto velocemente gira.</dd>
     <dt>Unità immaginaria j</dt><dd>Fa girare una freccia di 90°; j × j = −1 perché due giri di 90° fanno mezzo giro (tappa 4).</dd>
     <dt>Forma binomia, trigonometrica, esponenziale</dt><dd>Tre modi di scrivere la stessa freccia: <i>a</i> + <i>jb</i> (i passi), |A|(cos α + j sen α) e |A|e<sup>jα</sup> (lunghezza e angolo).</dd>
+    <dt>Rappresentazione vettoriale</dt><dd>Disegnare le frecce sul piano di Gauss: dal centro, lunghe quanto il modulo (in scala), girate dell'angolo (tappa 9).</dd>
+    <dt>Rappresentazione cartesiana di un segnale</dt><dd>Disegnare l'onda su due assi: il tempo (o ω<i>t</i>) in orizzontale e la tensione in verticale (tappa 9).</dd>
     <dt>Complesso coniugato</dt><dd>La freccia specchiata: stesso primo numero, segno cambiato al numero con la j (tappa 6).</dd>
   </dl>
   <label class="done"><input type="checkbox" data-done="t10"> Conosco le parole della teoria</label>
@@ -525,14 +754,28 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
     <div><b><i>a</i> − <i>jb</i></b><span>coniugato: cambia il segno del numero con la j</span></div>
     <div><b>|<span class="v">A</span>|<i>e</i><sup><i>j</i>α</sup> = |<span class="v">A</span>|∠α</b><span>la stessa freccia scritta con lunghezza e angolo</span></div>
     <div><b>prodotto / rapporto</b><span>lunghezze × o ÷, angoli + o −</span></div>
+    <div class="compbox"><b><i>V</i><sub>M</sub> sen(ω<i>t</i> + φ) → <i>V</i><sub>M</sub>∠φ</b><span>sinusoide → freccia: lunghezza = valore massimo, angolo = fase (ω non serve)</span></div>
+    <div class="compbox"><b>−270° = +90°</b><span>angolo fuori dal giro: se negativo + 360°, se positivo − 360°</span></div>
+    <div class="compbox"><b><i>a</i> + <i>jb</i> → √(<i>a</i>² + <i>b</i>²) sen(ω<i>t</i> + α)</b><span>freccia → sinusoide; all'istante 0 l'onda vale b</span></div>
   </div>
 </section>
 
 <!-- ===================== QUIZ ===================== -->
 <section class="tappa" id="quiz">
-  <h2>Otto domande per vedere se hai capito</h2>
+  <h2>Undici domande per vedere se hai capito</h2>
   <div id="quiz-list"></div>
   <p class="big" id="quiz-score"></p>
+</section>
+
+<!-- ===================== DOMANDE FLASH ===================== -->
+<section class="tappa" id="flash">
+  <h2><span>Domande flash <span class="bollino">tante dal compito</span></span></h2>
+  <p class="lead2">Una domanda alla volta: scrivi la risposta e premi «Controlla» (o Invio). Se sbagli puoi riprovare, chiedere un aiuto o vedere la risposta, e dopo ogni domanda c'è una riga che spiega perché. Quelle con il bollino usano i numeri veri della verifica; quelle «come il compito» hanno numeri nuovi a ogni giro.</p>
+  <p class="tip">Come scrivere: decimali con la virgola o con il punto; gli angoli in gradi (anche −135); i numeri complessi come <b>25,98 − j15</b> oppure <b>j100</b>; lunghezza e angolo come <b>450∠55</b>. I tasti −, j e ∠ accanto alla casella servono sul telefono.</p>
+  <div id="fl-cats" role="group" aria-label="Argomento"></div>
+  <div id="fl-lens" role="group" aria-label="Quante domande"></div>
+  <div class="flcard" id="fl-card" aria-live="polite"></div>
+  <p class="big" id="fl-score"></p>
 </section>
 </main>
 <footer class="foot"><div class="wrap">Versione facile del ripasso sul capitolo A3. Tutti i numeri degli esempi e degli esercizi sono calcolati dalla pagina e sono stati ricontrollati con Python. I progressi restano salvati in questo browser.</div></footer>
@@ -1546,30 +1789,267 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
     make: p => { const e = T.th_mcq.make(p); e.type = 'sim_th'; e.title = 'Teoria'; return e; },
   };
 
+  // ================= Il compito vero (verifica del 5/11/2026) =================
+  // Esercizi con la stessa struttura delle quattro domande della verifica e disegni in SVG
+  // (stringhe, nessun accesso al DOM): vettori nel piano di Gauss e sinusoidi su assi cartesiani.
+  const VV = s => H.v('V') + '<sub>' + s + '</sub>';
+  const r1 = v => (Math.round(v * 10) / 10).toFixed(1);
+  const pd = x => (roundTo(x, 1) < 0 ? '(' + fdeg(x) + ')' : fdeg(x)); // angolo negativo tra parentesi
+  function senStr(amp, w, phi, name, unit) {
+    const ph = Math.abs(phi) < 1e-9 ? '' : (phi < 0 ? ' − ' + fdeg(-phi) : ' + ' + fdeg(phi));
+    const wt = (typeof w === 'number' ? fmt(w, 0) : w) + '<i>t</i>';
+    return (name ? name + '(<i>t</i>) = ' : '') + fmt(amp) + ' sen(' + wt + ph + ')' + (unit ? ' ' + unit : '');
+  }
+  function svgLabel(lab) {
+    const i = lab.indexOf('_');
+    if (i < 0) return lab;
+    return lab.slice(0, i) + '<tspan dy="3" font-size="75%">' + lab.slice(i + 1) + '</tspan>';
+  }
+  function svgArrow(x1, y1, x2, y2, c, dash) {
+    const a = Math.atan2(y2 - y1, x2 - x1), L = Math.hypot(x2 - x1, y2 - y1);
+    if (L < 0.5) return '';
+    const h = Math.min(9, L * 0.45), bx = x2 - Math.cos(a) * h, by = y2 - Math.sin(a) * h, px = Math.sin(a) * h * 0.45, py = -Math.cos(a) * h * 0.45;
+    return '<line class="cd-l ' + c + (dash ? ' cd-dash' : '') + '" x1="' + r1(x1) + '" y1="' + r1(y1) + '" x2="' + r1(bx) + '" y2="' + r1(by) + '"/>' +
+      '<polygon class="cd-f ' + c + '" points="' + [x2, y2, bx + px, by + py, bx - px, by - py].map(r1).join(' ') + '"/>';
+  }
+  function legendHTML(items) {
+    return items.length ? '<ul class="cd-leg">' + items.map(it => '<li><i class="cd-sw ' + it.c + (it.dash ? ' cd-swd' : '') + '"></i><span>' + it.leg + '</span></li>').join('') + '</ul>' : '';
+  }
+  // vs: [{ z, lab, c, leg, dash, from, arc }]  c = c1…c5 (colori del tema)
+  function vecDiagram(vs, o) {
+    o = o || {};
+    const c0 = 130, R = 92;
+    let m = 0;
+    vs.forEach(v => { m = Math.max(m, abs(v.from ? add(v.from, v.z) : v.z), v.from ? abs(v.from) : 0); });
+    if (!m) m = 1;
+    const k = R / m, X = z => c0 + z.re * k, Y = z => c0 - z.im * k;
+    let s = '<svg class="cd-svg" viewBox="0 0 260 260" role="img" aria-label="' + (o.label || 'Vettori nel piano di Gauss') + '">' +
+      '<circle class="cd-grid" cx="130" cy="130" r="' + R + '"/>' +
+      '<line class="cd-ax" x1="6" y1="130" x2="254" y2="130"/><line class="cd-ax" x1="130" y1="254" x2="130" y2="6"/>' +
+      '<polygon class="cd-axf" points="254,130 246,126 246,134"/><polygon class="cd-axf" points="130,6 126,14 134,14"/>' +
+      '<text class="cd-t" x="252" y="122" text-anchor="end">Re</text><text class="cd-t" x="137" y="16">Im (j)</text>' +
+      '<text class="cd-t cd-s" x="' + (130 + R) + '" y="146" text-anchor="middle">' + fmt(m, 1) + '</text>' +
+      '<line class="cd-ax" x1="' + (130 + R) + '" y1="126" x2="' + (130 + R) + '" y2="134"/>';
+    let arcN = 0;
+    vs.forEach(v => {
+      if (!v.arc) return;
+      const deg = argDeg(v.z), ar = 22 + 9 * arcN++;
+      if (Math.abs(deg) < 0.5) return;
+      const ex = c0 + ar * cosd(deg), ey = c0 - ar * sind(deg);
+      s += '<path class="cd-arc ' + v.c + '" d="M' + (c0 + ar) + ' ' + c0 + ' A' + ar + ' ' + ar + ' 0 ' + (Math.abs(deg) > 180 ? 1 : 0) + ' ' + (deg >= 0 ? 0 : 1) + ' ' + r1(ex) + ' ' + r1(ey) + '"/>';
+      const lx = c0 + (ar + 12) * cosd(deg / 2), ly = c0 - (ar + 12) * sind(deg / 2) + 4;
+      s += '<text class="cd-t cd-b ' + v.c + '" x="' + r1(lx) + '" y="' + r1(ly) + '" text-anchor="middle">' + fdeg(deg) + '</text>';
+    });
+    vs.forEach(v => {
+      const z0 = v.from || C(0, 0), z1 = add(z0, v.z);
+      s += svgArrow(X(z0), Y(z0), X(z1), Y(z1), v.c, v.dash);
+    });
+    vs.forEach(v => {
+      if (!v.lab) return;
+      const z0 = v.from || C(0, 0), z1 = add(z0, v.z), a = Math.atan2(v.z.im, v.z.re);
+      const lx = Math.min(254, Math.max(6, X(z1) + Math.cos(a) * 9)), ly = Math.min(254, Math.max(12, Y(z1) - Math.sin(a) * 9 + 4));
+      const anc = Math.cos(a) > 0.35 ? 'start' : Math.cos(a) < -0.35 ? 'end' : 'middle';
+      s += '<text class="cd-t cd-b ' + v.c + '" x="' + r1(lx) + '" y="' + r1(ly) + '" text-anchor="' + anc + '">' + svgLabel(v.lab) + '</text>';
+    });
+    s += '</svg>';
+    return '<figure class="cd-fig">' + s + '<figcaption>' + (o.cap ? '<b>' + o.cap + '</b>' : '') + legendHTML(vs.filter(v => v.leg)) + '</figcaption></figure>';
+  }
+  // list: [{ M, phi, c, leg }] — un periodo, in orizzontale l'angolo ωt da 0° a 360°
+  function sinGraph(list, o) {
+    o = o || {};
+    const x0 = 46, x1 = 500, y0 = 112, A = 86;
+    let m = 0; list.forEach(g => { m = Math.max(m, g.M); });
+    const k = A / (m || 1), X = d => x0 + (x1 - x0) * d / 360;
+    let s = '<svg class="cd-svg cd-wide" viewBox="0 0 520 226" role="img" aria-label="' + (o.label || 'Sinusoidi su assi cartesiani') + '">';
+    for (let d = 90; d <= 360; d += 90) s += '<line class="cd-grid" x1="' + r1(X(d)) + '" y1="22" x2="' + r1(X(d)) + '" y2="202"/>';
+    for (let d = 0; d <= 360; d += 90) s += '<text class="cd-t" x="' + r1(X(d)) + '" y="220" text-anchor="middle">' + d + '°</text>';
+    s += '<line class="cd-ax" x1="' + (x0 - 6) + '" y1="' + y0 + '" x2="512" y2="' + y0 + '"/><polygon class="cd-axf" points="514,' + y0 + ' 506,' + (y0 - 4) + ' 506,' + (y0 + 4) + '"/>' +
+      '<line class="cd-ax" x1="' + x0 + '" y1="210" x2="' + x0 + '" y2="8"/><polygon class="cd-axf" points="' + x0 + ',6 ' + (x0 - 4) + ',14 ' + (x0 + 4) + ',14"/>' +
+      '<text class="cd-t" x="514" y="' + (y0 - 8) + '" text-anchor="end">ωt</text><text class="cd-t" x="' + (x0 + 7) + '" y="16">' + (o.ylab || 'v') + '</text>';
+    const used = [];
+    list.forEach(g => {
+      const yy = y0 - k * g.M;
+      if (used.every(u => Math.abs(u - yy) > 11)) {
+        used.push(yy);
+        s += '<line class="cd-grid cd-dash2" x1="' + x0 + '" y1="' + r1(yy) + '" x2="' + x1 + '" y2="' + r1(yy) + '"/><text class="cd-t cd-b ' + g.c + '" x="' + (x0 - 4) + '" y="' + r1(yy + 4) + '" text-anchor="end">' + fmt(g.M, 1) + '</text>';
+        if (list.length === 1) s += '<line class="cd-grid cd-dash2" x1="' + x0 + '" y1="' + r1(2 * y0 - yy) + '" x2="' + x1 + '" y2="' + r1(2 * y0 - yy) + '"/><text class="cd-t cd-b ' + g.c + '" x="' + (x0 - 4) + '" y="' + r1(2 * y0 - yy + 4) + '" text-anchor="end">−' + fmt(g.M, 1) + '</text>';
+      }
+    });
+    list.forEach(g => {
+      let d = '';
+      for (let i = 0; i <= 180; i++) { const u = i * 2; d += (i ? 'L' : 'M') + r1(X(u)) + ' ' + r1(y0 - k * g.M * sind(u + g.phi)); }
+      s += '<path class="cd-l cd-w ' + g.c + '" d="' + d + '"/>';
+    });
+    list.forEach(g => { s += '<circle class="cd-f ' + g.c + '" cx="' + x0 + '" cy="' + r1(y0 - k * g.M * sind(g.phi)) + '" r="3.6"/>'; });
+    s += '</svg>';
+    return '<figure class="cd-fig' + (o.narrow ? '' : ' cd-figw') + '">' + s + '<figcaption>' + (o.cap ? '<b>' + o.cap + '</b>' : '') + legendHTML(list.filter(g => g.leg)) + '</figcaption></figure>';
+  }
+  const quadName = z => { const q = quadrant(roundTo(z.re, 6), roundTo(z.im, 6)); return q ? q + ' quadrante' : (Math.abs(z.im) < 1e-9 ? 'sull\'asse reale' : 'sull\'asse immaginario'); };
+
+  // ----- Domande 1 e 2: due sinusoidi → vettori → somma, differenza, prodotto, rapporto -----
+  T.vsinops = {
+    title: 'Due sinusoidi: somma, differenza, prodotto e rapporto', topic: 'a331',
+    gen: rng => {
+      const zero = rng.chance(0.3);
+      let p1, p2;
+      do { p1 = zero ? 0 : rng.int(-10, 10) * 15; p2 = rng.int(-10, 10) * 15; } while (p1 === p2 || Math.abs(Math.abs(p1 - p2) - 180) < 1);
+      const w = rng.pick([100, 314, 500, 1000]);
+      let V1, V2;
+      do { V1 = rng.pick([10, 15, 20, 25, 30, 40, 50, 60, 80, 100, 120, 125, 150]); V2 = rng.pick([5, 10, 15, 20, 25, 30, 40, 50]); } while (V1 === V2);
+      return { V1: V1, p1: p1, V2: V2, p2: p2, w1: w, w2: w };
+    },
+    make: p => {
+      const A = polar(p.V1, p.p1), B = polar(p.V2, p.p2), S = add(A, B), Dd = sub(A, B);
+      const mP = p.V1 * p.V2, aP = normDeg(p.p1 + p.p2), mR = p.V1 / p.V2, aR = normDeg(p.p1 - p.p2);
+      const P = polar(mP, aP), R = polar(mR, aR), same = p.w1 === p.w2;
+      const V1 = VV('1'), V2 = VV('2'), Vs = VV('s'), Vd = VV('d');
+      const sS = argSteps(S, Vs), sD = argSteps(Dd, Vd);
+      const w = same ? p.w1 : 'ω';
+      const rawP = p.p1 + p.p2, rawR = p.p1 - p.p2;
+      const fix = (raw, n) => (Math.abs(raw - n) > 1e-9 ? ' = ' + fdeg(raw) + (raw > 0 ? ' − 360°' : ' + 360°') + ' = ' + fdeg(n) : '');
+      const bin = (z, M, ph) => fmt(M) + '(cos ' + pd(ph) + ' + <i>j</i> sen ' + pd(ph) + ') = ' + fmtCH(z);
+      const st = [
+        'Ogni sinusoide diventa un vettore fermo: <b>modulo = valore massimo</b> (il numero davanti a «sen»), <b>argomento = fase</b> (l\'angolo dentro la parentesi). La pulsazione ω non entra nel vettore. &nbsp;' + V1 + ' = <b>' + H.ang(p.V1, p.p1) + '</b> = ' + H.exp(p.V1, p.p1) + ' V; &nbsp; ' + V2 + ' = <b>' + H.ang(p.V2, p.p2) + '</b> = ' + H.exp(p.V2, p.p2) + ' V',
+        'Per somma e differenza serve la forma binomia (<i>a</i> = <i>V</i><sub>M</sub> cos φ, <i>b</i> = <i>V</i><sub>M</sub> sen φ): &nbsp;' + V1 + ' = ' + bin(A, p.V1, p.p1) + '; &nbsp; ' + V2 + ' = ' + bin(B, p.V2, p.p2),
+        '<b>Somma</b>: parti reali con parti reali, immaginarie con immaginarie. ' + Vs + ' = ' + V1 + ' + ' + V2 + ' = (' + fmt(A.re) + ' + ' + par(B.re) + ') + <i>j</i>(' + fmt(A.im) + ' + ' + par(B.im) + ') = <b>' + fmtCH(S) + ' V</b>',
+        'Modulo e argomento della somma: ' + modStep(S, Vs) + ' V; &nbsp;' + sS.html + (same ? '. Nel tempo: <b>' + senStr(abs(S), w, sS.deg, '<i>v</i><sub>s</sub>', 'V') + '</b>' : ''),
+        '<b>Differenza</b>: il meno cambia segno a tutte e due le parti di ' + V2 + '. ' + Vd + ' = ' + V1 + ' − ' + V2 + ' = (' + fmt(A.re) + ' − ' + par(B.re) + ') + <i>j</i>(' + fmt(A.im) + ' − ' + par(B.im) + ') = <b>' + fmtCH(Dd) + ' V</b>',
+        'Modulo e argomento della differenza: ' + modStep(Dd, Vd) + ' V; &nbsp;' + sD.html + (same ? '. Nel tempo: <b>' + senStr(abs(Dd), w, sD.deg, '<i>v</i><sub>d</sub>', 'V') + '</b>' : ''),
+        '<b>Prodotto</b>: conviene la forma esponenziale, si moltiplicano i moduli e si sommano gli argomenti. |' + V1 + '·' + V2 + '| = ' + fmt(p.V1) + ' · ' + fmt(p.V2) + ' = <b>' + fmt(mP) + '</b> V²; &nbsp; arg = ' + fdeg(p.p1) + ' + ' + pd(p.p2) + fix(rawP, aP) + (Math.abs(rawP - aP) > 1e-9 ? '' : ' = ' + fdeg(aP)) + ' → ' + V1 + '·' + V2 + ' = <b>' + H.exp(mP, aP) + '</b> = ' + fmtCH(P) + ' V²',
+        '<b>Rapporto</b>: si dividono i moduli e si sottraggono gli argomenti (quello di sopra meno quello di sotto). |' + V1 + '/' + V2 + '| = ' + H.frac(fmt(p.V1), fmt(p.V2)) + ' = <b>' + fmt(mR, 3) + '</b>; &nbsp; arg = ' + fdeg(p.p1) + ' − ' + pd(p.p2) + fix(rawR, aR) + (Math.abs(rawR - aR) > 1e-9 ? '' : ' = ' + fdeg(aR)) + ' → ' + V1 + '/' + V2 + ' = <b>' + H.exp(mR, aR, 3) + '</b> = ' + fmtCH(R, 3) + ' (senza unità: V diviso V)',
+        '<b>Rappresentazione vettoriale</b>: si disegnano sul piano di Gauss le frecce che partono dall\'origine, lunghe quanto il modulo (in scala) e girate dell\'argomento, misurato dall\'asse reale in senso antiorario. Prodotto e rapporto hanno unità diverse dalle tensioni: vanno in disegni separati, ognuno con la sua scala.',
+      ];
+      const leg1 = V1 + ' = ' + H.ang(p.V1, p.p1), leg2 = V2 + ' = ' + H.ang(p.V2, p.p2);
+      const figs = '<div class="cd-grid4">' +
+        vecDiagram([
+          { z: A, lab: 'V_1', c: 'c1', leg: leg1 }, { z: B, lab: 'V_2', c: 'c2', leg: leg2 },
+          { z: B, from: A, c: 'c2', dash: true }, { z: S, lab: 'V_s', c: 'c3', leg: Vs + ' = ' + V1 + ' + ' + V2 + ' = ' + H.ang(abs(S), sS.deg) },
+        ], { cap: 'Somma (regola del parallelogramma)', label: 'Somma dei vettori V1 e V2' }) +
+        vecDiagram([
+          { z: A, lab: 'V_1', c: 'c1', leg: leg1 }, { z: B, lab: 'V_2', c: 'c2', leg: leg2 },
+          { z: scale(B, -1), lab: '−V_2', c: 'c2', dash: true, leg: '−' + V2 + ' (tratteggiato)', }, { z: scale(B, -1), from: A, c: 'c2', dash: true },
+          { z: Dd, lab: 'V_d', c: 'c4', leg: Vd + ' = ' + V1 + ' − ' + V2 + ' = ' + H.ang(abs(Dd), sD.deg) },
+        ], { cap: 'Differenza: ' + V1 + ' + (−' + V2 + ')', label: 'Differenza dei vettori V1 e V2' }) +
+        vecDiagram([{ z: P, lab: 'P', c: 'c5', arc: true, leg: V1 + '·' + V2 + ' = ' + H.ang(mP, aP) + ' V²' }], { cap: 'Prodotto (scala sua)', label: 'Vettore prodotto' }) +
+        vecDiagram([{ z: R, lab: 'R', c: 'c5', arc: true, leg: V1 + '/' + V2 + ' = ' + H.ang(mR, aR, 3) }], { cap: 'Rapporto (scala sua)', label: 'Vettore rapporto' }) +
+        '</div>';
+      const warn = same ? '' : '<p class="warn"><b>Attenzione, pulsazioni diverse:</b> ω<sub>1</sub> = ' + fmt(p.w1, 0) + ' rad/s e ω<sub>2</sub> = ' + fmt(p.w2, 0) + ' rad/s. I vettori fermi valgono per sinusoidi con la <b>stessa frequenza</b>: solo allora girano insieme e restano fermi uno rispetto all\'altro. La consegna chiede comunque le quattro operazioni: si fanno sui due vettori (numeri complessi) come qui sotto, e sul foglio conviene scrivere una riga per dire che te ne sei accorto. Per lo stesso motivo il risultato della somma e della differenza non si può riscrivere come un\'unica sinusoide.</p>';
+      return {
+        type: 'vsinops', title: T.vsinops.title, topic: 'a331', p: p,
+        prompt: 'Siano date le seguenti tensioni alternate sinusoidali: ' + senStr(p.V1, p.w1, p.p1, '<i>v</i><sub>1</sub>', 'V') + ' e ' + senStr(p.V2, p.w2, p.p2, '<i>v</i><sub>2</sub>', 'V') + ', si esegua la loro somma, differenza, prodotto e rapporto. Si dia una rappresentazione vettoriale dei risultati ottenuti.',
+        fields: [
+          fNum('Sm', '|' + V1 + ' + ' + V2 + '| =', abs(S), { unit: 'V', units: 'v' }), fAng('Sa', 'arg(' + V1 + ' + ' + V2 + ') =', sS.deg),
+          fNum('Dm', '|' + V1 + ' − ' + V2 + '| =', abs(Dd), { unit: 'V', units: 'v' }), fAng('Da', 'arg(' + V1 + ' − ' + V2 + ') =', sD.deg),
+          fNum('Pm', '|' + V1 + '·' + V2 + '| =', mP, { unit: 'V²' }), fAng('Pa', 'arg(' + V1 + '·' + V2 + ') =', aP),
+          fNum('Rm', '|' + V1 + '/' + V2 + '| =', mR, { d: 3 }), fAng('Ra', 'arg(' + V1 + '/' + V2 + ') =', aR),
+        ],
+        solution: warn + H.steps(st) + figs + H.note('Errori tipici: sommare i valori massimi (' + fmt(p.V1) + ' + ' + fmt(p.V2) + ' = ' + fmt(p.V1 + p.V2) + ' V: vale solo se le fasi sono uguali); dimenticare il segno meno della fase; non correggere l\'argomento quando la parte reale è negativa.'),
+      };
+    },
+  };
+  T.vsinops0 = {
+    title: T.vsinops.title, topic: 'a331',
+    gen: rng => { const p = T.vsinops.gen(rng); p.p1 = 0; if (p.p2 === 0 || Math.abs(Math.abs(p.p2) - 180) < 1) p.p2 = rng.pick([30, 45, 55, 60, -40, -60]); return p; },
+    make: p => T.vsinops.make(p),
+  };
+
+  // ----- Domanda 3: una sinusoide (con fase fuori dal giro) in forma vettoriale -----
+  T.sinvec = {
+    title: 'Una sinusoide in forma vettoriale', topic: 'a331',
+    gen: rng => ({ VM: rng.pick([10, 20, 50, 100, 150, 200, 230, 311]), w: rng.pick([100, 314, 500, 628, 1000]), phi: rng.pick([-270, -300, -330, -210, -240, 270, 300, 330, 210, 240, -225, 390, -390, 450]) }),
+    make: p => {
+      const ph = normDeg(p.phi), z = polar(p.VM, ph), f = p.w / (2 * Math.PI), V = H.v('V');
+      const turns = Math.round((ph - p.phi) / 360);
+      const fixTxt = turns === 0 ? 'La fase ' + fdeg(p.phi) + ' è già tra −180° e 180°.' :
+        'La fase ' + fdeg(p.phi) + ' è fuori dall\'intervallo da −180° a 180°: ' + (turns > 0 ? 'aggiungo ' : 'tolgo ') + (Math.abs(turns) === 1 ? 'un giro (360°)' : Math.abs(turns) + ' giri (' + Math.abs(turns * 360) + '°)') + ', che non cambia la direzione: ' + fdeg(p.phi) + (turns > 0 ? ' + ' : ' − ') + Math.abs(turns * 360) + '° = <b>' + fdeg(ph) + '</b>.';
+      const cosTxt = Math.abs(ph - 90) < 1e-9 ? ' = ' + fmt(p.VM) + ' cos(' + fmt(p.w, 0) + '<i>t</i>)' : Math.abs(ph + 90) < 1e-9 ? ' = −' + fmt(p.VM) + ' cos(' + fmt(p.w, 0) + '<i>t</i>)' : '';
+      const st = [
+        'Leggo la sinusoide: valore massimo <i>V</i><sub>M</sub> = ' + fmt(p.VM) + ' V, pulsazione ω = ' + fmt(p.w, 0) + ' rad/s, fase φ = ' + fdeg(p.phi) + '.',
+        'Frequenza e periodo (servono per il disegno nel tempo): <i>f</i> = ω/2π = ' + fmt(p.w, 0) + '/' + fmt(2 * Math.PI) + ' = ' + fmt(f) + ' Hz; &nbsp; <i>T</i> = 1/<i>f</i> = ' + fmt(1000 / f) + ' ms.',
+        fixTxt + (turns ? ' Quindi <i>v</i>(<i>t</i>) = ' + senStr(p.VM, p.w, ph) + cosTxt + ' V: è la stessa sinusoide.' : ''),
+        'Vettore (modulo = valore massimo, argomento = fase): ' + V + ' = <b>' + H.ang(p.VM, ph) + '</b> = ' + H.exp(p.VM, ph) + ' V',
+        'Forma binomia: <i>a</i> = ' + fmt(p.VM) + ' cos ' + pd(ph) + ' = ' + fmt(z.re) + '; &nbsp; <i>b</i> = ' + fmt(p.VM) + ' sen ' + pd(ph) + ' = ' + fmt(z.im) + ' → ' + V + ' = <b>' + fmtCH(z) + ' V</b>',
+        'Controllo: all\'istante 0 la tensione vale <i>v</i>(0) = ' + fmt(p.VM) + ' sen(' + fdeg(p.phi) + ') = ' + fmt(p.VM * sind(p.phi)) + ' V, cioè proprio la parte immaginaria <i>b</i> del vettore.',
+        'Se il prof chiedesse il valore efficace come modulo: |' + V + '| = ' + H.frac(fmt(p.VM), '√2') + ' = ' + fmt(p.VM / Math.SQRT2) + ' V, con la stessa fase ' + fdeg(ph) + '.',
+      ];
+      const figs = '<div class="cd-grid2">' +
+        vecDiagram([{ z: z, lab: 'V', c: 'c1', arc: true, leg: V + ' = ' + H.ang(p.VM, ph) + ' = ' + fmtCH(z) + ' V' }], { cap: 'Rappresentazione vettoriale', label: 'Vettore della sinusoide' }) +
+        sinGraph([{ M: p.VM, phi: ph, c: 'c1', leg: senStr(p.VM, p.w, ph, '<i>v</i>', 'V') + '; il pallino è <i>v</i>(0) = ' + fmt(z.im) + ' V' }], { cap: 'La stessa sinusoide nel tempo (un periodo, T = ' + fmt(1000 / f) + ' ms)' }) +
+        '</div>';
+      return {
+        type: 'sinvec', title: T.sinvec.title, topic: 'a331', p: p,
+        prompt: 'Rappresentare in forma vettoriale il seguente segnale sinusoidale: ' + senStr(p.VM, p.w, p.phi, '<i>v</i><sub>1</sub>', 'V') + '.',
+        fields: [fNum('f', 'frequenza <i>f</i> =', f, { unit: 'Hz', units: 'hz' }), fAng('phi', 'fase tra −180° e 180°: φ =', ph), fCplx('bin', V + ' in forma binomia =', z)],
+        solution: H.steps(st) + figs + H.note('Errore tipico: disegnare la freccia a −270° girando in senso orario e poi sbagliare il quadrante. −270° e +90° sono la stessa direzione: la freccia punta in alto.'),
+      };
+    },
+  };
+
+  // ----- Domanda 4: dai numeri complessi ai segnali sinusoidali (rappresentazione cartesiana) -----
+  T.cplx2sin = {
+    title: 'Dal numero complesso al segnale sinusoidale', topic: 'a331',
+    gen: rng => {
+      const qs = rng.shuffle([1, 2, 3, 4]).slice(0, 3);
+      const sg = { 1: [1, 1], 2: [-1, 1], 3: [-1, -1], 4: [1, -1] };
+      return { list: qs.map(q => [sg[q][0] * rng.int(1, 12) * 5, sg[q][1] * rng.int(1, 12) * 5]) };
+    },
+    make: p => {
+      const zs = p.list.map(x => C(x[0], x[1])), cols = ['c1', 'c2', 'c3', 'c4'];
+      const fields = [], st = [], gl = [], vl = [];
+      zs.forEach((z, i) => {
+        const n = String(i + 1), Vn = VV(n), A = argSteps(z, Vn), m = abs(z);
+        fields.push(fNum('M' + n, '|' + Vn + '| = <i>V</i><sub>M' + n + '</sub> =', m, { unit: 'V', units: 'v' }), fAng('a' + n, 'fase φ<sub>' + n + '</sub> =', A.deg));
+        st.push('<b>' + Vn + ' = ' + fmtCH(z) + '</b>: parte reale ' + (z.re < 0 ? 'negativa' : 'positiva') + ', parte immaginaria ' + (z.im < 0 ? 'negativa' : 'positiva') + ' → ' + quadName(z) + '. Modulo (è il valore massimo): ' + modStep(z, Vn) + ' V; &nbsp;' + A.html + '. &nbsp;Quindi <b>' + senStr(m, 'ω', A.deg, '<i>v</i><sub>' + n + '</sub>', 'V') + '</b>; controllo: <i>v</i><sub>' + n + '</sub>(0) = ' + fmt(m) + ' sen(' + fdeg(A.deg) + ') = ' + fmt(z.im) + ' V, la parte immaginaria.');
+        gl.push({ M: m, phi: A.deg, c: cols[i], leg: senStr(m, 'ω', A.deg, '<i>v</i><sub>' + n + '</sub>', 'V') + ' &nbsp;(<i>v</i><sub>' + n + '</sub>(0) = ' + fmt(z.im) + ')' });
+        vl.push({ z: z, lab: 'V_' + n, c: cols[i], leg: Vn + ' = ' + fmtCH(z) + ' = ' + H.ang(m, A.deg) });
+      });
+      st.push('La pulsazione non è data: si lascia ω (se la rete è a 50 Hz, ω = 314 rad/s). Il numero complesso dà solo valore massimo e fase.');
+      st.push('<b>Rappresentazione cartesiana</b>: su un piano con l\'angolo ω<i>t</i> (cioè il tempo) in orizzontale e la tensione in verticale si disegna un periodo di ogni sinusoide. Ognuna oscilla tra +<i>V</i><sub>M</sub> e −<i>V</i><sub>M</sub>, all\'istante 0 vale la parte immaginaria <i>b</i> (pallino) e passa per lo zero salendo quando ω<i>t</i> = −φ (o −φ + 360°).');
+      const figs = '<div class="cd-grid2">' + gl.map((g, i) => sinGraph([g], { cap: 'Rappresentazione cartesiana di <i>v</i><sub>' + (i + 1) + '</sub> (un periodo)', narrow: true, label: 'Sinusoide v' + (i + 1) })).join('') +
+        vecDiagram(vl, { cap: 'Gli stessi segnali come vettori', label: 'Vettori dei tre numeri complessi' }) +
+        sinGraph(gl, { cap: 'Tutti e tre insieme, nella stessa scala' }) + '</div>';
+      return {
+        type: 'cplx2sin', title: T.cplx2sin.title, topic: 'a331', p: p,
+        prompt: 'Siano dati i seguenti numeri complessi, che rappresentano dei segnali sinusoidali. Dare una rappresentazione cartesiana del segnale ad essi corrispondente: ' + zs.map((z, i) => VV(String(i + 1)) + ' = ' + fmtCH(z)).join('; &nbsp; ') + '.',
+        fields: fields,
+        solution: H.steps(st) + figs + H.note('Errore tipico: prendere l\'angolo della calcolatrice senza guardare il quadrante. Con la parte reale negativa si aggiunge (o si toglie) 180°.'),
+      };
+    },
+  };
+  // Le quattro domande della verifica, con i numeri veri
+  const COMPITO = [
+    { type: 'vsinops', p: { V1: 125, p1: 45, V2: 30, p2: -30, w1: 500, w2: 500 }, title: 'Domanda 1', what: 'Due sinusoidi con la stessa ω: vettori, somma, differenza, prodotto e rapporto, disegno dei vettori.' },
+    { type: 'vsinops', p: { V1: 15, p1: 0, V2: 30, p2: 55, w1: 100, w2: 500 }, title: 'Domanda 2', what: 'Come la 1, ma una fase è 0° e le pulsazioni sono diverse (100 e 500 rad/s).' },
+    { type: 'sinvec', p: { VM: 100, w: 314, phi: -270 }, title: 'Domanda 3', what: 'Una sinusoide con fase −270° da scrivere come vettore.' },
+    { type: 'cplx2sin', p: { list: [[-5, -5], [-15, 30], [25, -60]] }, title: 'Domanda 4', what: 'Tre numeri complessi da trasformare in segnali sinusoidali e da disegnare su assi cartesiani.' },
+  ];
+
   // ================= Insiemi di esercizi =================
   const LEVELS = {
     facile: ['freq', 'valori', 'potj', 'modarg', 'coniugato', 'th_mcq'],
     medio: ['sinus', 'modarg', 'pol2bin', 'sumdiff', 'prodratio', 'th_matchfill'],
-    compito: ['esempio1', 'esempio2', 'razional', 'sin2vec', 'sumsin', 'th_orderopen'],
+    compito: ['vsinops', 'sinvec', 'cplx2sin', 'vsinops0', 'esempio2', 'esempio1'],
     extra: ['reatt', 'rlc', 'ammet', 'potenza'],
   };
   function buildSet(level, seed) {
     const rng = makeRng(seed);
     return LEVELS[level].map(t => { const p = T[t].gen(rng, level); const e = T[t].make(p); e.level = level; return e; });
   }
+  // Stessa struttura della verifica vera: 3 + 3 + 1,5 + 2,5 punti
   const SIM_PLAN = [
-    { type: 'sim_sin', pts: 0.5, title: 'Esercizio 1 — Grandezze sinusoidali' },
-    { type: 'sim_cplx', pts: 0.5, title: 'Esercizio 2 — Numeri complessi' },
-    { type: 'esempio2', pts: 0.5, title: 'Esercizio 3 — Operazioni con i numeri complessi' },
-    { type: 'sim_th', pts: 0.5, title: 'Esercizio 4 — Teoria' },
+    { type: 'vsinops', tot: 3, title: 'Esercizio 1 — Due sinusoidi: somma, differenza, prodotto e rapporto' },
+    { type: 'vsinops0', tot: 3, title: 'Esercizio 2 — Due sinusoidi, una con fase 0°' },
+    { type: 'sinvec', tot: 1.5, title: 'Esercizio 3 — Una sinusoide in forma vettoriale' },
+    { type: 'cplx2sin', tot: 2.5, title: 'Esercizio 4 — Dai numeri complessi ai segnali' },
   ];
   function buildSim(seed) {
     const rng = makeRng(seed);
     return SIM_PLAN.map(s => {
       const p = T[s.type].gen(rng, 'compito');
       const e = T[s.type].make(p);
-      e.fields.forEach(f => { f.pts = s.pts; });
-      e.simTitle = s.title; e.pts = e.fields.length * s.pts;
+      const per = s.tot !== undefined ? s.tot / e.fields.length : s.pts;
+      e.fields.forEach(f => { f.pts = per; });
+      e.simTitle = s.title; e.pts = s.tot !== undefined ? s.tot : e.fields.length * s.pts;
       return e;
     });
   }
@@ -1613,6 +2093,7 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
     checkField: checkField, solutionInput: solutionInput,
     TYPES: T, LEVELS: LEVELS, buildSet: buildSet, buildSim: buildSim, SIM_PLAN: SIM_PLAN, voto: voto,
     MCQ: MCQ, TF: TF, MATCH: MATCH, FILL: FILL, ORDER: ORDER, OPEN: OPEN, QUEST: QUEST, CALC: CALC, mcqField: mcqField,
+    vecDiagram: vecDiagram, sinGraph: sinGraph, senStr: senStr, COMPITO: COMPITO,
   };
 })(typeof globalThis !== 'undefined' ? globalThis : this);
 
@@ -1782,6 +2263,127 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
           N('Coniugato: il primo numero resta ' + fmt(p.a) + '. Quale numero va con la j?', -p.b, { neg: true, hint: 'Cambia il segno del numero con la j.' }),
         ],
         end: 'Modulo <b>' + fmt(m) + '</b>, argomento <b>' + fdeg(fin) + '</b>, coniugato <b>' + cx(p.a, -p.b) + '</b>. La forma esponenziale è <b>' + fmt(m) + 'e<sup>j' + fdeg(fin) + '</sup></b>, cioè ' + fmt(m) + '∠' + fdeg(fin) + ' (lunghezza e angolo).',
+      };
+    },
+  };
+
+  // ---------- Il compito vero: dalla sinusoide alla freccia e ritorno ----------
+  const r2 = x => Math.round(x * 100) / 100;
+  const ang = (q, ans, hint) => ({ kind: 'ang', q: q, ans: ans, hint: hint });
+  const sen = (VM, w, phi) => T.senStr(VM, w, phi, '<i>v</i>', 'V');
+  const pa = x => (x < 0 ? '(' + fdeg(x) + ')' : fdeg(x));
+  const VN = n => '<span class="v">V</span>' + (n ? '<sub>' + n + '</sub>' : '');
+  // passi per l'angolo di a + jb (come la tappa 6)
+  function angSteps(a, b, what) {
+    const raw = Math.atan(b / a) * R2D, neg = a < 0, fin = neg ? raw + 180 : raw;
+    return {
+      fin: fin,
+      steps: [
+        N('Angolo' + (what || '') + ', primo passo: numero con la j diviso primo numero.<br>' + p2(b) + ' ÷ ' + p2(a) + ' = ?', b / a, { tolAbs: 0.006, hint: 'Occhio ai segni: meno diviso più fa meno, meno diviso meno fa più.' }),
+        ang('Premi SHIFT e poi tan (arctg) sul numero di prima.<br>arctg(' + fmt(b / a, 4) + ') = ?', raw, 'Calcolatrice in gradi: SHIFT tan ' + fmt(b / a, 4) + ' ='),
+        { kind: 'choice', q: 'Il primo numero (' + fmt(a) + ') è negativo?', options: ['Sì: devo aggiungere 180°', 'No: l\'angolo va già bene'], ans: neg ? 0 : 1, hint: 'Guarda se davanti al primo numero c\'è il meno.' },
+        ang('Scrivi l\'angolo finale.' + (neg ? '<br>' + fdeg(raw) + ' + 180° = ?' : ''), fin, neg ? 'Aggiungi 180 al numero della calcolatrice.' : 'È lo stesso numero di prima.'),
+      ],
+    };
+  }
+  const alsoTxt = fin => (Math.abs(T.normDeg(fin) - fin) > 1e-9 ? ' (si può scrivere anche ' + fdeg(T.normDeg(fin)) + ': è la stessa direzione)' : '');
+
+  G.sin2freccia = {
+    title: 'Dalla sinusoide alla freccia',
+    gen: r => ({ VM: r.pick([10, 20, 30, 50, 100, 125, 150]), phi: r.pick([0, 30, -30, 45, -45, 60, -60, 55, 120, -120]), w: r.pick([100, 314, 500]) }),
+    make: p => {
+      const a = r2(p.VM * T.cosd(p.phi)), b = r2(p.VM * T.sind(p.phi)), n = p.n || '';
+      return {
+        intro: 'Trasforma in una freccia la tensione <b>' + T.senStr(p.VM, p.w, p.phi, '<i>v</i>' + (n ? '<sub>' + n + '</sub>' : ''), 'V') + '</b>.',
+        steps: [
+          N('Lunghezza della freccia: è il numero davanti a «sen» (il valore massimo). Quanto vale?', p.VM, { unit: 'V', hint: 'È il primo numero che leggi, prima di «sen».' }),
+          ang('Angolo della freccia: è l\'angolo dentro la parentesi, con il suo segno.' + (p.phi === 0 ? ' Qui nella parentesi non c\'è nessun angolo.' : ''), p.phi, p.phi === 0 ? 'Se non c\'è nessun angolo, l\'angolo è 0°.' : 'Copia il numero con il simbolo °, e il meno se c\'è.'),
+          N('Passi in orizzontale (tappa 8): lunghezza × coseno dell\'angolo.<br>' + fmt(p.VM) + ' × cos ' + pa(p.phi) + ' = ?', a, { neg: true, hint: 'Calcolatrice in gradi: ' + fmt(p.VM) + ' × cos ' + fmt(p.phi) + ' =' }),
+          N('Passi in verticale: lunghezza × seno dell\'angolo.<br>' + fmt(p.VM) + ' × sen ' + pa(p.phi) + ' = ?', b, { neg: true, hint: 'Calcolatrice in gradi: ' + fmt(p.VM) + ' × sin ' + fmt(p.phi) + ' =' + (p.phi === 0 ? ' (il seno di 0° è 0)' : '') }),
+        ],
+        end: 'La freccia è ' + VN(n) + ' = <b>' + fmt(p.VM) + '∠' + fdeg(p.phi) + '</b> = <b>' + cx(a, b) + '</b> V. Il ' + fmt(p.w, 0) + ' (cioè ω) non serve per la freccia.',
+      };
+    },
+  };
+  G.faseequiv = {
+    title: 'Un angolo oltre il giro',
+    gen: r => ({ VM: r.pick([10, 50, 100, 200, 311]), w: r.pick([314, 100, 500]), phi: r.pick([-270, -300, -330, -210, 270, 300, 330, 210, 240, -240]) }),
+    make: p => {
+      const fin = T.normDeg(p.phi), up = p.phi < 0, a = r2(p.VM * T.cosd(fin)), b = r2(p.VM * T.sind(fin));
+      return {
+        intro: 'Scrivi come freccia la tensione <b>' + sen(p.VM, p.w, p.phi) + '</b>.',
+        steps: [
+          N('Lunghezza della freccia: il numero davanti a «sen».', p.VM, { unit: 'V', hint: 'È il valore massimo.' }),
+          { kind: 'choice', q: 'L\'angolo ' + fdeg(p.phi) + ' sta tra −180° e 180°?', options: ['Sì, va già bene', 'No: devo ' + (up ? 'aggiungere' : 'togliere') + ' 360°'], ans: 1, hint: 'È più ' + (up ? 'piccolo di −180°' : 'grande di 180°') + '.' },
+          N('Fai il conto: ' + fdeg(p.phi) + (up ? ' + 360°' : ' − 360°') + ' = ?', fin, { neg: true, tolAbs: 0.05, hint: up ? 'Per esempio −270 + 360 = 90.' : 'Per esempio 300 − 360 = −60.' }),
+          N('Passi in orizzontale: ' + fmt(p.VM) + ' × cos ' + pa(fin) + ' = ?', a, { neg: true, hint: 'Calcolatrice in gradi. Se viene un numero piccolissimo come 1E−10, è 0.' }),
+          N('Passi in verticale: ' + fmt(p.VM) + ' × sen ' + pa(fin) + ' = ?', b, { neg: true, hint: 'Calcolatrice in gradi: ' + fmt(p.VM) + ' × sin ' + fmt(fin) + ' =' }),
+        ],
+        end: fdeg(p.phi) + ' e ' + fdeg(fin) + ' sono la stessa direzione. La freccia è <span class="v">V</span> = <b>' + fmt(p.VM) + '∠' + fdeg(fin) + '</b> = <b>' + cx(a, b) + '</b> V, e la tensione si può scrivere ' + sen(p.VM, p.w, fin) + '.',
+      };
+    },
+  };
+  G.sinsomma = {
+    title: 'Somma o differenza di due sinusoidi',
+    gen: r => {
+      let q;
+      do {
+        q = { V1: r.pick([20, 30, 50, 100]), p1: r.pick([0, 30, 45, 60, -30, -45, 120]), V2: r.pick([10, 15, 20, 40]), p2: r.pick([30, -30, 60, -60, 90, 150]), op: r.pick(['+', '-']) };
+        var s = q.op === '+' ? 1 : -1, re = r2(r2(q.V1 * T.cosd(q.p1)) + s * r2(q.V2 * T.cosd(q.p2))), im = r2(r2(q.V1 * T.sind(q.p1)) + s * r2(q.V2 * T.sind(q.p2)));
+      } while (q.p1 === q.p2 || Math.abs(re) < 0.5 || Math.abs(im) < 0.5);
+      return q;
+    },
+    make: p => {
+      const a1 = r2(p.V1 * T.cosd(p.p1)), b1 = r2(p.V1 * T.sind(p.p1)), a2 = r2(p.V2 * T.cosd(p.p2)), b2 = r2(p.V2 * T.sind(p.p2));
+      const s = p.op === '+' ? 1 : -1, o = p.op === '+' ? ' + ' : ' − ', re = r2(a1 + s * a2), im = r2(b1 + s * b2);
+      const sq = re * re + im * im, m = Math.sqrt(sq), A = angSteps(re, im, ' del risultato');
+      const nm = p.op === '+' ? 'somma' : 'differenza';
+      return {
+        intro: 'Calcola la <b>' + nm + '</b> ' + VN(1) + o + VN(2) + ' con ' + VN(1) + ' = ' + fmt(p.V1) + '∠' + fdeg(p.p1) + ' e ' + VN(2) + ' = ' + fmt(p.V2) + '∠' + fdeg(p.p2) + '. Per sommare e sottrarre servono i passi (forma <i>a</i> + <i>jb</i>).',
+        steps: [
+          N('Passi in orizzontale di ' + VN(1) + ': ' + fmt(p.V1) + ' × cos ' + pa(p.p1) + ' = ?', a1, { neg: true, hint: 'Calcolatrice in gradi.' }),
+          N('Passi in verticale di ' + VN(1) + ': ' + fmt(p.V1) + ' × sen ' + pa(p.p1) + ' = ?', b1, { neg: true, hint: 'Calcolatrice in gradi.' + (p.p1 === 0 ? ' Il seno di 0° è 0.' : '') }),
+          N('Passi in orizzontale di ' + VN(2) + ': ' + fmt(p.V2) + ' × cos ' + pa(p.p2) + ' = ?', a2, { neg: true, hint: 'Calcolatrice in gradi.' }),
+          N('Passi in verticale di ' + VN(2) + ': ' + fmt(p.V2) + ' × sen ' + pa(p.p2) + ' = ?', b2, { neg: true, hint: 'Calcolatrice in gradi. Se l\'angolo è negativo, il seno viene negativo.' }),
+          N('Ora la ' + nm + ' (tappa 7). Prima i numeri senza j:<br>' + fmt(a1) + o + p2(a2) + ' = ?', re, { neg: true, hint: p.op === '-' ? 'Meno per meno fa più.' : 'Attento ai numeri negativi.' }),
+          N('Poi i numeri con la j:<br>' + fmt(b1) + o + p2(b2) + ' = ?', im, { neg: true, hint: p.op === '-' ? 'Il meno cambia il segno del secondo numero: meno per meno fa più.' : 'Attento ai numeri negativi.' }),
+          N('Lunghezza del risultato (tappa 5), primo passo: somma i due quadrati.<br>' + p2(re) + '² + ' + p2(im) + '² = ?', sq, { hint: 'I quadrati sono sempre positivi.' }),
+          N('Fai la radice.<br>√' + fmt(sq) + ' = ?', m, { unit: 'V', hint: 'Tasto √.' }),
+        ].concat(A.steps),
+        end: VN(1) + o + VN(2) + ' = <b>' + cx(re, im) + '</b> = <b>' + fmt(m) + '∠' + fdeg(A.fin) + '</b>' + alsoTxt(A.fin) + '.',
+      };
+    },
+  };
+  G.sinprod = {
+    title: 'Prodotto o rapporto di due sinusoidi',
+    gen: r => ({ V1: r.pick([20, 30, 50, 100, 120]), p1: r.pick([0, 30, 45, 60]), V2: r.pick([2, 4, 5, 10]), p2: r.pick([-30, 15, 20, -45]), op: r.pick(['x', '/']) }),
+    make: p => {
+      const x = p.op === 'x', M = x ? p.V1 * p.V2 : p.V1 / p.V2, raw = x ? p.p1 + p.p2 : p.p1 - p.p2;
+      return {
+        intro: 'Calcola il <b>' + (x ? 'prodotto' : 'rapporto') + '</b> ' + VN(1) + (x ? ' · ' : ' / ') + VN(2) + ' con ' + VN(1) + ' = ' + fmt(p.V1) + '∠' + fdeg(p.p1) + ' e ' + VN(2) + ' = ' + fmt(p.V2) + '∠' + fdeg(p.p2) + '. Qui non servono i passi: bastano lunghezza e angolo (tappa 8).',
+        steps: [
+          N('Le lunghezze si ' + (x ? 'moltiplicano' : 'dividono') + '.<br>' + fmt(p.V1) + (x ? ' × ' : ' ÷ ') + fmt(p.V2) + ' = ?', M, { d: 3, hint: x ? 'Una moltiplicazione.' : 'Una divisione.' }),
+          ang('Gli angoli si ' + (x ? 'sommano' : 'sottraggono (quello di ' + VN(1) + ' meno quello di ' + VN(2) + ')') + '.<br>' + fdeg(p.p1) + (x ? ' + ' : ' − ') + pa(p.p2) + ' = ?', raw, x ? 'Un\'addizione: più per meno fa meno.' : 'Una sottrazione: meno per meno fa più.'),
+        ],
+        end: VN(1) + (x ? ' · ' : ' / ') + VN(2) + ' = <b>' + fmt(M, 3) + '∠' + fdeg(raw) + '</b>, cioè ' + fmt(M, 3) + '<i>e</i><sup><i>j</i>' + fdeg(raw) + '</sup>' + (x ? ' (in V²).' : ' (senza unità: volt diviso volt).'),
+      };
+    },
+  };
+  G.freccia2sin = {
+    title: 'Dalla freccia alla sinusoide',
+    gen: r => { const t = r.pick(TRIPLES); return { a: t[0] * sgn(r), b: t[1] * sgn(r) }; },
+    make: p => {
+      const n = p.n || '', sq = p.a * p.a + p.b * p.b, m = Math.sqrt(sq), A = angSteps(p.a, p.b);
+      const vn = '<i>v</i>' + (n ? '<sub>' + n + '</sub>' : '');
+      return {
+        intro: 'Il numero complesso ' + VN(n) + ' = <b>' + cx(p.a, p.b) + '</b> rappresenta una sinusoide. Trova il valore massimo e la fase e scrivi ' + vn + '(<i>t</i>).',
+        steps: [
+          N('Valore massimo = lunghezza della freccia (tappa 5). Primo passo: somma i due quadrati.<br>' + p2(p.a) + '² + ' + p2(p.b) + '² = ?', sq, { hint: 'I quadrati sono sempre positivi.' }),
+          N('Fai la radice.<br>√' + fmt(sq) + ' = ?', m, { unit: 'V', hint: 'Tasto √.' }),
+        ].concat(A.steps, [
+          N('Controllo per il disegno: all\'istante 0 la sinusoide vale la parte con la j. Quanto vale ' + vn + '(0)?', p.b, { neg: true, unit: 'V', hint: 'È il numero attaccato alla j, con il suo segno.' }),
+        ]),
+        end: '<b>' + T.senStr(m, 'ω', A.fin, vn, 'V') + '</b>' + alsoTxt(A.fin) + '. Nel disegno l\'onda parte da ' + fmt(p.b) + ' V e oscilla tra +' + fmt(m) + ' e −' + fmt(m) + ' V.',
       };
     },
   };
@@ -1985,6 +2587,17 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
     el('path', { d: d, class: 'st c1 w3' }, p);
   }
   const FIG = {
+    meno270: () => {
+      const s = svg(320, 260, 'Meno 270 gradi è uguale a più 90 gradi'), c = [160, 125], r = 82;
+      arrow(s, 40, c[1], 290, c[1], 'ink'); arrow(s, c[0], 240, c[0], 18, 'ink');
+      el('path', { d: 'M' + (c[0] + r) + ' ' + c[1] + ' A' + r + ' ' + r + ' 0 1 1 ' + c[0] + ' ' + (c[1] - r), class: 'st red w2 dash nofill' }, s);
+      el('path', { d: 'M' + (c[0] + 44) + ' ' + c[1] + ' A44 44 0 0 0 ' + c[0] + ' ' + (c[1] - 44), class: 'st c1 w3 nofill' }, s);
+      arrow(s, c[0], c[1], c[0], c[1] - 70, 'c1');
+      txt(s, c[0], c[1] + r + 26, '−270°: nel verso delle lancette', 's-tr', 'middle');
+      txt(s, c[0] + 34, c[1] - 40, '+90°', 's-tb');
+      txt(s, c[0] + 8, c[1] - 74, 'V', 's-tb');
+      return s;
+    },
     angoli: () => {
       const s = svg(320, 240, 'Gli angoli'), c = [160, 120];
       el('circle', { cx: c[0], cy: c[1], r: 80, class: 'st grid' }, s);
@@ -2060,8 +2673,10 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
   }
   function renderTry(box) {
     const g = F.G[box.dataset.g], api = { box: box, kind: box.dataset.g };
+    let first = true;
     function build() {
-      const p = g.gen(T.makeRng(newSeed())), ex = g.make(p);
+      const p = first && box.dataset.p ? JSON.parse(box.dataset.p) : g.gen(T.makeRng(newSeed())), ex = g.make(p);
+      first = false;
       api.ex = ex; api.p = p;
       const id = box.dataset.g + '-' + GX.indexOf(api);
       setTimeout(() => { if (window.GLOSS && window.GLOSS.ready) window.GLOSS.link(box); }, 0);
@@ -2113,7 +2728,7 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
     $('#bar').style.width = (100 * n / all.length) + '%';
     $('#bar-txt').textContent = n + (n === 1 ? ' tappa' : ' tappe') + ' su ' + all.length;
     $('#pill').textContent = n + '/' + all.length;
-    $$('#toc a').forEach((a, i) => a.classList.toggle('ok', !!S.done['t' + i]));
+    $$('#toc a').forEach(a => a.classList.toggle('ok', !!S.done[a.getAttribute('href').slice(1)]));
   }
 
   // ---------- quiz ----------
@@ -2126,6 +2741,9 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
     ['Se la parte reale è negativa, all\'angolo della calcolatrice aggiungo 180°.', true, 'La freccia va verso sinistra: mezzo giro in più.'],
     ['Il coniugato di 2 + j5 è −2 + j5.', false, 'Cambia solo il segno del numero con la j: 2 − j5.'],
     ['Nel prodotto le lunghezze si moltiplicano e gli angoli si sommano.', true, 'Nel rapporto invece si dividono e si sottraggono.'],
+    ['La freccia di 125 sen(500t + 45°) è lunga 500.', false, 'La lunghezza è il numero davanti a «sen»: 125. Il 500 è ω e non entra nella freccia.'],
+    ['Una fase di −270° è la stessa cosa di +90°.', true, '−270° + 360° = 90°: un giro in più non cambia la direzione.'],
+    ['La freccia −15 + j30 corrisponde a 33,54 sen(ωt − 63,4°).', false, 'Il primo numero è negativo: all\'angolo della calcolatrice si aggiungono 180°, quindi 116,6°.'],
   ];
   function quiz() {
     const box = $('#quiz-list'), ans = {};
@@ -2163,7 +2781,24 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
       lab.parentNode.insertBefore(row, lab); row.appendChild(lab); row.appendChild(a);
     });
   }
+  // ---------- il compito vero: testi, soluzioni complete e disegni (dal motore TLC) ----------
+  const CD = {
+    somma: () => {
+      const A = T.polar(20, 30), B = T.polar(10, -60), Sx = T.add(A, B), V = n => '<span class="v">V</span><sub>' + n + '</sub>';
+      return '<div class="cd-grid2">' + T.vecDiagram([
+        { z: A, lab: 'V_1', c: 'c1', leg: V(1) + ' = 20∠30°' }, { z: B, lab: 'V_2', c: 'c2', leg: V(2) + ' = 10∠−60°' },
+        { z: B, from: A, c: 'c2', dash: true }, { z: Sx, lab: 'V_s', c: 'c3', leg: 'somma ' + V('s') + ' = ' + T.fmtCH(Sx) + ' = ' + fmt(T.abs(Sx)) + '∠' + fdeg(T.argDeg(Sx)) },
+      ], { cap: 'Esempio: la somma con la regola del parallelogramma' }) + '</div>';
+    },
+    cart: () => '<div class="cd-grid2">' + T.sinGraph([{ M: 5, phi: T.argDeg(T.C(3, 4)), c: 'c1', leg: 'Esempio: 3 + <i>j</i>4 → <i>v</i>(<i>t</i>) = 5 sen(ω<i>t</i> + ' + fdeg(T.argDeg(T.C(3, 4))) + '); il pallino è <i>v</i>(0) = 4' }], { cap: 'Un periodo dell\'onda su assi cartesiani' }) + '</div>',
+  };
+  function compito() {
+    $$('[data-cd]').forEach(d => { d.innerHTML = CD[d.dataset.cd](); });
+    $$('[data-ct]').forEach(d => { const c = T.COMPITO[Number(d.dataset.ct)]; d.innerHTML = T.TYPES[c.type].make(c.p).prompt; });
+    $$('details[data-cs]').forEach(d => { const c = T.COMPITO[Number(d.dataset.cs)]; const box = document.createElement('div'); box.className = 'sol-in'; box.innerHTML = T.TYPES[c.type].make(c.p).solution; d.appendChild(box); });
+  }
   function init() {
+    compito();
     $$('[data-k]').forEach(e => { e.textContent = K[e.dataset.k](); });
     $$('figure[data-fig]').forEach(f => f.insertBefore(FIG[f.dataset.fig](), f.firstChild));
     $$('.solved').forEach(renderSolved);
@@ -2178,6 +2813,246 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();
 
+</script>
+<script>
+/* Domande flash: una domanda alla volta, risposta scritta e corretta dalla pagina (usa il motore TLC). */
+(function () {
+  'use strict';
+  const T = window.TLC, fmt = T.fmt, fdeg = T.fdeg;
+  const $ = (s, el) => (el || document).querySelector(s);
+  const $$ = (s, el) => Array.from((el || document).querySelectorAll(s));
+  const R2D = 180 / Math.PI;
+  const KEY = 'ripasso-facile-flash-v1';
+  let S = { v: 1, best: {}, cat: 'compito', len: 10 };
+  try { const s = JSON.parse(localStorage.getItem(KEY)); if (s && s.v === 1) S = Object.assign(S, s); } catch (e) { /* nessun salvataggio */ }
+  const save = () => { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) { /* ignorato */ } };
+
+  const V = n => '<span class="v">V</span>' + (n ? '<sub>' + n + '</sub>' : '');
+  const cx = (a, b) => T.fmtCH(T.C(a, b));
+  const pol = (m, d) => T.polar(m, d);
+  const r2 = x => Math.round(x * 100) / 100;
+  const arg = (a, b) => T.argDeg(T.C(a, b));
+  const QUAD = ['1° quadrante (in alto a destra)', '2° quadrante (in alto a sinistra)', '3° quadrante (in basso a sinistra)', '4° quadrante (in basso a destra)'];
+  const quadIx = (a, b) => (a > 0 ? (b > 0 ? 0 : 3) : (b > 0 ? 1 : 2));
+
+  // Ogni domanda: cat (onde, frecce, oper, parole), c = viene dal compito, q = testo, k = tipo di risposta
+  // (num, ang, cplx, pol, choice), ans, o = opzioni, h = aiuto, w = spiegazione dopo la risposta.
+  const BANK = [
+    // ---------- domanda 1 del compito ----------
+    { cat: 'frecce', c: 1, q: 'Domanda 1: <i>v</i><sub>1</sub>(<i>t</i>) = 125 sen(500<i>t</i> + 45°) V. Quanto è lunga la sua freccia?', k: 'num', ans: 125, unit: 'V', h: 'È il numero davanti a «sen».', w: 'La lunghezza della freccia è il valore massimo: 125 V.' },
+    { cat: 'frecce', c: 1, q: 'Domanda 1: in 125 sen(500<i>t</i> + 45°) che cosa è il 500?', k: 'choice', o: ['La pulsazione ω', 'Il valore massimo', 'La fase'], ans: 0, h: 'È il numero attaccato alla <i>t</i>.', w: 'È ω, la velocità con cui gira la lancetta: non entra nella freccia.' },
+    { cat: 'frecce', c: 1, q: 'Domanda 1: <i>v</i><sub>2</sub>(<i>t</i>) = 30 sen(500<i>t</i> − 30°) V. Che angolo ha la sua freccia?', k: 'ang', ans: -30, h: 'È l\'angolo dentro la parentesi, con il suo segno.', w: 'L\'angolo è la fase, con il meno: −30°.' },
+    { cat: 'frecce', c: 1, q: 'Domanda 1: scrivi la freccia ' + V(1) + ' = 125∠45° nella forma <i>a</i> + <i>jb</i>.', k: 'cplx', ans: pol(125, 45), h: '<i>a</i> = 125 × cos 45°, <i>b</i> = 125 × sen 45°.', w: '125 × cos 45° = 88,39 e 125 × sen 45° = 88,39.' },
+    { cat: 'frecce', c: 1, q: 'Domanda 1: scrivi la freccia ' + V(2) + ' = 30∠−30° nella forma <i>a</i> + <i>jb</i>.', k: 'cplx', ans: pol(30, -30), h: 'Il seno di un angolo negativo è negativo: la parte con la j viene col meno.', w: '30 × cos(−30°) = 25,98 e 30 × sen(−30°) = −15.' },
+    { cat: 'oper', c: 1, q: 'Domanda 1: somma (88,39 + <i>j</i>88,39) + (25,98 − <i>j</i>15).', k: 'cplx', ans: T.C(114.37, 73.39), h: 'Numeri senza j con numeri senza j, numeri con la j con numeri con la j.', w: '88,39 + 25,98 = 114,37 e 88,39 − 15 = 73,39.' },
+    { cat: 'oper', c: 1, q: 'Domanda 1: sottrai (88,39 + <i>j</i>88,39) − (25,98 − <i>j</i>15).', k: 'cplx', ans: T.C(62.41, 103.39), h: 'Il meno vale per tutti e due i numeri della seconda freccia: − (−15) fa + 15.', w: '88,39 − 25,98 = 62,41 e 88,39 + 15 = 103,39.' },
+    { cat: 'oper', c: 1, q: 'Domanda 1: quanto è lunga la freccia della somma, 114,37 + <i>j</i>73,39?', k: 'num', ans: Math.hypot(114.37, 73.39), unit: 'V', h: '√(114,37² + 73,39²).', w: '√(13080,5 + 5386,1) = √18466,6 ≈ 135,89 V.' },
+    { cat: 'oper', c: 1, q: 'Domanda 1: che angolo ha la somma 114,37 + <i>j</i>73,39?', k: 'ang', ans: arg(114.37, 73.39), h: 'arctg(73,39 ÷ 114,37). Il primo numero è positivo: nessuna correzione.', w: 'arctg(0,6417) ≈ 32,7°: la somma è 135,89∠32,7°.' },
+    { cat: 'oper', c: 1, q: 'Domanda 1: prodotto 125∠45° · 30∠−30°. Quanto vale la lunghezza?', k: 'num', ans: 3750, unit: 'V²', h: 'Nel prodotto le lunghezze si moltiplicano.', w: '125 × 30 = 3750 (in V²).' },
+    { cat: 'oper', c: 1, q: 'Domanda 1: prodotto 125∠45° · 30∠−30°. Quanto vale l\'angolo?', k: 'ang', ans: 15, h: 'Nel prodotto gli angoli si sommano.', w: '45° + (−30°) = 15°.' },
+    { cat: 'oper', c: 1, q: 'Domanda 1: rapporto 125∠45° ÷ 30∠−30°. Quanto vale l\'angolo?', k: 'ang', ans: 75, h: 'Nel rapporto gli angoli si sottraggono: quello di sopra meno quello di sotto.', w: '45° − (−30°) = 45° + 30° = 75°.' },
+    { cat: 'oper', c: 1, q: 'Domanda 1: rapporto 125∠45° ÷ 30∠−30°. Quanto vale la lunghezza?', k: 'num', ans: 125 / 30, d: 3, h: 'Nel rapporto le lunghezze si dividono.', w: '125 ÷ 30 ≈ 4,167, senza unità (volt diviso volt).' },
+    { cat: 'parole', c: 1, q: 'Domanda 1: «si dia una rappresentazione vettoriale dei risultati». Che cosa devi disegnare?', k: 'choice', o: ['Le frecce sul piano di Gauss, in scala', 'L\'onda su assi tempo e tensione', 'Una tabella con i numeri'], ans: 0, h: '«Vettore» vuol dire freccia.', w: 'Le frecce dal centro, lunghe quanto il modulo (in scala) e girate dell\'angolo.' },
+    // ---------- domanda 2 ----------
+    { cat: 'frecce', c: 1, q: 'Domanda 2: <i>v</i><sub>1</sub>(<i>t</i>) = 15 sen(100<i>t</i>) V. Che angolo ha la sua freccia?', k: 'ang', ans: 0, h: 'Nella parentesi non c\'è nessun angolo.', w: 'Se non c\'è nessun angolo, l\'angolo è 0°: la freccia è 15∠0° = 15.' },
+    { cat: 'frecce', c: 1, q: 'Domanda 2: scrivi 15∠0° nella forma <i>a</i> + <i>jb</i>.', k: 'cplx', ans: T.C(15, 0), h: 'cos 0° = 1 e sen 0° = 0.', w: 'È tutta in orizzontale: 15 + <i>j</i>0, cioè 15.' },
+    { cat: 'frecce', c: 1, q: 'Domanda 2: scrivi ' + V(2) + ' = 30∠55° nella forma <i>a</i> + <i>jb</i>.', k: 'cplx', ans: pol(30, 55), h: '30 × cos 55° e 30 × sen 55°.', w: '30 × cos 55° = 17,21 e 30 × sen 55° = 24,57.' },
+    { cat: 'parole', c: 1, q: 'Domanda 2: le due tensioni hanno ω = 100 e ω = 500. Le loro frecce girano insieme?', k: 'choice', o: ['No: girano a velocità diverse', 'Sì: girano sempre insieme'], ans: 0, h: 'Le frecce girano insieme solo se hanno la stessa ω.', w: 'No. A rigore le frecce si sommano solo a pari frequenza: sul foglio va scritto, poi si fanno comunque i conti richiesti.' },
+    { cat: 'oper', c: 1, q: 'Domanda 2: sottrai 15 − (17,21 + <i>j</i>24,57).', k: 'cplx', ans: T.C(-2.21, -24.57), h: '15 − 17,21 per la parte senza j; 0 − 24,57 per quella con la j.', w: '−2,21 − <i>j</i>24,57: tutti e due i numeri negativi.' },
+    { cat: 'oper', c: 1, q: 'Domanda 2: in quale quadrante sta la differenza −2,21 − <i>j</i>24,57?', k: 'choice', o: QUAD, ans: 2, h: 'Primo numero negativo = verso sinistra; numero con la j negativo = verso il basso.', w: 'In basso a sinistra: 3° quadrante. All\'angolo della calcolatrice va aggiunto 180°.' },
+    { cat: 'oper', c: 1, q: 'Domanda 2: per −2,21 − <i>j</i>24,57 la calcolatrice dà arctg(24,57 ÷ 2,21) = 84,9°. Qual è l\'angolo vero?', k: 'ang', ans: arg(-2.21, -24.57), h: 'Il primo numero è negativo: aggiungi 180°.', w: '84,9° + 180° = 264,9°, che è lo stesso di −95,1°.' },
+    { cat: 'oper', c: 1, q: 'Domanda 2: calcola il prodotto 15∠0° · 30∠55° (scrivilo come lunghezza∠angolo).', k: 'pol', ans: pol(450, 55), h: 'Lunghezze moltiplicate, angoli sommati.', w: '15 × 30 = 450 e 0° + 55° = 55°: 450∠55°.' },
+    { cat: 'oper', c: 1, q: 'Domanda 2: rapporto 15∠0° ÷ 30∠55°. Quanto vale l\'angolo?', k: 'ang', ans: -55, h: 'Quello di sopra meno quello di sotto.', w: '0° − 55° = −55°: il rapporto è 0,5∠−55°.' },
+    // ---------- domanda 3 ----------
+    { cat: 'frecce', c: 1, q: 'Domanda 3: la fase è −270°. Quanto diventa se la riporti tra −180° e 180°?', k: 'num', ans: 90, unit: '°', h: 'È negativa: aggiungi 360°.', w: '−270° + 360° = 90°: la freccia punta in alto.' },
+    { cat: 'frecce', c: 1, q: 'Domanda 3: scrivi la freccia di 100 sen(314<i>t</i> − 270°) V nella forma <i>a</i> + <i>jb</i>.', k: 'cplx', ans: T.C(0, 100), h: 'È 100∠90°: cos 90° = 0 e sen 90° = 1.', w: '100∠90° = 0 + <i>j</i>100 = <i>j</i>100.' },
+    { cat: 'onde', c: 1, q: 'Domanda 3: ω = 314 rad/s. Quanto vale circa la frequenza?', k: 'num', ans: 314 / (2 * Math.PI), unit: 'Hz', units: 'hz', h: '<i>f</i> = ω ÷ 2π = 314 ÷ 6,28.', w: '314 ÷ 6,28 ≈ 50 Hz: è la corrente di casa.' },
+    { cat: 'onde', c: 1, q: 'Domanda 3: quanto vale 100 sen(314<i>t</i> − 270°) all\'istante <i>t</i> = 0?', k: 'num', ans: 100, unit: 'V', h: '100 × sen(−270°), oppure 100 × sen(90°).', w: 'sen(−270°) = sen(90°) = 1, quindi 100 V: l\'onda parte dal massimo.' },
+    // ---------- domanda 4 ----------
+    { cat: 'frecce', c: 1, q: 'Domanda 4: quanto vale il valore massimo del segnale ' + V(1) + ' = −5 − <i>j</i>5?', k: 'num', ans: Math.hypot(5, 5), unit: 'V', h: 'È la lunghezza: √((−5)² + (−5)²).', w: '√(25 + 25) = √50 ≈ 7,07 V.' },
+    { cat: 'frecce', c: 1, q: 'Domanda 4: che fase ha il segnale ' + V(1) + ' = −5 − <i>j</i>5?', k: 'ang', ans: -135, h: 'arctg(−5 ÷ −5) = 45°, ma il primo numero è negativo.', w: '45° + 180° = 225°, che è lo stesso di −135°.' },
+    { cat: 'frecce', c: 1, q: 'Domanda 4: in quale quadrante sta ' + V(2) + ' = −15 + <i>j</i>30?', k: 'choice', o: QUAD, ans: 1, h: 'Primo numero negativo, numero con la j positivo.', w: 'In alto a sinistra: 2° quadrante, quindi + 180° all\'angolo della calcolatrice.' },
+    { cat: 'frecce', c: 1, q: 'Domanda 4: che fase ha il segnale ' + V(2) + ' = −15 + <i>j</i>30?', k: 'ang', ans: arg(-15, 30), h: 'arctg(30 ÷ −15) = −63,4° sulla calcolatrice, poi + 180°.', w: '−63,4° + 180° = 116,6°: <i>v</i><sub>2</sub>(<i>t</i>) = 33,54 sen(ω<i>t</i> + 116,6°).' },
+    { cat: 'frecce', c: 1, q: 'Domanda 4: quanto vale il valore massimo del segnale ' + V(3) + ' = 25 − <i>j</i>60?', k: 'num', ans: 65, unit: 'V', h: '√(25² + 60²) = √(625 + 3600).', w: '√4225 = 65 V.' },
+    { cat: 'frecce', c: 1, q: 'Domanda 4: che fase ha il segnale ' + V(3) + ' = 25 − <i>j</i>60?', k: 'ang', ans: arg(25, -60), h: 'arctg(−60 ÷ 25). Il primo numero è positivo: nessuna correzione.', w: '≈ −67,4°: <i>v</i><sub>3</sub>(<i>t</i>) = 65 sen(ω<i>t</i> − 67,4°).' },
+    { cat: 'onde', c: 1, q: 'Domanda 4: il segnale di ' + V(3) + ' = 25 − <i>j</i>60 quanto vale all\'istante 0? (è il punto di partenza del disegno)', k: 'num', ans: -60, unit: 'V', h: 'All\'istante 0 l\'onda vale il numero con la j.', w: '−60 V: l\'onda parte da −60 e oscilla tra +65 e −65.' },
+    { cat: 'parole', c: 1, q: 'Domanda 4: «dare una rappresentazione cartesiana del segnale». Che cosa devi disegnare?', k: 'choice', o: ['L\'onda su assi tempo (ωt) e tensione', 'Le frecce sul piano di Gauss', 'Solo la forma a + jb'], ans: 0, h: '«Cartesiana» vuol dire su due assi, come un grafico.', w: 'L\'onda in un periodo: tempo in orizzontale, tensione in verticale, partendo da <i>v</i>(0) = <i>b</i>.' },
+    { cat: 'parole', c: 1, q: 'Per sommare o sottrarre due frecce quale forma conviene?', k: 'choice', o: ['Binomia a + jb (i passi)', 'Lunghezza∠angolo'], ans: 0, h: 'Si sommano i passi: mele con mele, pere con pere.', w: 'Con i passi: parti reali tra loro, parti con la j tra loro.' },
+    { cat: 'parole', c: 1, q: 'Per moltiplicare o dividere due frecce quale forma conviene?', k: 'choice', o: ['Lunghezza∠angolo (esponenziale)', 'Binomia a + jb'], ans: 0, h: 'Lunghezze × o ÷, angoli + o −.', w: 'Con lunghezza e angolo bastano due conti.' },
+    // ---------- generali: onde ----------
+    { cat: 'onde', q: 'Un\'onda si ripete ogni <i>T</i> = 20 ms. Quanto vale la frequenza?', k: 'num', ans: 50, unit: 'Hz', units: 'hz', h: 'Prima 20 ms = 0,02 s, poi 1 ÷ 0,02.', w: '1 ÷ 0,02 = 50 Hz.' },
+    { cat: 'onde', q: 'La frequenza è 50 Hz. Quanti millisecondi dura un periodo?', k: 'num', ans: 20, unit: 'ms', h: '<i>T</i> = 1 ÷ 50 in secondi, poi × 1000.', w: '1 ÷ 50 = 0,02 s = 20 ms.' },
+    { cat: 'onde', q: 'La frequenza è 50 Hz. Quanto vale la pulsazione ω?', k: 'num', ans: 2 * Math.PI * 50, unit: 'rad/s', h: 'ω = 2π × <i>f</i> ≈ 6,28 × 50.', w: '≈ 314 rad/s.' },
+    { cat: 'onde', q: 'Il valore massimo è 311 V. Quanto vale il valore efficace?', k: 'num', ans: 311 / Math.SQRT2, unit: 'V', units: 'v', h: 'Dividi per √2 ≈ 1,414.', w: '311 ÷ 1,414 ≈ 220 V: è il numero scritto sulle prese.' },
+    { cat: 'onde', q: 'Il valore massimo è 10 V. Quanto vale il picco-picco?', k: 'num', ans: 20, unit: 'V', units: 'v', h: 'Dal punto più basso al più alto.', w: '2 × 10 = 20 V.' },
+    { cat: 'onde', q: 'Quanto vale il valore medio di una sinusoide in un periodo intero?', k: 'num', ans: 0, tolAbs: 0.001, h: 'La parte sopra lo zero e quella sotto sono uguali.', w: '0: i valori positivi e negativi si annullano.' },
+    { cat: 'onde', q: '<i>v</i>(<i>t</i>) = 311 sen(314<i>t</i> + 30°) V. Quanto vale <i>v</i>(0)?', k: 'num', ans: 311 * 0.5, unit: 'V', units: 'v', h: '311 × sen 30°, e sen 30° = 0,5.', w: '311 × 0,5 = 155,5 V.' },
+    { cat: 'onde', q: '2 kHz quanti hertz sono?', k: 'num', ans: 2000, unit: 'Hz', units: 'hz', h: 'k vuol dire per 1000.', w: '2 × 1000 = 2000 Hz.' },
+    // ---------- generali: frecce ----------
+    { cat: 'frecce', q: 'Quanto è lunga la freccia 3 + <i>j</i>4?', k: 'num', ans: 5, h: '√(3² + 4²) = √(9 + 16).', w: '√25 = 5.' },
+    { cat: 'frecce', q: 'Che angolo ha la freccia 3 + <i>j</i>4?', k: 'ang', ans: arg(3, 4), h: 'arctg(4 ÷ 3).', w: '≈ 53,1°.' },
+    { cat: 'frecce', q: 'Che angolo ha la freccia −3 + <i>j</i>4?', k: 'ang', ans: arg(-3, 4), h: 'La calcolatrice dà −53,1°, ma il primo numero è negativo.', w: '−53,1° + 180° = 126,9°.' },
+    { cat: 'frecce', q: 'Scrivi il coniugato di 3 + <i>j</i>4.', k: 'cplx', ans: T.C(3, -4), h: 'Cambia solo il segno del numero con la j.', w: '3 − <i>j</i>4: la freccia specchiata.' },
+    { cat: 'frecce', q: 'Scrivi 10∠120° nella forma <i>a</i> + <i>jb</i>.', k: 'cplx', ans: pol(10, 120), h: '10 × cos 120° e 10 × sen 120°.', w: '10 × cos 120° = −5 e 10 × sen 120° = 8,66.' },
+    { cat: 'frecce', q: 'Quanto fa <i>j</i> × <i>j</i>?', k: 'num', ans: -1, tolAbs: 0.001, h: 'Due giri di 90° fanno mezzo giro.', w: '−1: la freccia punta al contrario.' },
+    { cat: 'frecce', q: 'Di quanti gradi gira una freccia se la moltiplichi per <i>j</i>?', k: 'num', ans: 90, unit: '°', h: 'Un quarto di giro.', w: '90°, al contrario delle lancette.' },
+    { cat: 'frecce', q: 'L\'angolo 270° a quale angolo tra −180° e 180° corrisponde?', k: 'num', ans: -90, unit: '°', h: 'È positivo e più grande di 180°: togli 360°.', w: '270° − 360° = −90°: la freccia punta in basso.' },
+    // ---------- generali: operazioni ----------
+    { cat: 'oper', q: 'Calcola (2 + <i>j</i>3) + (4 − <i>j</i>7).', k: 'cplx', ans: T.C(6, -4), h: '2 + 4 e 3 + (−7).', w: '6 − <i>j</i>4.' },
+    { cat: 'oper', q: 'Calcola (2 + <i>j</i>3) − (4 − <i>j</i>7).', k: 'cplx', ans: T.C(-2, 10), h: '2 − 4 e 3 − (−7).', w: '−2 + <i>j</i>10.' },
+    { cat: 'oper', q: 'Calcola 4∠30° · 2∠20° (scrivilo come lunghezza∠angolo).', k: 'pol', ans: pol(8, 50), h: 'Lunghezze moltiplicate, angoli sommati.', w: '8∠50°.' },
+    { cat: 'oper', q: 'Calcola 8∠60° ÷ 2∠20° (scrivilo come lunghezza∠angolo).', k: 'pol', ans: pol(4, 40), h: 'Lunghezze divise, angoli sottratti.', w: '4∠40°.' },
+    { cat: 'oper', q: 'Due tensioni in fase, 10∠30° e 5∠30°: quanto è lunga la somma?', k: 'num', ans: 15, unit: 'V', h: 'Se l\'angolo è lo stesso, le frecce sono allineate.', w: '15 V: solo in questo caso le lunghezze si sommano.' },
+    // ---------- generali: parole ----------
+    { cat: 'parole', q: 'Grandezze «isofrequenziali» vuol dire…', k: 'choice', o: ['Con la stessa frequenza', 'Con lo stesso valore massimo', 'Con la stessa fase'], ans: 0, h: '«Iso» vuol dire uguale.', w: 'Stessa frequenza: le frecce girano insieme e si disegnano ferme.' },
+    { cat: 'parole', q: 'Il piano di Gauss mostra la frequenza della sinusoide?', k: 'choice', o: ['No', 'Sì'], ans: 0, h: 'La freccia è disegnata ferma.', w: 'No: mostra solo lunghezza e angolo.' },
+    { cat: 'parole', q: 'Il fattore di forma è…', k: 'choice', o: ['Valore efficace ÷ valore medio', 'Valore massimo ÷ valore efficace', 'Picco-picco ÷ 2'], ans: 0, h: '<i>k</i><sub>f</sub> = <i>V</i> ÷ <i>V</i><sub>m</sub>.', w: 'Efficace diviso medio: dice com\'è fatta l\'onda.' },
+    { cat: 'parole', q: 'Il valore efficace di una sinusoide rispetto al massimo è…', k: 'choice', o: ['Più piccolo', 'Più grande', 'Uguale'], ans: 0, h: 'Si divide per √2.', w: 'Più piccolo: massimo ÷ 1,414.' },
+    // ---------- con numeri nuovi a ogni giro (stile compito) ----------
+    rng => { const VM = rng.pick([20, 40, 50, 80, 100]), p = rng.pick([30, -30, 60, -60, 45, 120, -120]), w = rng.pick([100, 314, 500]);
+      return { cat: 'frecce', c: 1, nuovo: 1, q: 'Numeri nuovi: scrivi la freccia di ' + T.senStr(VM, w, p, '<i>v</i>', 'V') + ' nella forma <i>a</i> + <i>jb</i>.', k: 'cplx', ans: pol(VM, p), h: '<i>a</i> = ' + fmt(VM) + ' × cos(' + fdeg(p) + '), <i>b</i> = ' + fmt(VM) + ' × sen(' + fdeg(p) + ').', w: VM + '∠' + fdeg(p) + ' = ' + T.fmtCH(pol(VM, p)) + '.' }; },
+    rng => { const ph = rng.pick([-300, -330, -240, -210, 210, 240, 300, 330, 390]), n = T.normDeg(ph);
+      return { cat: 'frecce', c: 1, nuovo: 1, q: 'Numeri nuovi: la fase è ' + fdeg(ph) + '. Quanto diventa se la riporti tra −180° e 180°?', k: 'num', ans: n, unit: '°', h: ph < 0 ? 'È negativa: aggiungi 360°.' : 'È positiva: togli 360°.', w: fdeg(ph) + (ph < 0 ? ' + 360° = ' : ' − 360° = ') + fdeg(n) + '.' }; },
+    rng => { const t = rng.pick([[3, 4], [6, 8], [5, 12], [8, 15], [9, 12]]), a = t[0] * rng.pick([1, -1]), b = t[1] * rng.pick([1, -1]);
+      return { cat: 'frecce', c: 1, nuovo: 1, q: 'Numeri nuovi: in quale quadrante sta ' + cx(a, b) + '?', k: 'choice', o: QUAD, ans: quadIx(a, b), h: 'Guarda i segni: primo numero = destra o sinistra, numero con la j = su o giù.', w: QUAD[quadIx(a, b)] + (a < 0 ? ': il primo numero è negativo, quindi all\'angolo della calcolatrice si aggiunge 180°.' : ': nessuna correzione.') }; },
+    rng => { const t = rng.pick([[3, 4], [6, 8], [5, 12], [8, 15], [20, 15]]), a = t[0] * rng.pick([1, -1]), b = t[1] * rng.pick([1, -1]), d = arg(a, b);
+      return { cat: 'frecce', c: 1, nuovo: 1, q: 'Numeri nuovi: ' + V() + ' = ' + cx(a, b) + ' è un segnale. Che fase ha?', k: 'ang', ans: d, h: 'arctg(' + fmt(b) + ' ÷ ' + fmt(a) + ')' + (a < 0 ? ', poi + 180° perché il primo numero è negativo.' : '; il primo numero è positivo.'), w: 'Fase ' + fdeg(d) + (Math.abs(d) > 90 && a < 0 ? ' (o ' + fdeg(d < 0 ? d + 360 : d) + ')' : '') + ': <i>v</i>(<i>t</i>) = ' + fmt(Math.hypot(a, b)) + ' sen(ω<i>t</i> ' + (d < 0 ? '− ' + fdeg(-d) : '+ ' + fdeg(d)) + ').' }; },
+    rng => { const M1 = rng.pick([10, 20, 50, 100]), p1 = rng.pick([0, 30, 45, 60]), M2 = rng.pick([2, 4, 5, 10]), p2 = rng.pick([-30, -20, 15, 25]), x = rng.chance(0.5);
+      const m = x ? M1 * M2 : M1 / M2, a = x ? p1 + p2 : p1 - p2;
+      return { cat: 'oper', c: 1, nuovo: 1, q: 'Numeri nuovi: calcola ' + M1 + '∠' + fdeg(p1) + (x ? ' · ' : ' ÷ ') + M2 + '∠' + fdeg(p2) + ' (scrivilo come lunghezza∠angolo).', k: 'pol', ans: pol(m, a), h: x ? 'Lunghezze moltiplicate, angoli sommati.' : 'Lunghezze divise, angoli sottratti.', w: fmt(m, 3) + '∠' + fdeg(a) + '.' }; },
+  ];
+
+  const CATS = [['compito', 'Dal compito'], ['tutte', 'Tutte'], ['onde', 'Onde'], ['frecce', 'Frecce'], ['oper', 'Operazioni'], ['parole', 'Parole']];
+  const LENS = [[10, '10'], [20, '20'], [0, 'Tutte']];
+  const PH = { num: 'scrivi un numero, es. 7,07', ang: 'gradi, es. −135', cplx: 'es. 25,98 − j15', pol: 'es. 450∠55' };
+  const TOOLS = { num: ['−'], ang: ['−'], cplx: ['−', 'j'], pol: ['∠', '−'] };
+
+  function field(it) {
+    if (it.k === 'num') return { kind: 'num', ans: it.ans, tolAbs: it.tolAbs !== undefined ? it.tolAbs : (Math.abs(it.ans) < 0.5 ? Math.abs(it.ans) * 0.01 + 1e-9 : 0.011), tolRel: it.tolRel !== undefined ? it.tolRel : 0.01, units: it.units || null };
+    if (it.k === 'ang') return { kind: 'ang', ans: it.ans, tolDeg: 1 };
+    if (it.k === 'cplx') return { kind: 'cplx', ans: { re: it.ans.re, im: it.ans.im }, forms: ['bin'], tolAbs: 0.05 };
+    if (it.k === 'pol') return { kind: 'pol', ans: { re: it.ans.re, im: it.ans.im }, forms: ['exp', 'pol', 'trig'] };
+    return null;
+  }
+  function answerText(it) {
+    if (it.k === 'choice') return it.o[it.ans];
+    if (it.k === 'num') return fmt(it.ans, it.d === undefined ? 2 : it.d) + (it.unit ? (it.unit === '°' ? '°' : ' ' + it.unit) : '');
+    if (it.k === 'ang') return fdeg(it.ans);
+    if (it.k === 'cplx') return T.fmtCH(it.ans);
+    return fmt(T.abs(it.ans), 3) + '∠' + fdeg(T.argDeg(it.ans));
+  }
+  // la risposta come la scriverebbe lo studente nella casella (testo semplice, senza unità)
+  function answerInput(it) {
+    if (it.k === 'choice') return String(it.ans);
+    if (it.k === 'num') return fmt(it.ans, it.d === undefined ? 2 : it.d);
+    if (it.k === 'ang') return fmt(it.ans, 1);
+    if (it.k === 'cplx') return T.fmtC(it.ans);
+    return fmt(T.abs(it.ans), 3) + '∠' + fmt(T.argDeg(it.ans), 1);
+  }
+  function check(it, value) {
+    if (it.k === 'choice') return { ok: Number(value) === it.ans };
+    return T.checkField(field(it), value);
+  }
+
+  const G = { list: [], i: 0, first: [], tries: 0, done: false };
+  function pool(cat) { return BANK.filter(it => { const c = typeof it === 'function' ? it(T.makeRng(1)) : it; return cat === 'tutte' || (cat === 'compito' ? c.c : c.cat === cat); }); }
+  function shuffle(a) { const r = T.makeRng(Math.floor(Math.random() * 2147483646) + 1); return r.shuffle(a); }
+  function start(items) {
+    const rng = T.makeRng(Math.floor(Math.random() * 2147483646) + 1);
+    G.list = items.map(it => (typeof it === 'function' ? Object.assign(it(rng), { src: it }) : Object.assign({}, it, { src: it })));
+    G.i = 0; G.first = []; G.done = false;
+    render();
+  }
+  function newRound() {
+    let items = shuffle(pool(S.cat));
+    if (S.len) items = items.slice(0, S.len);
+    start(items);
+  }
+  function chips() {
+    $('#fl-cats').innerHTML = CATS.map(c => '<button type="button" class="btn small" data-cat="' + c[0] + '" aria-pressed="' + (S.cat === c[0]) + '">' + c[1] + ' <span class="fl-n">' + pool(c[0]).length + '</span></button>').join('');
+    $('#fl-lens').innerHTML = '<span class="small muted">Quante:</span>' + LENS.map(l => '<button type="button" class="btn small" data-len="' + l[0] + '" aria-pressed="' + (S.len === l[0]) + '">' + l[1] + '</button>').join('');
+  }
+  function bestTxt() { const b = S.best[S.cat + ':' + S.len]; return b ? 'Record in questa scelta: ' + b.ok + ' su ' + b.n + ' al primo colpo.' : ''; }
+  function render() {
+    const box = $('#fl-card');
+    if (G.i >= G.list.length) return finish();
+    const it = G.list[G.i];
+    G.tries = 0; G.answered = false;
+    const inp = it.k === 'choice' ? '<div class="choices">' + it.o.map((o, j) => '<button type="button" class="btn" data-c="' + j + '">' + o + '</button>').join('') + '</div>' :
+      '<div class="inrow"><input type="text" id="fl-in" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="' + PH[it.k] + '" aria-label="La tua risposta">' +
+      (it.unit && it.k === 'num' ? '<span class="unit">' + it.unit + '</span>' : it.k === 'ang' ? '<span class="unit">°</span>' : '') +
+      TOOLS[it.k].map(t => '<button type="button" class="btn small" data-ins="' + t + '" aria-label="Scrivi ' + t + '">' + t + '</button>').join('') + '</div>';
+    box.innerHTML = '<div class="fl-meta"><span>Domanda ' + (G.i + 1) + ' di ' + G.list.length + '</span>' + (it.c ? '<span class="bollino sm">' + (it.nuovo ? 'come il compito' : 'dal compito') + '</span>' : '') + '<span class="fl-bar"><i style="width:' + (100 * G.i / G.list.length) + '%"></i></span></div>' +
+      '<p class="fl-q">' + it.q + '</p>' + inp +
+      '<div class="row"><button type="button" class="btn primary" data-a="check"' + (it.k === 'choice' ? ' hidden' : '') + '>Controlla</button><button type="button" class="btn" data-a="hint">Aiuto</button><button type="button" class="btn ghost" data-a="show">Mostra la risposta</button><button type="button" class="btn next" data-a="next" hidden>' + (G.i + 1 < G.list.length ? 'Avanti →' : 'Vedi il risultato →') + '</button></div>' +
+      '<p class="hint" hidden>' + it.h + '</p><p class="fb" aria-live="polite"></p>';
+    const i = $('#fl-in', box); if (i && G.focus) i.focus({ preventScroll: true });
+    if (window.GLOSS && window.GLOSS.ready) window.GLOSS.link(box);
+  }
+  function settle(it, ok, shown) {
+    if (G.first[G.i] === undefined) G.first[G.i] = ok && G.tries === 1 && !shown;
+    G.answered = true;
+    const box = $('#fl-card'), fb = $('.fb', box);
+    fb.className = 'fb ' + (shown ? 'shown' : 'ok');
+    fb.innerHTML = (shown ? 'La risposta è <b>' + answerText(it) + '</b>. ' : '✓ Giusto! ') + '<span class="fl-w">' + it.w + '</span>';
+    $$('input, button[data-c], button[data-a="check"], button[data-a="show"], button[data-ins]', box).forEach(e => { e.disabled = true; });
+    const n = $('button[data-a="next"]', box); n.hidden = false; n.focus({ preventScroll: true });
+    score();
+  }
+  function judge(value) {
+    const it = G.list[G.i], box = $('#fl-card'), fb = $('.fb', box);
+    if (G.answered) return;
+    if (it.k !== 'choice' && (!value || !String(value).trim())) { fb.className = 'fb'; fb.textContent = 'Scrivi la risposta.'; return; }
+    G.tries++;
+    const r = check(it, value);
+    if (r.invalid || r.wrongForm) { G.tries--; fb.className = 'fb ko'; fb.textContent = r.msg || 'Non riesco a leggerlo.'; return; }
+    if (r.ok) return settle(it, true, false);
+    if (G.first[G.i] === undefined) G.first[G.i] = false;
+    fb.className = 'fb ko'; fb.textContent = '✗ Non ancora. Premi «Aiuto» e riprova.';
+    if (it.k === 'choice') $$('button[data-c]', box).forEach(b => { if (b.dataset.c === String(value)) { b.classList.add('sel-ko'); b.disabled = true; } });
+    score();
+  }
+  function score() {
+    const n = G.first.filter(x => x !== undefined).length, ok = G.first.filter(Boolean).length;
+    $('#fl-score').textContent = n ? 'Giuste al primo colpo: ' + ok + ' su ' + n + '.' : bestTxt();
+  }
+  function finish() {
+    G.done = true;
+    const n = G.list.length, ok = G.first.filter(Boolean).length, k = S.cat + ':' + S.len, b = S.best[k];
+    if (!b || ok / n > b.ok / b.n) { S.best[k] = { ok: ok, n: n }; save(); }
+    const wrong = G.list.filter((_, i) => !G.first[i]);
+    $('#fl-card').innerHTML = '<p class="fl-q">Fine del giro: <b>' + ok + ' su ' + n + '</b> giuste al primo colpo. ' + (ok === n ? 'Perfetto!' : ok >= n * 0.7 ? 'Bene: ripassa solo quelle sbagliate.' : 'Rifai le sbagliate e rileggi le tappe con il bollino.') + '</p>' +
+      (wrong.length ? '<ul class="fl-wrong">' + wrong.map(it => '<li>' + it.q + ' → <b>' + answerText(it) + '</b></li>').join('') + '</ul>' : '') +
+      '<div class="row">' + (wrong.length ? '<button type="button" class="btn primary" data-a="redo">Rifai le ' + wrong.length + ' sbagliate</button>' : '') + '<button type="button" class="btn' + (wrong.length ? '' : ' primary') + '" data-a="new">Nuovo giro</button></div>';
+    G.wrong = wrong.map(it => it.src);
+    $('#fl-score').textContent = bestTxt();
+  }
+  function init() {
+    const sec = $('#flash'); if (!sec) return;
+    chips();
+    sec.addEventListener('click', ev => {
+      const b = ev.target.closest('button, a[data-flash]'); if (!b) return;
+      if (b.dataset.cat) { S.cat = b.dataset.cat; save(); chips(); G.focus = false; newRound(); score(); return; }
+      if (b.dataset.len !== undefined) { S.len = Number(b.dataset.len); save(); chips(); G.focus = false; newRound(); score(); return; }
+      const box = $('#fl-card'); if (!box.contains(b)) return;
+      G.focus = true;
+      const it = G.list[G.i];
+      if (b.dataset.a === 'new') return newRound();
+      if (b.dataset.a === 'redo') return start(shuffle(G.wrong));
+      if (b.dataset.a === 'next') { G.i++; return render(); }
+      if (b.dataset.c !== undefined) return judge(b.dataset.c);
+      if (b.dataset.a === 'check') return judge($('#fl-in').value);
+      if (b.dataset.a === 'hint') { $('.hint', box).hidden = false; return; }
+      if (b.dataset.a === 'show') { if (G.first[G.i] === undefined) G.first[G.i] = false; const i = $('#fl-in'); if (i) i.value = answerInput(it); return settle(it, false, true); }
+      if (b.dataset.ins) { const i = $('#fl-in'); const p = i.selectionStart !== null ? i.selectionStart : i.value.length; i.value = i.value.slice(0, p) + b.dataset.ins + i.value.slice(i.selectionEnd !== null ? i.selectionEnd : p); i.focus(); i.setSelectionRange(p + b.dataset.ins.length, p + b.dataset.ins.length); }
+    });
+    sec.addEventListener('keydown', ev => { if (ev.key === 'Enter' && ev.target.id === 'fl-in') { ev.preventDefault(); G.focus = true; judge(ev.target.value); } });
+    $$('a[data-flash]').forEach(a => a.addEventListener('click', () => { S.cat = a.dataset.flash; save(); chips(); G.focus = false; newRound(); score(); }));
+    newRound(); score();
+    window.__flash = { BANK: BANK, G: G, check: check, answerText: answerText, answerInput: answerInput, judge: judge, start: start, newRound: newRound, S: () => S };
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+})();
 </script>
 </body>
 </html>

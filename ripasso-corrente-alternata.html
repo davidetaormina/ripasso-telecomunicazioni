@@ -400,6 +400,51 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
   *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
 }
 
+/* ===== Il compito vero: bollino e disegni dei vettori / delle sinusoidi ===== */
+.bollino { display: inline-flex; align-items: center; gap: 5px; font: 700 .74rem/1.15 var(--f-ui); letter-spacing: .06em; text-transform: uppercase; color: var(--pen-red); background: var(--sheet); border: 2px solid var(--pen-red); border-radius: 99px; padding: 3px 9px 3px 7px; white-space: nowrap; vertical-align: middle; }
+.bollino::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--pen-red); flex: none; }
+.bollino.sm { font-size: .64rem; padding: 2px 7px 2px 5px; border-width: 1.5px; }
+.bollino.sm::before { width: 6px; height: 6px; }
+.compbox { border: 2px solid var(--pen-red) !important; }
+.cd-grid4, .cd-grid2 { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); margin-top: 6px; }
+.cd-grid2 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+.cd-fig { margin: 0; display: grid; gap: 6px; align-content: start; min-width: 0; background: var(--sheet); border: 1px solid var(--rule); border-radius: 10px; padding: 10px; }
+.cd-figw { grid-column: 1 / -1; }
+.cd-svg { width: 100%; height: auto; display: block; max-width: 300px; justify-self: center; }
+.cd-svg.cd-wide { max-width: 620px; }
+.cd-fig figcaption { font: 400 .92rem/1.45 var(--f-ui); color: var(--ink); display: grid; gap: 4px; }
+.cd-leg { list-style: none; margin: 0; padding: 0; display: grid; gap: 3px; }
+.cd-leg li { display: flex; gap: 8px; align-items: baseline; }
+.cd-sw { flex: none; width: 16px; height: 0; border-top: 3px solid currentColor; transform: translateY(-3px); }
+.cd-sw.cd-swd { border-top-style: dashed; }
+.cd-ax { stroke: var(--ink-2); stroke-width: 1.2; }
+.cd-axf { fill: var(--ink-2); }
+.cd-grid { stroke: var(--rule); stroke-width: 1; fill: none; }
+.cd-dash2 { stroke-dasharray: 3 4; }
+.cd-t { fill: var(--ink-2); font: 600 11px var(--f-ui); }
+.cd-t.cd-b { font-weight: 700; font-size: 12px; }
+.cd-t.cd-s { font-size: 10px; }
+.cd-l { stroke-width: 2.6; fill: none; stroke-linecap: round; }
+.cd-l.cd-w { stroke-width: 2.2; }
+.cd-l.cd-dash { stroke-width: 1.6; stroke-dasharray: 5 4; }
+.cd-arc { fill: none; stroke-width: 1.4; }
+.cd-l.c1, .cd-arc.c1 { stroke: var(--teal); } .cd-f.c1, .cd-t.c1 { fill: var(--teal); } .cd-sw.c1 { color: var(--teal); }
+.cd-l.c2, .cd-arc.c2 { stroke: var(--amber); } .cd-f.c2, .cd-t.c2 { fill: var(--amber); } .cd-sw.c2 { color: var(--amber); }
+.cd-l.c3, .cd-arc.c3 { stroke: var(--pen-red); } .cd-f.c3, .cd-t.c3 { fill: var(--pen-red); } .cd-sw.c3 { color: var(--pen-red); }
+.cd-l.c4, .cd-arc.c4 { stroke: var(--pen-blue); } .cd-f.c4, .cd-t.c4 { fill: var(--pen-blue); } .cd-sw.c4 { color: var(--pen-blue); }
+.cd-l.c5, .cd-arc.c5 { stroke: var(--ok); } .cd-f.c5, .cd-t.c5 { fill: var(--ok); } .cd-sw.c5 { color: var(--ok); }
+.warn { background: var(--warn-bg); border: 1px solid var(--warn); border-radius: 8px; padding: 10px 12px; font: 400 1rem/1.55 var(--f-body); max-width: 80ch; }
+.tab.tab-comp { color: var(--pen-red); }
+.tab.tab-comp::after { content: ""; display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--pen-red); margin-left: 5px; vertical-align: 2px; }
+.tab.tab-comp[aria-current="page"] { color: var(--pen-red); border-bottom-color: var(--pen-red); }
+.toc a .cmp { color: var(--pen-red); font: 700 .72rem/1.2 var(--f-ui); letter-spacing: .05em; text-transform: uppercase; display: block; }
+.th-h .bollino { align-self: center; }
+.traccia { background: var(--sheet); border: 1px solid var(--rule); border-left: 4px solid var(--pen-red); border-radius: 8px; padding: 12px 14px; display: grid; gap: 8px; font: 400 1.02rem/1.6 var(--f-body); max-width: 86ch; }
+.traccia ol { margin: 0; padding-left: 1.4em; display: grid; gap: 8px; }
+.comp-rules { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); margin: 0; padding: 0; list-style: none; }
+.comp-rules li { background: var(--sheet); border: 1px solid var(--rule); border-radius: 10px; padding: 12px 14px; font: 400 .98rem/1.5 var(--f-body); }
+.comp-rules b.k { display: block; font: 700 1.1rem/1.2 var(--f-display); color: var(--pen-red); margin-bottom: 4px; letter-spacing: .02em; }
+.ex .ex-what { font: 400 .95rem/1.4 var(--f-ui); color: var(--ink-2); margin: -4px 0 6px; }
 </style>
 </head>
 <body>
@@ -416,6 +461,7 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
     </div>
     <nav class="tabs" aria-label="Sezioni">
       <a class="tab" href="#inizio" data-tab="inizio">Inizio</a>
+      <a class="tab tab-comp" href="#compito" data-tab="compito">Compito</a>
       <a class="tab" href="#teoria" data-tab="teoria">Teoria</a>
       <a class="tab" href="#laboratorio" data-tab="laboratorio">Laboratorio</a>
       <a class="tab" href="#esercizi" data-tab="esercizi">Esercizi</a>
@@ -432,23 +478,24 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
 <!-- ======================= INIZIO ======================= -->
 <section class="view" id="view-inizio" data-view="inizio">
   <div class="hero">
-    <p class="eyebrow">Compito di domani · Telecomunicazioni, 4° anno</p>
+    <p class="eyebrow">Verifica di Telecomunicazioni · 4° anno</p>
     <h1>Grandezze sinusoidali e numeri complessi</h1>
-    <p class="lead">Il capitolo A3 del libro e gli appunti del prof in una pagina: teoria riordinata con gli errori del libro corretti, strumenti per vedere i concetti, esercizi che si correggono da soli e una simulazione del compito da 10 punti.</p>
-    <div class="row"><a class="btn primary" href="#teoria">Inizia dalla teoria</a><a class="btn" href="#simulazione">Fai la simulazione</a></div>
+    <p class="lead">Il capitolo A3 del libro e gli appunti del prof in una pagina: teoria riordinata con gli errori del libro corretti, strumenti per vedere i concetti, esercizi che si correggono da soli e una simulazione del compito da 10 punti. Ora c'è anche la traccia vera della verifica: le quattro domande sono risolte nella scheda «Compito» e tutto il resto è riallineato su di loro.</p>
+    <div class="row"><a class="btn primary" href="#compito">Le domande del compito</a><a class="btn" href="#teoria">Inizia dalla teoria</a><a class="btn" href="#simulazione">Fai la simulazione</a></div>
   </div>
 
   <div class="grid2">
-    <section class="card">
-      <h2>Cosa aspettarsi nel compito</h2>
-      <p class="muted small">Nei file non c'è una verifica del prof: ci sono il capitolo A3 del libro (in PDF e in foto), i due esempi svolti e due pagine di appunti. Da lì ricavo che il compito avrà probabilmente:</p>
+    <section class="card compbox">
+      <h2>Il compito vero <span class="bollino">Domande del compito</span></h2>
+      <p class="muted small">Ora abbiamo la traccia della verifica (4ª B INF, 5 novembre 2026): quattro esercizi, tutti di calcolo con sinusoidi e numeri complessi. Nessuna domanda di teoria e niente circuiti.</p>
       <ol class="expect">
-        <li><span class="n">1</span><span><b>Un numero complesso da trasformare</b>, come l'Esempio 1: modulo, argomento, forma esponenziale e trigonometrica, coniugato.</span></li>
-        <li><span class="n">2</span><span><b>Operazioni tra due numeri complessi</b>, come l'Esempio 2: modulo e argomento di somma, differenza, prodotto e rapporto.</span></li>
-        <li><span class="n">3</span><span><b>Calcoli su una sinusoide</b>: frequenza, periodo, pulsazione, valori massimo, picco-picco ed efficace, valore a <i>t</i> = 0.</span></li>
-        <li><span class="n">4</span><span><b>Domande di teoria</b>: grandezze periodiche e alternate, valore medio ed efficace, fattore di forma, vettore rotante, grandezze isofrequenziali, <i>j</i>, piano di Gauss.</span></li>
+        <li><span class="n">1</span><span><b>Due sinusoidi con la stessa ω</b>: trasformarle in vettori, fare somma, differenza, prodotto e rapporto, disegnare i vettori dei risultati.</span></li>
+        <li><span class="n">2</span><span><b>Lo stesso con altre due sinusoidi</b>: una ha fase 0° e le pulsazioni sono diverse (100 e 500 rad/s), da far notare.</span></li>
+        <li><span class="n">3</span><span><b>Una sinusoide in forma vettoriale</b>, con fase −270°: va riportata a +90°.</span></li>
+        <li><span class="n">4</span><span><b>Tre numeri complessi da trasformare in segnali</b>: valore massimo, fase, <i>v</i>(<i>t</i>) e disegno su assi cartesiani.</span></li>
       </ol>
-      <p class="small">Il compito arriva fino ai numeri complessi (A3.5): i circuiti (A3.6–A3.9) sono nella teoria e negli esercizi come extra. Calcolatrice scientifica ammessa: tienila in gradi (DEG).</p>
+      <div class="row"><a class="btn primary" href="#compito">Apri le domande risolte</a></div>
+      <p class="small">Convenzione: modulo del vettore = valore massimo, come negli appunti. Calcolatrice in gradi (DEG). Per allenarti con numeri nuovi usa gli esercizi «Da compito» e la simulazione, che ora hanno la stessa struttura della verifica.</p>
     </section>
     <section class="card">
       <h2>Il tuo andamento</h2>
@@ -460,16 +507,17 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
 
   <section class="card" style="margin-top:16px">
     <h2>Piano di studio, in ordine</h2>
-    <p class="muted small">Circa tre ore in tutto. Se hai solo un'ora: passi 3, 4 e 8.</p>
+    <p class="muted small">Circa tre ore in tutto. I passi con il bollino rosso sono quelli usati dalla verifica. Se hai solo un'ora: passi 1, 5, 6 e 7.</p>
     <ol class="plan" id="plan">
+      <li data-plan="pc"><span class="pn"></span><div><div class="pt">Le 4 domande vere del compito <span class="bollino sm">compito</span></div><div class="pd">Leggile subito per sapere dove arrivare; rifalle da sole prima della simulazione.</div></div><div class="pr">30 min <a class="btn small" href="#compito">Vai</a><label><input type="checkbox" data-plan-ck="pc"><span class="vh">Fatto</span></label></div></li>
       <li data-plan="p1"><span class="pn"></span><div><div class="pt">Grandezze periodiche, alternate e sinusoidali</div><div class="pd">Teoria A3.1–A3.3, poi il vettore rotante nel Laboratorio.</div></div><div class="pr">25 min <a class="btn small" href="#t-a31">Vai</a><label><input type="checkbox" data-plan-ck="p1"><span class="vh">Fatto</span></label></div></li>
       <li data-plan="p2"><span class="pn"></span><div><div class="pt">Vettori e piano di Gauss</div><div class="pd">Teoria A3.4 con gli appunti del prof.</div></div><div class="pr">10 min <a class="btn small" href="#t-a34">Vai</a><label><input type="checkbox" data-plan-ck="p2"><span class="vh">Fatto</span></label></div></li>
-      <li data-plan="p3"><span class="pn"></span><div><div class="pt">Numeri complessi: forme, quadranti, coniugato</div><div class="pd">Teoria A3.5 e regola del quadrante, poi l'Esempio 1 del prof.</div></div><div class="pr">25 min <a class="btn small" href="#t-a35">Vai</a><label><input type="checkbox" data-plan-ck="p3"><span class="vh">Fatto</span></label></div></li>
-      <li data-plan="p4"><span class="pn"></span><div><div class="pt">Operazioni con i numeri complessi</div><div class="pd">Somma, differenza, prodotto, rapporto; poi l'Esempio 2 del prof (il libro sbaglia due argomenti).</div></div><div class="pr">25 min <a class="btn small" href="#t-ops">Vai</a><label><input type="checkbox" data-plan-ck="p4"><span class="vh">Fatto</span></label></div></li>
-      <li data-plan="p5"><span class="pn"></span><div><div class="pt">Grandezze sinusoidali e vettori [A3.31]</div><div class="pd">Dalla sinusoide al vettore fermo; quale modulo usare.</div></div><div class="pr">10 min <a class="btn small" href="#t-a331">Vai</a><label><input type="checkbox" data-plan-ck="p5"><span class="vh">Fatto</span></label></div></li>
-      <li data-plan="p6"><span class="pn"></span><div><div class="pt">Esercizi Medio e Da compito</div><div class="pd">Sei per livello. Il Facile serve solo se ti blocchi.</div></div><div class="pr">40 min <a class="btn small" href="#esercizi">Vai</a><label><input type="checkbox" data-plan-ck="p6"><span class="vh">Fatto</span></label></div></li>
+      <li data-plan="p3"><span class="pn"></span><div><div class="pt">Numeri complessi: forme, quadranti, coniugato <span class="bollino sm">compito</span></div><div class="pd">Teoria A3.5 e regola del quadrante, poi l'Esempio 1 del prof.</div></div><div class="pr">25 min <a class="btn small" href="#t-a35">Vai</a><label><input type="checkbox" data-plan-ck="p3"><span class="vh">Fatto</span></label></div></li>
+      <li data-plan="p4"><span class="pn"></span><div><div class="pt">Operazioni con i numeri complessi <span class="bollino sm">compito</span></div><div class="pd">Somma, differenza, prodotto, rapporto; poi l'Esempio 2 del prof (il libro sbaglia due argomenti).</div></div><div class="pr">25 min <a class="btn small" href="#t-ops">Vai</a><label><input type="checkbox" data-plan-ck="p4"><span class="vh">Fatto</span></label></div></li>
+      <li data-plan="p5"><span class="pn"></span><div><div class="pt">Grandezze sinusoidali e vettori [A3.31] <span class="bollino sm">compito</span></div><div class="pd">Dalla sinusoide al vettore fermo e ritorno; fasi oltre il giro; disegno vettoriale e cartesiano.</div></div><div class="pr">10 min <a class="btn small" href="#t-a331">Vai</a><label><input type="checkbox" data-plan-ck="p5"><span class="vh">Fatto</span></label></div></li>
+      <li data-plan="p6"><span class="pn"></span><div><div class="pt">Esercizi Medio e Da compito <span class="bollino sm">compito</span></div><div class="pd">Sei per livello. «Da compito» ha gli stessi tipi di esercizio della verifica.</div></div><div class="pr">40 min <a class="btn small" href="#esercizi">Vai</a><label><input type="checkbox" data-plan-ck="p6"><span class="vh">Fatto</span></label></div></li>
       <li data-plan="p7"><span class="pn"></span><div><div class="pt">Quiz veloci</div><div class="pd">Quattro giochi brevi sugli argomenti secondari.</div></div><div class="pr">10 min <a class="btn small" href="#quiz">Vai</a><label><input type="checkbox" data-plan-ck="p7"><span class="vh">Fatto</span></label></div></li>
-      <li data-plan="p8"><span class="pn"></span><div><div class="pt">Simulazione del compito</div><div class="pd">50 minuti col cronometro, poi rileggi le soluzioni di quello che hai sbagliato.</div></div><div class="pr">60 min <a class="btn small" href="#simulazione">Vai</a><label><input type="checkbox" data-plan-ck="p8"><span class="vh">Fatto</span></label></div></li>
+      <li data-plan="p8"><span class="pn"></span><div><div class="pt">Simulazione del compito</div><div class="pd">Quattro esercizi come la verifica, 50 minuti col cronometro, poi rileggi le soluzioni di quello che hai sbagliato.</div></div><div class="pr">60 min <a class="btn small" href="#simulazione">Vai</a><label><input type="checkbox" data-plan-ck="p8"><span class="vh">Fatto</span></label></div></li>
       <li data-plan="p9"><span class="pn"></span><div><div class="pt">Facoltativo: circuiti R, L, C e RLC</div><div class="pd">A3.6–A3.9, non sono nel compito.</div></div><div class="pr">20 min <a class="btn small" href="#t-a36">Vai</a><label><input type="checkbox" data-plan-ck="p9"><span class="vh">Fatto</span></label></div></li>
     </ol>
   </section>
@@ -500,6 +548,24 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
     <h2>Attenzione: il libro ha degli errori</h2>
     <p>I più pericolosi per il compito: nella [A3.9] il modulo ha <i>b</i><sub>2</sub> al posto di <i>a</i><sub>2</sub> e l'argomento arctg(<i>a</i><sub>2</sub>/<i>a</i><sub>2</sub>); nella formula di Eulero manca la <i>j</i>; nell'Esempio 2 arg(<span class="v">A</span> − <span class="v">B</span>) vale <span data-calc="es2.argD"></span> e non −79, e arg(<span class="v">A</span>·<span class="v">B</span>) vale <span data-calc="es2.argP"></span> e non 4°.</p>
     <p><a href="#t-errori">Vedi tutti gli errori trovati nei materiali</a></p>
+  </section>
+</section>
+
+<!-- ======================= COMPITO ======================= -->
+<section class="view" id="view-compito" data-view="compito" hidden>
+  <div class="view-h"><p class="eyebrow"><span class="bollino">Domande vere del compito</span></p><h2>La verifica, domanda per domanda</h2><p>Sono le quattro domande della verifica di Telecomunicazioni (4ª B INF, 5 novembre 2026), ricopiate dalla foto della traccia. Prova da solo, premi «Controlla», poi apri la soluzione: c'è il procedimento da scrivere sul foglio e i disegni dei vettori e delle sinusoidi.</p></div>
+  <div class="traccia" id="comp-traccia"><b>La traccia</b><ol id="comp-testi"></ol></div>
+  <h3 style="margin:22px 0 10px">Tre regole che valgono per tutte e quattro</h3>
+  <ul class="comp-rules">
+    <li><b class="k">Sinusoide ↔ vettore</b><i>v</i>(<i>t</i>) = <i>V</i><sub>M</sub> sen(ω<i>t</i> + φ) diventa <span class="v">V</span> = <i>V</i><sub>M</sub>∠φ: modulo = valore massimo, argomento = fase. ω non entra nel vettore. Al contrario, da <i>a</i> + <i>jb</i>: <i>V</i><sub>M</sub> = √(<i>a</i>² + <i>b</i>²), φ = arg.</li>
+    <li><b class="k">Quale forma per quale conto</b>Somma e differenza in forma binomia (<i>a</i> = <i>V</i><sub>M</sub> cos φ, <i>b</i> = <i>V</i><sub>M</sub> sen φ). Prodotto e rapporto in forma esponenziale: moduli × o ÷, angoli + o −.</li>
+    <li><b class="k">Angoli</b>Calcolatrice in DEG. Se la parte reale è negativa l'arcotangente va corretta di 180°. Una fase come −270° si riporta tra −180° e 180° aggiungendo 360°: +90°.</li>
+  </ul>
+  <div class="ex-list" id="comp-list" style="margin-top:18px"></div>
+  <section class="card" style="margin-top:18px;max-width:760px">
+    <h3>Allenati con numeri nuovi</h3>
+    <p class="small">Gli esercizi «Da compito» e la simulazione ora hanno la stessa struttura della verifica: due esercizi con due sinusoidi, una sinusoide da scrivere come vettore e tre numeri complessi da trasformare in segnali.</p>
+    <div class="row"><a class="btn primary" href="#esercizi" id="comp-go-ex">Esercizi «Da compito»</a><a class="btn" href="#simulazione">Simulazione del compito</a><a class="btn" href="ripasso-facile.html#tc">Le stesse domande, versione facile</a></div>
   </section>
 </section>
 
@@ -572,8 +638,8 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
 </article>
 
 <!-- A3.3 -->
-<article class="th" id="t-a33" data-th="a33" data-title="Grandezze sinusoidali" data-num="A3.3">
-  <h2 class="th-h"><span class="n">A3.3</span><span class="t">Grandezze sinusoidali</span></h2>
+<article class="th" id="t-a33" data-th="a33" data-title="Grandezze sinusoidali" data-num="A3.3" data-comp="es. 1, 2, 3">
+  <h2 class="th-h"><span class="n">A3.3</span><span class="t">Grandezze sinusoidali</span> <span class="bollino sm">nel compito · es. 1, 2, 3</span></h2>
   <p class="src">Libro pp. 56–57 · PDF «Segnali…» pag. 3–4 · appunti «Onde sinusoidali»</p>
   <div class="prose">
     <p>Una sinusoide è formata da due semiperiodi uguali, uno positivo e uno negativo. Il massimo e il minimo sono uguali in valore assoluto, quindi il valore picco-picco è il doppio del valore massimo.</p>
@@ -621,8 +687,8 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
 </article>
 
 <!-- A3.4 -->
-<article class="th" id="t-a34" data-th="a34" data-title="Vettori e piano di Gauss" data-num="A3.4">
-  <h2 class="th-h"><span class="n">A3.4</span><span class="t">Rappresentazione vettoriale e piano di Gauss</span></h2>
+<article class="th" id="t-a34" data-th="a34" data-title="Vettori e piano di Gauss" data-num="A3.4" data-comp="es. 1–4">
+  <h2 class="th-h"><span class="n">A3.4</span><span class="t">Rappresentazione vettoriale e piano di Gauss</span> <span class="bollino sm">nel compito · es. 1–4</span></h2>
   <p class="src">Libro pp. 57–58 · PDF «Segnali…» pag. 4–5 · appunti «Onde sinusoidali»</p>
   <div class="prose">
     <p>Ogni grandezza sinusoidale si rappresenta con un <b>vettore</b> che ruota in senso antiorario con la sua velocità angolare ω, con l'estremo fisso nell'origine O e modulo uguale all'ampiezza della grandezza. L'angolo che il vettore forma con l'asse orizzontale all'istante <i>t</i> = 0 è la sua fase (nella figura A3.7: α, β e γ).</p>
@@ -645,8 +711,8 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
 </article>
 
 <!-- A3.5 forme -->
-<article class="th" id="t-a35" data-th="a35" data-title="Numeri complessi: le forme" data-num="A3.5">
-  <h2 class="th-h"><span class="n">A3.5</span><span class="t">Numeri complessi: le forme</span></h2>
+<article class="th" id="t-a35" data-th="a35" data-title="Numeri complessi: le forme" data-num="A3.5" data-comp="es. 4">
+  <h2 class="th-h"><span class="n">A3.5</span><span class="t">Numeri complessi: le forme</span> <span class="bollino sm">nel compito · es. 4</span></h2>
   <p class="src">Libro pp. 58–60 · PDF «Segnali…» pag. 5–7 · appunti «Formule utili»</p>
   <div class="prose">
     <p>La rappresentazione vettoriale è completa, ma fare i calcoli con i disegni è lungo. La <span class="kw">rappresentazione simbolica</span> usa i numeri complessi: un vettore diventa un numero.</p>
@@ -725,8 +791,8 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
 </article>
 
 <!-- A3.5 operazioni -->
-<article class="th" id="t-ops" data-th="ops" data-title="Operazioni con i complessi" data-num="A3.5">
-  <h2 class="th-h"><span class="n">A3.5</span><span class="t">Operazioni con i numeri complessi</span></h2>
+<article class="th" id="t-ops" data-th="ops" data-title="Operazioni con i complessi" data-num="A3.5" data-comp="es. 1, 2">
+  <h2 class="th-h"><span class="n">A3.5</span><span class="t">Operazioni con i numeri complessi</span> <span class="bollino sm">nel compito · es. 1, 2</span></h2>
   <p class="src">Libro pp. 61–64 · PDF «Segnali…» pag. 8–11</p>
   <div class="prose"><p>Con <span class="v">A</span> = <i>a</i><sub>1</sub> + <i>ja</i><sub>2</sub> = |<span class="v">A</span>|<i>e</i><sup><i>j</i>α</sup> e <span class="v">B</span> = <i>b</i><sub>1</sub> + <i>jb</i><sub>2</sub> = |<span class="v">B</span>|<i>e</i><sup><i>j</i>β</sup>:</p></div>
   <div class="frow"><div class="fbox"><span class="f"><span class="v">S</span> = (<i>a</i><sub>1</sub> + <i>b</i><sub>1</sub>) + <i>j</i>(<i>a</i><sub>2</sub> + <i>b</i><sub>2</sub>)</span><span class="eqtag">[A3.16]</span></div><div class="mlabel">Somma</div></div>
@@ -773,8 +839,8 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
 </article>
 
 <!-- A3.31 -->
-<article class="th" id="t-a331" data-th="a331" data-title="Sinusoidi e vettori [A3.31]" data-num="A3.5">
-  <h2 class="th-h"><span class="n">[A3.31]</span><span class="t">Grandezze sinusoidali e vettori</span></h2>
+<article class="th" id="t-a331" data-th="a331" data-title="Sinusoidi e vettori [A3.31]" data-num="A3.5" data-comp="es. 1–4">
+  <h2 class="th-h"><span class="n">[A3.31]</span><span class="t">Grandezze sinusoidali e vettori</span> <span class="bollino sm">nel compito · es. 1–4</span></h2>
   <p class="src">Libro p. 64 · solo nella foto 02.31.50 (6), il PDF la taglia</p>
   <div class="prose">
     <p>Una grandezza sinusoidale si rappresenta con un vettore <span class="v">A</span> di modulo <i>A</i><sub>M</sub> e fase α che ruota in senso antiorario con velocità ω: all'istante <i>t</i> forma con l'asse <i>x</i> l'angolo α + ω<i>t</i>. Con il metodo simbolico, in forma esponenziale:</p>
@@ -789,6 +855,12 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
   </div>
   <div class="worked" data-type="sin2vec" data-params='{"q":"v","YM":10,"phi":30,"conv":"eff","f":50}'></div>
   <div class="worked" data-type="sumsin" data-params='{"V1":10,"p1":30,"V2":5,"p2":-60,"f":50}'></div>
+  <div class="prose">
+    <p><b>Il percorso al contrario</b> (domanda 4 del compito): dato il vettore <span class="v">V</span> = <i>a</i> + <i>jb</i>, il modulo √(<i>a</i>² + <i>b</i>²) è il valore massimo e l'argomento, con la regola del quadrante, è la fase: <i>v</i>(<i>t</i>) = |<span class="v">V</span>| sen(ω<i>t</i> + arg <span class="v">V</span>). Controllo veloce: <i>v</i>(0) = |<span class="v">V</span>| sen(arg <span class="v">V</span>) = <i>b</i>, la parte immaginaria.</p>
+    <p><b>Fasi fuori dal giro</b> (domanda 3): aggiungere o togliere 360° non cambia la direzione del vettore né la sinusoide. 100 sen(314<i>t</i> − 270°) = 100 sen(314<i>t</i> + 90°) = 100 cos(314<i>t</i>).</p>
+    <p><b>Le parole della consegna</b>: «rappresentazione vettoriale» vuol dire disegnare le frecce sul piano di Gauss (in scala, dall'origine, con l'angolo misurato dall'asse reale in senso antiorario). «Rappresentazione cartesiana del segnale» vuol dire disegnare la sinusoide su assi cartesiani: tempo (o ω<i>t</i>) in orizzontale, tensione in verticale.</p>
+  </div>
+  <div class="worked" data-type="sinvec" data-params='{"VM":50,"w":628,"phi":300}'></div>
   <h4>Errori tipici</h4>
   <ul class="pit">
     <li><span class="no">Sommo le ampiezze di due sinusoidi sfasate.</span><span class="si">Sommo i vettori in forma binomia, poi calcolo modulo e fase.</span></li>
@@ -986,7 +1058,7 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
 
 <!-- ======================= DEL PROF ======================= -->
 <section class="view" id="view-prof" data-view="prof" hidden>
-  <div class="view-h"><p class="eyebrow">Esercizi del prof</p><h2>Le tracce dei file, risolte</h2><p>Nei materiali ci sono due tracce svolte (Esempio 1 ed Esempio 2 del libro) e due pagine di appunti, da cui viene il questionario qui sotto. Prova da solo, poi apri la soluzione: è nascosta finché non controlli.</p></div>
+  <div class="view-h"><p class="eyebrow">Esercizi del prof</p><h2>Le tracce dei file, risolte</h2><p>Nei materiali ci sono due tracce svolte (Esempio 1 ed Esempio 2 del libro) e due pagine di appunti, da cui viene il questionario qui sotto. Prova da solo, poi apri la soluzione: è nascosta finché non controlli. Le domande vere della verifica sono nella scheda <a href="#compito">Compito</a>.</p></div>
   <div class="ex-list" id="prof-list"></div>
   <div class="view-h" style="margin-top:28px"><h2>Questionario dagli appunti</h2><p>Domande aperte ricavate dalle pagine «Onde sinusoidali» e «Formule utili». Scrivi la tua risposta, poi confrontala con la risposta modello e spunta i punti che avevi detto.</p></div>
   <div class="ex-list" id="quest-list"></div>
@@ -1005,7 +1077,7 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
 
 <!-- ======================= SIMULAZIONE ======================= -->
 <section class="view" id="view-simulazione" data-view="simulazione" hidden>
-  <div class="view-h"><p class="eyebrow">Simulazione del compito</p><h2>Quattro esercizi, 10 punti</h2><p>Nello stile dei file: una sinusoide, un numero complesso come l'Esempio 1, le quattro operazioni come l'Esempio 2 e quattro crocette di teoria. Mezzo punto per risposta. I numeri cambiano a ogni simulazione.</p></div>
+  <div class="view-h"><p class="eyebrow">Simulazione del compito</p><h2>Quattro esercizi, 10 punti</h2><p><span class="bollino sm">come il compito</span> Stessa struttura della verifica vera: due esercizi con due sinusoidi (somma, differenza, prodotto e rapporto), una sinusoide da scrivere come vettore e tre numeri complessi da trasformare in segnali. I numeri cambiano a ogni simulazione.</p></div>
   <div id="sim-root"></div>
 </section>
 
@@ -2036,30 +2108,267 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
     make: p => { const e = T.th_mcq.make(p); e.type = 'sim_th'; e.title = 'Teoria'; return e; },
   };
 
+  // ================= Il compito vero (verifica del 5/11/2026) =================
+  // Esercizi con la stessa struttura delle quattro domande della verifica e disegni in SVG
+  // (stringhe, nessun accesso al DOM): vettori nel piano di Gauss e sinusoidi su assi cartesiani.
+  const VV = s => H.v('V') + '<sub>' + s + '</sub>';
+  const r1 = v => (Math.round(v * 10) / 10).toFixed(1);
+  const pd = x => (roundTo(x, 1) < 0 ? '(' + fdeg(x) + ')' : fdeg(x)); // angolo negativo tra parentesi
+  function senStr(amp, w, phi, name, unit) {
+    const ph = Math.abs(phi) < 1e-9 ? '' : (phi < 0 ? ' − ' + fdeg(-phi) : ' + ' + fdeg(phi));
+    const wt = (typeof w === 'number' ? fmt(w, 0) : w) + '<i>t</i>';
+    return (name ? name + '(<i>t</i>) = ' : '') + fmt(amp) + ' sen(' + wt + ph + ')' + (unit ? ' ' + unit : '');
+  }
+  function svgLabel(lab) {
+    const i = lab.indexOf('_');
+    if (i < 0) return lab;
+    return lab.slice(0, i) + '<tspan dy="3" font-size="75%">' + lab.slice(i + 1) + '</tspan>';
+  }
+  function svgArrow(x1, y1, x2, y2, c, dash) {
+    const a = Math.atan2(y2 - y1, x2 - x1), L = Math.hypot(x2 - x1, y2 - y1);
+    if (L < 0.5) return '';
+    const h = Math.min(9, L * 0.45), bx = x2 - Math.cos(a) * h, by = y2 - Math.sin(a) * h, px = Math.sin(a) * h * 0.45, py = -Math.cos(a) * h * 0.45;
+    return '<line class="cd-l ' + c + (dash ? ' cd-dash' : '') + '" x1="' + r1(x1) + '" y1="' + r1(y1) + '" x2="' + r1(bx) + '" y2="' + r1(by) + '"/>' +
+      '<polygon class="cd-f ' + c + '" points="' + [x2, y2, bx + px, by + py, bx - px, by - py].map(r1).join(' ') + '"/>';
+  }
+  function legendHTML(items) {
+    return items.length ? '<ul class="cd-leg">' + items.map(it => '<li><i class="cd-sw ' + it.c + (it.dash ? ' cd-swd' : '') + '"></i><span>' + it.leg + '</span></li>').join('') + '</ul>' : '';
+  }
+  // vs: [{ z, lab, c, leg, dash, from, arc }]  c = c1…c5 (colori del tema)
+  function vecDiagram(vs, o) {
+    o = o || {};
+    const c0 = 130, R = 92;
+    let m = 0;
+    vs.forEach(v => { m = Math.max(m, abs(v.from ? add(v.from, v.z) : v.z), v.from ? abs(v.from) : 0); });
+    if (!m) m = 1;
+    const k = R / m, X = z => c0 + z.re * k, Y = z => c0 - z.im * k;
+    let s = '<svg class="cd-svg" viewBox="0 0 260 260" role="img" aria-label="' + (o.label || 'Vettori nel piano di Gauss') + '">' +
+      '<circle class="cd-grid" cx="130" cy="130" r="' + R + '"/>' +
+      '<line class="cd-ax" x1="6" y1="130" x2="254" y2="130"/><line class="cd-ax" x1="130" y1="254" x2="130" y2="6"/>' +
+      '<polygon class="cd-axf" points="254,130 246,126 246,134"/><polygon class="cd-axf" points="130,6 126,14 134,14"/>' +
+      '<text class="cd-t" x="252" y="122" text-anchor="end">Re</text><text class="cd-t" x="137" y="16">Im (j)</text>' +
+      '<text class="cd-t cd-s" x="' + (130 + R) + '" y="146" text-anchor="middle">' + fmt(m, 1) + '</text>' +
+      '<line class="cd-ax" x1="' + (130 + R) + '" y1="126" x2="' + (130 + R) + '" y2="134"/>';
+    let arcN = 0;
+    vs.forEach(v => {
+      if (!v.arc) return;
+      const deg = argDeg(v.z), ar = 22 + 9 * arcN++;
+      if (Math.abs(deg) < 0.5) return;
+      const ex = c0 + ar * cosd(deg), ey = c0 - ar * sind(deg);
+      s += '<path class="cd-arc ' + v.c + '" d="M' + (c0 + ar) + ' ' + c0 + ' A' + ar + ' ' + ar + ' 0 ' + (Math.abs(deg) > 180 ? 1 : 0) + ' ' + (deg >= 0 ? 0 : 1) + ' ' + r1(ex) + ' ' + r1(ey) + '"/>';
+      const lx = c0 + (ar + 12) * cosd(deg / 2), ly = c0 - (ar + 12) * sind(deg / 2) + 4;
+      s += '<text class="cd-t cd-b ' + v.c + '" x="' + r1(lx) + '" y="' + r1(ly) + '" text-anchor="middle">' + fdeg(deg) + '</text>';
+    });
+    vs.forEach(v => {
+      const z0 = v.from || C(0, 0), z1 = add(z0, v.z);
+      s += svgArrow(X(z0), Y(z0), X(z1), Y(z1), v.c, v.dash);
+    });
+    vs.forEach(v => {
+      if (!v.lab) return;
+      const z0 = v.from || C(0, 0), z1 = add(z0, v.z), a = Math.atan2(v.z.im, v.z.re);
+      const lx = Math.min(254, Math.max(6, X(z1) + Math.cos(a) * 9)), ly = Math.min(254, Math.max(12, Y(z1) - Math.sin(a) * 9 + 4));
+      const anc = Math.cos(a) > 0.35 ? 'start' : Math.cos(a) < -0.35 ? 'end' : 'middle';
+      s += '<text class="cd-t cd-b ' + v.c + '" x="' + r1(lx) + '" y="' + r1(ly) + '" text-anchor="' + anc + '">' + svgLabel(v.lab) + '</text>';
+    });
+    s += '</svg>';
+    return '<figure class="cd-fig">' + s + '<figcaption>' + (o.cap ? '<b>' + o.cap + '</b>' : '') + legendHTML(vs.filter(v => v.leg)) + '</figcaption></figure>';
+  }
+  // list: [{ M, phi, c, leg }] — un periodo, in orizzontale l'angolo ωt da 0° a 360°
+  function sinGraph(list, o) {
+    o = o || {};
+    const x0 = 46, x1 = 500, y0 = 112, A = 86;
+    let m = 0; list.forEach(g => { m = Math.max(m, g.M); });
+    const k = A / (m || 1), X = d => x0 + (x1 - x0) * d / 360;
+    let s = '<svg class="cd-svg cd-wide" viewBox="0 0 520 226" role="img" aria-label="' + (o.label || 'Sinusoidi su assi cartesiani') + '">';
+    for (let d = 90; d <= 360; d += 90) s += '<line class="cd-grid" x1="' + r1(X(d)) + '" y1="22" x2="' + r1(X(d)) + '" y2="202"/>';
+    for (let d = 0; d <= 360; d += 90) s += '<text class="cd-t" x="' + r1(X(d)) + '" y="220" text-anchor="middle">' + d + '°</text>';
+    s += '<line class="cd-ax" x1="' + (x0 - 6) + '" y1="' + y0 + '" x2="512" y2="' + y0 + '"/><polygon class="cd-axf" points="514,' + y0 + ' 506,' + (y0 - 4) + ' 506,' + (y0 + 4) + '"/>' +
+      '<line class="cd-ax" x1="' + x0 + '" y1="210" x2="' + x0 + '" y2="8"/><polygon class="cd-axf" points="' + x0 + ',6 ' + (x0 - 4) + ',14 ' + (x0 + 4) + ',14"/>' +
+      '<text class="cd-t" x="514" y="' + (y0 - 8) + '" text-anchor="end">ωt</text><text class="cd-t" x="' + (x0 + 7) + '" y="16">' + (o.ylab || 'v') + '</text>';
+    const used = [];
+    list.forEach(g => {
+      const yy = y0 - k * g.M;
+      if (used.every(u => Math.abs(u - yy) > 11)) {
+        used.push(yy);
+        s += '<line class="cd-grid cd-dash2" x1="' + x0 + '" y1="' + r1(yy) + '" x2="' + x1 + '" y2="' + r1(yy) + '"/><text class="cd-t cd-b ' + g.c + '" x="' + (x0 - 4) + '" y="' + r1(yy + 4) + '" text-anchor="end">' + fmt(g.M, 1) + '</text>';
+        if (list.length === 1) s += '<line class="cd-grid cd-dash2" x1="' + x0 + '" y1="' + r1(2 * y0 - yy) + '" x2="' + x1 + '" y2="' + r1(2 * y0 - yy) + '"/><text class="cd-t cd-b ' + g.c + '" x="' + (x0 - 4) + '" y="' + r1(2 * y0 - yy + 4) + '" text-anchor="end">−' + fmt(g.M, 1) + '</text>';
+      }
+    });
+    list.forEach(g => {
+      let d = '';
+      for (let i = 0; i <= 180; i++) { const u = i * 2; d += (i ? 'L' : 'M') + r1(X(u)) + ' ' + r1(y0 - k * g.M * sind(u + g.phi)); }
+      s += '<path class="cd-l cd-w ' + g.c + '" d="' + d + '"/>';
+    });
+    list.forEach(g => { s += '<circle class="cd-f ' + g.c + '" cx="' + x0 + '" cy="' + r1(y0 - k * g.M * sind(g.phi)) + '" r="3.6"/>'; });
+    s += '</svg>';
+    return '<figure class="cd-fig' + (o.narrow ? '' : ' cd-figw') + '">' + s + '<figcaption>' + (o.cap ? '<b>' + o.cap + '</b>' : '') + legendHTML(list.filter(g => g.leg)) + '</figcaption></figure>';
+  }
+  const quadName = z => { const q = quadrant(roundTo(z.re, 6), roundTo(z.im, 6)); return q ? q + ' quadrante' : (Math.abs(z.im) < 1e-9 ? 'sull\'asse reale' : 'sull\'asse immaginario'); };
+
+  // ----- Domande 1 e 2: due sinusoidi → vettori → somma, differenza, prodotto, rapporto -----
+  T.vsinops = {
+    title: 'Due sinusoidi: somma, differenza, prodotto e rapporto', topic: 'a331',
+    gen: rng => {
+      const zero = rng.chance(0.3);
+      let p1, p2;
+      do { p1 = zero ? 0 : rng.int(-10, 10) * 15; p2 = rng.int(-10, 10) * 15; } while (p1 === p2 || Math.abs(Math.abs(p1 - p2) - 180) < 1);
+      const w = rng.pick([100, 314, 500, 1000]);
+      let V1, V2;
+      do { V1 = rng.pick([10, 15, 20, 25, 30, 40, 50, 60, 80, 100, 120, 125, 150]); V2 = rng.pick([5, 10, 15, 20, 25, 30, 40, 50]); } while (V1 === V2);
+      return { V1: V1, p1: p1, V2: V2, p2: p2, w1: w, w2: w };
+    },
+    make: p => {
+      const A = polar(p.V1, p.p1), B = polar(p.V2, p.p2), S = add(A, B), Dd = sub(A, B);
+      const mP = p.V1 * p.V2, aP = normDeg(p.p1 + p.p2), mR = p.V1 / p.V2, aR = normDeg(p.p1 - p.p2);
+      const P = polar(mP, aP), R = polar(mR, aR), same = p.w1 === p.w2;
+      const V1 = VV('1'), V2 = VV('2'), Vs = VV('s'), Vd = VV('d');
+      const sS = argSteps(S, Vs), sD = argSteps(Dd, Vd);
+      const w = same ? p.w1 : 'ω';
+      const rawP = p.p1 + p.p2, rawR = p.p1 - p.p2;
+      const fix = (raw, n) => (Math.abs(raw - n) > 1e-9 ? ' = ' + fdeg(raw) + (raw > 0 ? ' − 360°' : ' + 360°') + ' = ' + fdeg(n) : '');
+      const bin = (z, M, ph) => fmt(M) + '(cos ' + pd(ph) + ' + <i>j</i> sen ' + pd(ph) + ') = ' + fmtCH(z);
+      const st = [
+        'Ogni sinusoide diventa un vettore fermo: <b>modulo = valore massimo</b> (il numero davanti a «sen»), <b>argomento = fase</b> (l\'angolo dentro la parentesi). La pulsazione ω non entra nel vettore. &nbsp;' + V1 + ' = <b>' + H.ang(p.V1, p.p1) + '</b> = ' + H.exp(p.V1, p.p1) + ' V; &nbsp; ' + V2 + ' = <b>' + H.ang(p.V2, p.p2) + '</b> = ' + H.exp(p.V2, p.p2) + ' V',
+        'Per somma e differenza serve la forma binomia (<i>a</i> = <i>V</i><sub>M</sub> cos φ, <i>b</i> = <i>V</i><sub>M</sub> sen φ): &nbsp;' + V1 + ' = ' + bin(A, p.V1, p.p1) + '; &nbsp; ' + V2 + ' = ' + bin(B, p.V2, p.p2),
+        '<b>Somma</b>: parti reali con parti reali, immaginarie con immaginarie. ' + Vs + ' = ' + V1 + ' + ' + V2 + ' = (' + fmt(A.re) + ' + ' + par(B.re) + ') + <i>j</i>(' + fmt(A.im) + ' + ' + par(B.im) + ') = <b>' + fmtCH(S) + ' V</b>',
+        'Modulo e argomento della somma: ' + modStep(S, Vs) + ' V; &nbsp;' + sS.html + (same ? '. Nel tempo: <b>' + senStr(abs(S), w, sS.deg, '<i>v</i><sub>s</sub>', 'V') + '</b>' : ''),
+        '<b>Differenza</b>: il meno cambia segno a tutte e due le parti di ' + V2 + '. ' + Vd + ' = ' + V1 + ' − ' + V2 + ' = (' + fmt(A.re) + ' − ' + par(B.re) + ') + <i>j</i>(' + fmt(A.im) + ' − ' + par(B.im) + ') = <b>' + fmtCH(Dd) + ' V</b>',
+        'Modulo e argomento della differenza: ' + modStep(Dd, Vd) + ' V; &nbsp;' + sD.html + (same ? '. Nel tempo: <b>' + senStr(abs(Dd), w, sD.deg, '<i>v</i><sub>d</sub>', 'V') + '</b>' : ''),
+        '<b>Prodotto</b>: conviene la forma esponenziale, si moltiplicano i moduli e si sommano gli argomenti. |' + V1 + '·' + V2 + '| = ' + fmt(p.V1) + ' · ' + fmt(p.V2) + ' = <b>' + fmt(mP) + '</b> V²; &nbsp; arg = ' + fdeg(p.p1) + ' + ' + pd(p.p2) + fix(rawP, aP) + (Math.abs(rawP - aP) > 1e-9 ? '' : ' = ' + fdeg(aP)) + ' → ' + V1 + '·' + V2 + ' = <b>' + H.exp(mP, aP) + '</b> = ' + fmtCH(P) + ' V²',
+        '<b>Rapporto</b>: si dividono i moduli e si sottraggono gli argomenti (quello di sopra meno quello di sotto). |' + V1 + '/' + V2 + '| = ' + H.frac(fmt(p.V1), fmt(p.V2)) + ' = <b>' + fmt(mR, 3) + '</b>; &nbsp; arg = ' + fdeg(p.p1) + ' − ' + pd(p.p2) + fix(rawR, aR) + (Math.abs(rawR - aR) > 1e-9 ? '' : ' = ' + fdeg(aR)) + ' → ' + V1 + '/' + V2 + ' = <b>' + H.exp(mR, aR, 3) + '</b> = ' + fmtCH(R, 3) + ' (senza unità: V diviso V)',
+        '<b>Rappresentazione vettoriale</b>: si disegnano sul piano di Gauss le frecce che partono dall\'origine, lunghe quanto il modulo (in scala) e girate dell\'argomento, misurato dall\'asse reale in senso antiorario. Prodotto e rapporto hanno unità diverse dalle tensioni: vanno in disegni separati, ognuno con la sua scala.',
+      ];
+      const leg1 = V1 + ' = ' + H.ang(p.V1, p.p1), leg2 = V2 + ' = ' + H.ang(p.V2, p.p2);
+      const figs = '<div class="cd-grid4">' +
+        vecDiagram([
+          { z: A, lab: 'V_1', c: 'c1', leg: leg1 }, { z: B, lab: 'V_2', c: 'c2', leg: leg2 },
+          { z: B, from: A, c: 'c2', dash: true }, { z: S, lab: 'V_s', c: 'c3', leg: Vs + ' = ' + V1 + ' + ' + V2 + ' = ' + H.ang(abs(S), sS.deg) },
+        ], { cap: 'Somma (regola del parallelogramma)', label: 'Somma dei vettori V1 e V2' }) +
+        vecDiagram([
+          { z: A, lab: 'V_1', c: 'c1', leg: leg1 }, { z: B, lab: 'V_2', c: 'c2', leg: leg2 },
+          { z: scale(B, -1), lab: '−V_2', c: 'c2', dash: true, leg: '−' + V2 + ' (tratteggiato)', }, { z: scale(B, -1), from: A, c: 'c2', dash: true },
+          { z: Dd, lab: 'V_d', c: 'c4', leg: Vd + ' = ' + V1 + ' − ' + V2 + ' = ' + H.ang(abs(Dd), sD.deg) },
+        ], { cap: 'Differenza: ' + V1 + ' + (−' + V2 + ')', label: 'Differenza dei vettori V1 e V2' }) +
+        vecDiagram([{ z: P, lab: 'P', c: 'c5', arc: true, leg: V1 + '·' + V2 + ' = ' + H.ang(mP, aP) + ' V²' }], { cap: 'Prodotto (scala sua)', label: 'Vettore prodotto' }) +
+        vecDiagram([{ z: R, lab: 'R', c: 'c5', arc: true, leg: V1 + '/' + V2 + ' = ' + H.ang(mR, aR, 3) }], { cap: 'Rapporto (scala sua)', label: 'Vettore rapporto' }) +
+        '</div>';
+      const warn = same ? '' : '<p class="warn"><b>Attenzione, pulsazioni diverse:</b> ω<sub>1</sub> = ' + fmt(p.w1, 0) + ' rad/s e ω<sub>2</sub> = ' + fmt(p.w2, 0) + ' rad/s. I vettori fermi valgono per sinusoidi con la <b>stessa frequenza</b>: solo allora girano insieme e restano fermi uno rispetto all\'altro. La consegna chiede comunque le quattro operazioni: si fanno sui due vettori (numeri complessi) come qui sotto, e sul foglio conviene scrivere una riga per dire che te ne sei accorto. Per lo stesso motivo il risultato della somma e della differenza non si può riscrivere come un\'unica sinusoide.</p>';
+      return {
+        type: 'vsinops', title: T.vsinops.title, topic: 'a331', p: p,
+        prompt: 'Siano date le seguenti tensioni alternate sinusoidali: ' + senStr(p.V1, p.w1, p.p1, '<i>v</i><sub>1</sub>', 'V') + ' e ' + senStr(p.V2, p.w2, p.p2, '<i>v</i><sub>2</sub>', 'V') + ', si esegua la loro somma, differenza, prodotto e rapporto. Si dia una rappresentazione vettoriale dei risultati ottenuti.',
+        fields: [
+          fNum('Sm', '|' + V1 + ' + ' + V2 + '| =', abs(S), { unit: 'V', units: 'v' }), fAng('Sa', 'arg(' + V1 + ' + ' + V2 + ') =', sS.deg),
+          fNum('Dm', '|' + V1 + ' − ' + V2 + '| =', abs(Dd), { unit: 'V', units: 'v' }), fAng('Da', 'arg(' + V1 + ' − ' + V2 + ') =', sD.deg),
+          fNum('Pm', '|' + V1 + '·' + V2 + '| =', mP, { unit: 'V²' }), fAng('Pa', 'arg(' + V1 + '·' + V2 + ') =', aP),
+          fNum('Rm', '|' + V1 + '/' + V2 + '| =', mR, { d: 3 }), fAng('Ra', 'arg(' + V1 + '/' + V2 + ') =', aR),
+        ],
+        solution: warn + H.steps(st) + figs + H.note('Errori tipici: sommare i valori massimi (' + fmt(p.V1) + ' + ' + fmt(p.V2) + ' = ' + fmt(p.V1 + p.V2) + ' V: vale solo se le fasi sono uguali); dimenticare il segno meno della fase; non correggere l\'argomento quando la parte reale è negativa.'),
+      };
+    },
+  };
+  T.vsinops0 = {
+    title: T.vsinops.title, topic: 'a331',
+    gen: rng => { const p = T.vsinops.gen(rng); p.p1 = 0; if (p.p2 === 0 || Math.abs(Math.abs(p.p2) - 180) < 1) p.p2 = rng.pick([30, 45, 55, 60, -40, -60]); return p; },
+    make: p => T.vsinops.make(p),
+  };
+
+  // ----- Domanda 3: una sinusoide (con fase fuori dal giro) in forma vettoriale -----
+  T.sinvec = {
+    title: 'Una sinusoide in forma vettoriale', topic: 'a331',
+    gen: rng => ({ VM: rng.pick([10, 20, 50, 100, 150, 200, 230, 311]), w: rng.pick([100, 314, 500, 628, 1000]), phi: rng.pick([-270, -300, -330, -210, -240, 270, 300, 330, 210, 240, -225, 390, -390, 450]) }),
+    make: p => {
+      const ph = normDeg(p.phi), z = polar(p.VM, ph), f = p.w / (2 * Math.PI), V = H.v('V');
+      const turns = Math.round((ph - p.phi) / 360);
+      const fixTxt = turns === 0 ? 'La fase ' + fdeg(p.phi) + ' è già tra −180° e 180°.' :
+        'La fase ' + fdeg(p.phi) + ' è fuori dall\'intervallo da −180° a 180°: ' + (turns > 0 ? 'aggiungo ' : 'tolgo ') + (Math.abs(turns) === 1 ? 'un giro (360°)' : Math.abs(turns) + ' giri (' + Math.abs(turns * 360) + '°)') + ', che non cambia la direzione: ' + fdeg(p.phi) + (turns > 0 ? ' + ' : ' − ') + Math.abs(turns * 360) + '° = <b>' + fdeg(ph) + '</b>.';
+      const cosTxt = Math.abs(ph - 90) < 1e-9 ? ' = ' + fmt(p.VM) + ' cos(' + fmt(p.w, 0) + '<i>t</i>)' : Math.abs(ph + 90) < 1e-9 ? ' = −' + fmt(p.VM) + ' cos(' + fmt(p.w, 0) + '<i>t</i>)' : '';
+      const st = [
+        'Leggo la sinusoide: valore massimo <i>V</i><sub>M</sub> = ' + fmt(p.VM) + ' V, pulsazione ω = ' + fmt(p.w, 0) + ' rad/s, fase φ = ' + fdeg(p.phi) + '.',
+        'Frequenza e periodo (servono per il disegno nel tempo): <i>f</i> = ω/2π = ' + fmt(p.w, 0) + '/' + fmt(2 * Math.PI) + ' = ' + fmt(f) + ' Hz; &nbsp; <i>T</i> = 1/<i>f</i> = ' + fmt(1000 / f) + ' ms.',
+        fixTxt + (turns ? ' Quindi <i>v</i>(<i>t</i>) = ' + senStr(p.VM, p.w, ph) + cosTxt + ' V: è la stessa sinusoide.' : ''),
+        'Vettore (modulo = valore massimo, argomento = fase): ' + V + ' = <b>' + H.ang(p.VM, ph) + '</b> = ' + H.exp(p.VM, ph) + ' V',
+        'Forma binomia: <i>a</i> = ' + fmt(p.VM) + ' cos ' + pd(ph) + ' = ' + fmt(z.re) + '; &nbsp; <i>b</i> = ' + fmt(p.VM) + ' sen ' + pd(ph) + ' = ' + fmt(z.im) + ' → ' + V + ' = <b>' + fmtCH(z) + ' V</b>',
+        'Controllo: all\'istante 0 la tensione vale <i>v</i>(0) = ' + fmt(p.VM) + ' sen(' + fdeg(p.phi) + ') = ' + fmt(p.VM * sind(p.phi)) + ' V, cioè proprio la parte immaginaria <i>b</i> del vettore.',
+        'Se il prof chiedesse il valore efficace come modulo: |' + V + '| = ' + H.frac(fmt(p.VM), '√2') + ' = ' + fmt(p.VM / Math.SQRT2) + ' V, con la stessa fase ' + fdeg(ph) + '.',
+      ];
+      const figs = '<div class="cd-grid2">' +
+        vecDiagram([{ z: z, lab: 'V', c: 'c1', arc: true, leg: V + ' = ' + H.ang(p.VM, ph) + ' = ' + fmtCH(z) + ' V' }], { cap: 'Rappresentazione vettoriale', label: 'Vettore della sinusoide' }) +
+        sinGraph([{ M: p.VM, phi: ph, c: 'c1', leg: senStr(p.VM, p.w, ph, '<i>v</i>', 'V') + '; il pallino è <i>v</i>(0) = ' + fmt(z.im) + ' V' }], { cap: 'La stessa sinusoide nel tempo (un periodo, T = ' + fmt(1000 / f) + ' ms)' }) +
+        '</div>';
+      return {
+        type: 'sinvec', title: T.sinvec.title, topic: 'a331', p: p,
+        prompt: 'Rappresentare in forma vettoriale il seguente segnale sinusoidale: ' + senStr(p.VM, p.w, p.phi, '<i>v</i><sub>1</sub>', 'V') + '.',
+        fields: [fNum('f', 'frequenza <i>f</i> =', f, { unit: 'Hz', units: 'hz' }), fAng('phi', 'fase tra −180° e 180°: φ =', ph), fCplx('bin', V + ' in forma binomia =', z)],
+        solution: H.steps(st) + figs + H.note('Errore tipico: disegnare la freccia a −270° girando in senso orario e poi sbagliare il quadrante. −270° e +90° sono la stessa direzione: la freccia punta in alto.'),
+      };
+    },
+  };
+
+  // ----- Domanda 4: dai numeri complessi ai segnali sinusoidali (rappresentazione cartesiana) -----
+  T.cplx2sin = {
+    title: 'Dal numero complesso al segnale sinusoidale', topic: 'a331',
+    gen: rng => {
+      const qs = rng.shuffle([1, 2, 3, 4]).slice(0, 3);
+      const sg = { 1: [1, 1], 2: [-1, 1], 3: [-1, -1], 4: [1, -1] };
+      return { list: qs.map(q => [sg[q][0] * rng.int(1, 12) * 5, sg[q][1] * rng.int(1, 12) * 5]) };
+    },
+    make: p => {
+      const zs = p.list.map(x => C(x[0], x[1])), cols = ['c1', 'c2', 'c3', 'c4'];
+      const fields = [], st = [], gl = [], vl = [];
+      zs.forEach((z, i) => {
+        const n = String(i + 1), Vn = VV(n), A = argSteps(z, Vn), m = abs(z);
+        fields.push(fNum('M' + n, '|' + Vn + '| = <i>V</i><sub>M' + n + '</sub> =', m, { unit: 'V', units: 'v' }), fAng('a' + n, 'fase φ<sub>' + n + '</sub> =', A.deg));
+        st.push('<b>' + Vn + ' = ' + fmtCH(z) + '</b>: parte reale ' + (z.re < 0 ? 'negativa' : 'positiva') + ', parte immaginaria ' + (z.im < 0 ? 'negativa' : 'positiva') + ' → ' + quadName(z) + '. Modulo (è il valore massimo): ' + modStep(z, Vn) + ' V; &nbsp;' + A.html + '. &nbsp;Quindi <b>' + senStr(m, 'ω', A.deg, '<i>v</i><sub>' + n + '</sub>', 'V') + '</b>; controllo: <i>v</i><sub>' + n + '</sub>(0) = ' + fmt(m) + ' sen(' + fdeg(A.deg) + ') = ' + fmt(z.im) + ' V, la parte immaginaria.');
+        gl.push({ M: m, phi: A.deg, c: cols[i], leg: senStr(m, 'ω', A.deg, '<i>v</i><sub>' + n + '</sub>', 'V') + ' &nbsp;(<i>v</i><sub>' + n + '</sub>(0) = ' + fmt(z.im) + ')' });
+        vl.push({ z: z, lab: 'V_' + n, c: cols[i], leg: Vn + ' = ' + fmtCH(z) + ' = ' + H.ang(m, A.deg) });
+      });
+      st.push('La pulsazione non è data: si lascia ω (se la rete è a 50 Hz, ω = 314 rad/s). Il numero complesso dà solo valore massimo e fase.');
+      st.push('<b>Rappresentazione cartesiana</b>: su un piano con l\'angolo ω<i>t</i> (cioè il tempo) in orizzontale e la tensione in verticale si disegna un periodo di ogni sinusoide. Ognuna oscilla tra +<i>V</i><sub>M</sub> e −<i>V</i><sub>M</sub>, all\'istante 0 vale la parte immaginaria <i>b</i> (pallino) e passa per lo zero salendo quando ω<i>t</i> = −φ (o −φ + 360°).');
+      const figs = '<div class="cd-grid2">' + gl.map((g, i) => sinGraph([g], { cap: 'Rappresentazione cartesiana di <i>v</i><sub>' + (i + 1) + '</sub> (un periodo)', narrow: true, label: 'Sinusoide v' + (i + 1) })).join('') +
+        vecDiagram(vl, { cap: 'Gli stessi segnali come vettori', label: 'Vettori dei tre numeri complessi' }) +
+        sinGraph(gl, { cap: 'Tutti e tre insieme, nella stessa scala' }) + '</div>';
+      return {
+        type: 'cplx2sin', title: T.cplx2sin.title, topic: 'a331', p: p,
+        prompt: 'Siano dati i seguenti numeri complessi, che rappresentano dei segnali sinusoidali. Dare una rappresentazione cartesiana del segnale ad essi corrispondente: ' + zs.map((z, i) => VV(String(i + 1)) + ' = ' + fmtCH(z)).join('; &nbsp; ') + '.',
+        fields: fields,
+        solution: H.steps(st) + figs + H.note('Errore tipico: prendere l\'angolo della calcolatrice senza guardare il quadrante. Con la parte reale negativa si aggiunge (o si toglie) 180°.'),
+      };
+    },
+  };
+  // Le quattro domande della verifica, con i numeri veri
+  const COMPITO = [
+    { type: 'vsinops', p: { V1: 125, p1: 45, V2: 30, p2: -30, w1: 500, w2: 500 }, title: 'Domanda 1', what: 'Due sinusoidi con la stessa ω: vettori, somma, differenza, prodotto e rapporto, disegno dei vettori.' },
+    { type: 'vsinops', p: { V1: 15, p1: 0, V2: 30, p2: 55, w1: 100, w2: 500 }, title: 'Domanda 2', what: 'Come la 1, ma una fase è 0° e le pulsazioni sono diverse (100 e 500 rad/s).' },
+    { type: 'sinvec', p: { VM: 100, w: 314, phi: -270 }, title: 'Domanda 3', what: 'Una sinusoide con fase −270° da scrivere come vettore.' },
+    { type: 'cplx2sin', p: { list: [[-5, -5], [-15, 30], [25, -60]] }, title: 'Domanda 4', what: 'Tre numeri complessi da trasformare in segnali sinusoidali e da disegnare su assi cartesiani.' },
+  ];
+
   // ================= Insiemi di esercizi =================
   const LEVELS = {
     facile: ['freq', 'valori', 'potj', 'modarg', 'coniugato', 'th_mcq'],
     medio: ['sinus', 'modarg', 'pol2bin', 'sumdiff', 'prodratio', 'th_matchfill'],
-    compito: ['esempio1', 'esempio2', 'razional', 'sin2vec', 'sumsin', 'th_orderopen'],
+    compito: ['vsinops', 'sinvec', 'cplx2sin', 'vsinops0', 'esempio2', 'esempio1'],
     extra: ['reatt', 'rlc', 'ammet', 'potenza'],
   };
   function buildSet(level, seed) {
     const rng = makeRng(seed);
     return LEVELS[level].map(t => { const p = T[t].gen(rng, level); const e = T[t].make(p); e.level = level; return e; });
   }
+  // Stessa struttura della verifica vera: 3 + 3 + 1,5 + 2,5 punti
   const SIM_PLAN = [
-    { type: 'sim_sin', pts: 0.5, title: 'Esercizio 1 — Grandezze sinusoidali' },
-    { type: 'sim_cplx', pts: 0.5, title: 'Esercizio 2 — Numeri complessi' },
-    { type: 'esempio2', pts: 0.5, title: 'Esercizio 3 — Operazioni con i numeri complessi' },
-    { type: 'sim_th', pts: 0.5, title: 'Esercizio 4 — Teoria' },
+    { type: 'vsinops', tot: 3, title: 'Esercizio 1 — Due sinusoidi: somma, differenza, prodotto e rapporto' },
+    { type: 'vsinops0', tot: 3, title: 'Esercizio 2 — Due sinusoidi, una con fase 0°' },
+    { type: 'sinvec', tot: 1.5, title: 'Esercizio 3 — Una sinusoide in forma vettoriale' },
+    { type: 'cplx2sin', tot: 2.5, title: 'Esercizio 4 — Dai numeri complessi ai segnali' },
   ];
   function buildSim(seed) {
     const rng = makeRng(seed);
     return SIM_PLAN.map(s => {
       const p = T[s.type].gen(rng, 'compito');
       const e = T[s.type].make(p);
-      e.fields.forEach(f => { f.pts = s.pts; });
-      e.simTitle = s.title; e.pts = e.fields.length * s.pts;
+      const per = s.tot !== undefined ? s.tot / e.fields.length : s.pts;
+      e.fields.forEach(f => { f.pts = per; });
+      e.simTitle = s.title; e.pts = s.tot !== undefined ? s.tot : e.fields.length * s.pts;
       return e;
     });
   }
@@ -2103,6 +2412,7 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
     checkField: checkField, solutionInput: solutionInput,
     TYPES: T, LEVELS: LEVELS, buildSet: buildSet, buildSim: buildSim, SIM_PLAN: SIM_PLAN, voto: voto,
     MCQ: MCQ, TF: TF, MATCH: MATCH, FILL: FILL, ORDER: ORDER, OPEN: OPEN, QUEST: QUEST, CALC: CALC, mcqField: mcqField,
+    vecDiagram: vecDiagram, sinGraph: sinGraph, senStr: senStr, COMPITO: COMPITO,
   };
 })(typeof globalThis !== 'undefined' ? globalThis : this);
 
@@ -2123,7 +2433,7 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
 
   // ================= stato salvato nel browser =================
   const KEY = 'ripasso-a3-v1';
-  const blank = () => ({ v: 1, theory: {}, plan: {}, ex: {}, prof: {}, quest: {}, quiz: {}, sim: { history: [], current: null }, level: 'medio' });
+  const blank = () => ({ v: 1, theory: {}, plan: {}, ex: {}, prof: {}, comp: {}, quest: {}, quiz: {}, sim: { history: [], current: null }, level: 'medio' });
   let S = blank();
   try {
     const raw = window.localStorage.getItem(KEY);
@@ -2133,7 +2443,7 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
   function save() { try { window.localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) { /* ignorato */ } }
 
   // ================= navigazione =================
-  const VIEWS = ['inizio', 'teoria', 'laboratorio', 'esercizi', 'prof', 'quiz', 'simulazione', 'tutor'];
+  const VIEWS = ['inizio', 'compito', 'teoria', 'laboratorio', 'esercizi', 'prof', 'quiz', 'simulazione', 'tutor'];
   let currentView = null;
   function setHdr() {
     const top = $('#top');
@@ -2352,7 +2662,7 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
     $$('#theory .th').forEach(a => {
       const li = document.createElement('li');
       const key = a.dataset.th || '';
-      li.innerHTML = '<a href="#' + a.id + '" data-toc="' + key + '"><span class="ck">' + (key ? '✓' : '!') + '</span><span>' + (a.dataset.num !== '!' ? a.dataset.num + ' · ' : '') + a.dataset.title + (a.dataset.extra ? '<span class="x">oltre il compito</span>' : '') + '</span></a>';
+      li.innerHTML = '<a href="#' + a.id + '" data-toc="' + key + '"><span class="ck">' + (key ? '✓' : '!') + '</span><span>' + (a.dataset.num !== '!' ? a.dataset.num + ' · ' : '') + a.dataset.title + (a.dataset.extra ? '<span class="x">oltre il compito</span>' : '') + (a.dataset.comp ? '<span class="cmp">● nel compito · ' + a.dataset.comp + '</span>' : '') + '</span></a>';
       list.appendChild(li);
     });
     $$('[data-gotit]').forEach(ck => {
@@ -2403,12 +2713,14 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
     const exOk = lv => { const r = (S.ex[lv] && S.ex[lv].res) || {}; return Object.keys(r).filter(k => r[k] === 'ok').length; };
     const qDone = T.QUEST.filter(q => S.quest[q.id] === 'ok').length;
     const pDone = ['es1', 'es2'].filter(k => S.prof[k] === 'ok').length;
+    const cDone = T.COMPITO.filter((c, i) => S.comp['d' + (i + 1)] === 'ok').length;
     const games = ['lampo', 'abbina', 'ordina', 'crocette'];
     const gPlayed = games.filter(g => S.quiz[g]).length;
     const h = S.sim.history || [];
     const best = h.length ? h.reduce((a, b) => (b.score > a.score ? b : a)) : null;
     const planN = $$('[data-plan-ck]').length, planDone = Object.keys(S.plan).filter(k => S.plan[k]).length;
     el.innerHTML =
+      bar('Domande del compito', cDone, T.COMPITO.length, cDone + ' risolte su ' + T.COMPITO.length) +
       bar('Piano di studio', planDone, planN, planDone + ' passi su ' + planN) +
       bar('Teoria capita', thDone, thKeys.length, thDone + ' argomenti su ' + thKeys.length) +
       bar('Esercizi Facile', exOk('facile'), 6, exOk('facile') + ' giusti su 6') +
@@ -2594,7 +2906,7 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
   const LEVEL_INFO = {
     facile: 'Per scaldarti: periodo, frequenza e pulsazione, valori di una sinusoide, potenze di <i>j</i>, modulo e argomento nel 1° quadrante, coniugato e due crocette.',
     medio: 'Il livello per ripassare: leggere una sinusoide, modulo e argomento in tutti i quadranti, da esponenziale a binomia, somma e differenza, prodotto e rapporto, abbinamento e completamento.',
-    compito: 'Come al compito: Esempio 1 ed Esempio 2 con numeri nuovi, rapporto con la razionalizzazione, dalla sinusoide al vettore, somma di due sinusoidi, un ordinamento e una domanda aperta.',
+    compito: 'Come la verifica vera: due sinusoidi con somma, differenza, prodotto e rapporto (due volte, una con fase 0°), una sinusoide con fase fuori dal giro da scrivere come vettore, tre numeri complessi da trasformare in segnali, più l\'Esempio 2 e l\'Esempio 1 con numeri nuovi.',
     extra: 'Oltre il compito (A3.6–A3.9): reattanze, circuito RLC serie, ammettenza e potenza su un carico resistivo.',
   };
   const EX = { level: 'medio', cards: [] };
@@ -2644,6 +2956,22 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
       if (S.quest[q.id] === 'ok') api.card.classList.add('done-ok');
       ql.appendChild(api.card); PROF.quest.push(api);
     });
+  }
+
+  // ================= Il compito vero =================
+  const COMP = { cards: [] };
+  function initCompito() {
+    $('#comp-testi').innerHTML = T.COMPITO.map(c => '<li>' + T.TYPES[c.type].make(c.p).prompt + '</li>').join('');
+    const list = $('#comp-list');
+    T.COMPITO.forEach((c, i) => {
+      const ex = T.TYPES[c.type].make(c.p), k = 'd' + (i + 1);
+      const api = renderExercise(ex, { key: 'comp-' + i, label: c.title, title: '<span class="bollino sm">compito</span> ' + ex.title, prof: true, onResult: r => { S.comp[k] = r.all ? 'ok' : 'ko'; save(); } });
+      const what = document.createElement('p'); what.className = 'ex-what'; what.textContent = c.what;
+      api.card.querySelector('.ex-h').after(what);
+      if (S.comp[k] === 'ok') api.card.classList.add('done-ok');
+      list.appendChild(api.card); COMP.cards.push(api);
+    });
+    $('#comp-go-ex').addEventListener('click', () => { renderLevel('compito'); });
   }
 
   // ================= Quiz =================
@@ -2755,7 +3083,7 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
     clearInterval(SIM.timer);
     const root = $('#sim-root');
     if (S.sim.current && !S.sim.current.done) return renderSimRunning();
-    root.innerHTML = '<div class="card" style="max-width:760px"><h3>Prima di iniziare</h3><ul class="prose small" style="font-size:1rem"><li>4 esercizi, 20 risposte da mezzo punto: totale 10 punti.</li><li>Il cronometro parte quando premi «Inizia». Allo scadere il compito si consegna da solo.</li><li>Calcolatrice in gradi. Decimali con la virgola o con il punto.</li><li>Voto all\'italiana, arrotondato al quarto di punto: 6+ = 6,25 · 6½ = 6,5 · 7− = 6,75.</li><li>Se ricarichi la pagina la simulazione riprende da dove eri.</li></ul>' +
+    root.innerHTML = '<div class="card" style="max-width:760px"><h3>Prima di iniziare</h3><ul class="prose small" style="font-size:1rem"><li>4 esercizi come la verifica vera: 3 + 3 + 1,5 + 2,5 punti, totale 10. Ogni esercizio vale in parti uguali tra le sue risposte.</li><li>I disegni dei vettori non si correggono qui: falli sul foglio e confrontali con quelli della soluzione.</li><li>Il cronometro parte quando premi «Inizia». Allo scadere il compito si consegna da solo.</li><li>Calcolatrice in gradi. Decimali con la virgola o con il punto.</li><li>Voto all\'italiana, arrotondato al quarto di punto: 6+ = 6,25 · 6½ = 6,5 · 7− = 6,75.</li><li>Se ricarichi la pagina la simulazione riprende da dove eri.</li></ul>' +
       '<div class="row"><span class="small muted">Durata:</span><div class="seg" id="sim-dur" role="group" aria-label="Durata"><button type="button" data-d="30" aria-pressed="false">30 min</button><button type="button" data-d="50" aria-pressed="true">50 min</button><button type="button" data-d="90" aria-pressed="false">90 min</button></div></div>' +
       '<div><button type="button" class="btn primary" id="sim-start">Inizia la simulazione</button></div></div>' + simHistoryHTML();
     let dur = 50;
@@ -3146,9 +3474,10 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
 
   // ================= Tutor (Claude dentro la pagina) =================
   const TUTOR = { sample: null, turns: [], ctl: null, ctx: '' };
-  const RULES = 'Sei il tutor di Telecomunicazioni di uno studente del 4° anno di un istituto tecnico (indirizzo informatica). Domani ha un compito sul capitolo A3 del libro, fino ai numeri complessi: grandezze periodiche e alternate (periodo, frequenza, valori massimo, minimo, picco-picco, medio ed efficace, fattore di forma); grandezze sinusoidali y(t) = Y_M sen(ωt + φ) con ω = 2πf = 2π/T; vettore rotante; grandezze isofrequenziali disegnate con vettori fermi; piano di Gauss (asse x reale, asse y immaginario j; non dà informazioni sulla frequenza); numeri complessi: forma binomia a + jb, modulo √(a² + b²), argomento arctg(b/a) con correzione di 180° se a < 0, forma trigonometrica |A|(cos α + j sen α), forma esponenziale |A|e^(jα), coniugato a − jb, somma e differenza in binomia, prodotto e rapporto in esponenziale, razionalizzazione; la formula A = A_M e^(jα)·e^(jωt). I circuiti R, L, C, RLC, impedenza e ammettenza sono oltre il compito: rispondi lo stesso, ma dillo.\n' +
+  const RULES = 'Sei il tutor di Telecomunicazioni di uno studente del 4° anno di un istituto tecnico (indirizzo informatica). Ha un compito sul capitolo A3 del libro, fino ai numeri complessi: grandezze periodiche e alternate (periodo, frequenza, valori massimo, minimo, picco-picco, medio ed efficace, fattore di forma); grandezze sinusoidali y(t) = Y_M sen(ωt + φ) con ω = 2πf = 2π/T; vettore rotante; grandezze isofrequenziali disegnate con vettori fermi; piano di Gauss (asse x reale, asse y immaginario j; non dà informazioni sulla frequenza); numeri complessi: forma binomia a + jb, modulo √(a² + b²), argomento arctg(b/a) con correzione di 180° se a < 0, forma trigonometrica |A|(cos α + j sen α), forma esponenziale |A|e^(jα), coniugato a − jb, somma e differenza in binomia, prodotto e rapporto in esponenziale, razionalizzazione; la formula A = A_M e^(jα)·e^(jωt). I circuiti R, L, C, RLC, impedenza e ammettenza sono oltre il compito: rispondi lo stesso, ma dillo.\n' +
     'Notazione del prof e del libro: vettori con la barra sopra, j unità immaginaria (il prof la scrive J), angoli in gradi con il simbolo °, «sen» per il seno, virgola decimale. Valore efficace = valore massimo/√2. Negli appunti il modulo del vettore è il valore massimo; dal par. A3.6 il libro usa il valore efficace: se serve, dichiara quale usi.\n' +
     'Errori noti nel libro (se lo studente li incontra, conferma la correzione): nella [A3.9] il modulo è √(a₁² + a₂²) e α = arctg(a₂/a₁); la formula di Eulero è e^(±jα) = cos α ± j sen α; nella [A3.23] l\'esponente è j(α + β); nella [A3.26] arg P = arctg((a₁b₂ + a₂b₁)/(a₁b₁ − a₂b₂)); nell\'Esempio 2 (A = 2 + j3, B = 4 − j7) arg(A − B) = 101,3° e non −79, arg(A·B) = −3,9° e non 4°; nella [A3.58] |Z| = √(R² + (X_L − X_C)²); negli appunti «Formule utili» sotto la radice non va la j.\n' +
+    'La traccia vera della verifica (4ª B INF, 5/11/2026) ha quattro esercizi: 1) v1 = 125 sen(500t + 45°) V e v2 = 30 sen(500t − 30°) V: somma, differenza, prodotto, rapporto e rappresentazione vettoriale dei risultati (risultati: 135,89∠32,69°, 120,76∠58,88°, 3750∠15°, 4,167∠75°); 2) lo stesso con v1 = 15 sen(100t) V e v2 = 30 sen(500t + 55°) V (40,51∠37,34°, 24,67∠−95,13°, 450∠55°, 0,5∠−55°): le pulsazioni sono diverse, quindi a rigore i vettori fermi non si potrebbero sommare; si fanno comunque i conti sui numeri complessi e lo si fa notare; 3) v1 = 100 sen(314t − 270°) V in forma vettoriale: −270° equivale a +90°, V = 100∠90° = j100; 4) V1 = −5 − j5, V2 = −15 + j30, V3 = 25 − j60 da trasformare in segnali e disegnare su assi cartesiani: 7,07 sen(ωt − 135°), 33,54 sen(ωt + 116,57°), 65 sen(ωt − 67,38°). In tutti si usa modulo del vettore = valore massimo. Se lo studente chiede di queste domande, guidalo passo passo invece di dare subito il risultato.\n' +
     'Come rispondere: in italiano, breve e chiaro (di solito meno di 150 parole), con i passaggi numerati quando fai un calcolo; ricontrolla i conti. Niente LaTeX e niente tabelle: scrivi le formule in testo semplice, per esempio |A| = √(3² + 4²) = 5 oppure A = 5∠53,1°. Se lo studente ti manda un suo svolgimento, indica il primo errore e come correggerlo. Resta sugli argomenti del programma.';
   function md(t) {
     const lines = esc(t).split('\n'); let html = '', list = null;
@@ -3204,7 +3533,7 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
     const ta = $('#chat-text'); ta.value = 'Non ho capito questo esercizio: mi spieghi dove sbaglio?'; ta.focus();
   };
   function initTutor() {
-    const chips = ['Spiegami la regola del quadrante con un esempio', 'Che differenza c\'è tra valore medio e valore efficace?', 'Come si fa il rapporto in forma binomia?', 'Dammi un esercizio come l\'Esempio 2 e poi correggimi'];
+    const chips = ['Domanda 2 del compito: perché le pulsazioni diverse sono un problema?', 'Come si disegna la rappresentazione vettoriale dei risultati?', 'Spiegami la regola del quadrante con un esempio', 'Che differenza c\'è tra valore medio e valore efficace?', 'Come si fa il rapporto in forma binomia?', 'Dammi un esercizio come l\'Esempio 2 e poi correggimi'];
     $('#chat-chips').innerHTML = chips.map(c => '<button type="button" class="chip">' + esc(c) + '</button>').join('');
     $('#chat-chips').addEventListener('click', ev => { const b = ev.target.closest('.chip'); if (b) tutorSend(b.textContent); });
     $('#chat-form').addEventListener('submit', ev => { ev.preventDefault(); const t = $('#chat-text').value; if (t.trim()) { $('#chat-text').value = ''; tutorSend(t); } });
@@ -3229,13 +3558,13 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
     $$('[data-fig-inline]').forEach(td => td.appendChild(phasorIcon(td.dataset.figInline)));
     const ap = $('#appunti-plane'); if (ap) ap.innerHTML = T.miniPlane(T.C(3, 2), 'V');
     $$('.worked').forEach(renderWorked);
-    initTheory(); initPlan(); initExercises(); initProf(); initQuiz(); renderSim();
+    initTheory(); initPlan(); initExercises(); initCompito(); initProf(); initQuiz(); renderSim();
     LAB.tools = [toolRot(), toolGauss(), toolCalc(), toolJ(), toolCirc()];
     initTutor();
     window.addEventListener('hashchange', route);
     window.addEventListener('resize', setHdr);
     route(); setHdr(); renderProgress();
-    window.__ripasso = { T: T, EX: EX, PROF: PROF, GAMES: GAMES, SIM: SIM, LAB: LAB, renderLevel: renderLevel, startSim: startSim, submitSim: submitSim, askSubmit: askSubmit, renderSim: renderSim, state: () => S, TUTOR: TUTOR, initTutor: initTutor };
+    window.__ripasso = { T: T, EX: EX, PROF: PROF, COMP: COMP, GAMES: GAMES, SIM: SIM, LAB: LAB, renderLevel: renderLevel, startSim: startSim, submitSim: submitSim, askSubmit: askSubmit, renderSim: renderSim, state: () => S, TUTOR: TUTOR, initTutor: initTutor };
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();
