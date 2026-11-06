@@ -196,10 +196,10 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 18px 30px; color
 .top-in .brand-t, .top-in .btn { white-space: nowrap; }
 
 /* ===== Il compito vero: bollino e disegni dei vettori / delle sinusoidi ===== */
-.bollino { display: inline-flex; align-items: center; gap: 5px; font: 700 .74rem/1.15 var(--f-ui); letter-spacing: .06em; text-transform: uppercase; color: var(--pen-red); background: var(--sheet); border: 2px solid var(--pen-red); border-radius: 99px; padding: 3px 9px 3px 7px; white-space: nowrap; vertical-align: middle; }
-.bollino::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--pen-red); flex: none; }
-.bollino.sm { font-size: .64rem; padding: 2px 7px 2px 5px; border-width: 1.5px; }
-.bollino.sm::before { width: 6px; height: 6px; }
+.bollino { display: inline-flex; align-items: center; gap: 5px; font: 800 .78rem/1.15 var(--f-ui); letter-spacing: .07em; text-transform: uppercase; color: var(--sheet); background: var(--pen-red); border: 0; border-radius: 99px; padding: 4px 11px 4px 8px; white-space: nowrap; vertical-align: middle; box-shadow: 0 1px 2px rgba(0, 0, 0, .18); }
+.bollino::before { content: "★"; font-size: 1.1em; line-height: 1; }
+.bollino.sm { font-size: .68rem; padding: 3px 8px 3px 6px; }
+.is-comp { border-color: var(--pen-red) !important; box-shadow: inset 6px 0 0 var(--pen-red); }
 .compbox { border: 2px solid var(--pen-red) !important; }
 .cd-grid4, .cd-grid2 { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); margin-top: 6px; }
 .cd-grid2 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
@@ -252,6 +252,13 @@ details.sol > summary { cursor: pointer; font-weight: 700; color: var(--ok); }
 details.sol[open] > summary { margin-bottom: 12px; }
 details.sol .sol-in { display: grid; gap: 12px; min-width: 0; }
 .cdx { min-width: 0; }
+.tappa.is-comp, .base.is-comp, .recipe.is-comp { padding-left: 24px; }
+.try.is-comp { border-color: var(--pen-red); }
+.labrow { display: flex; flex-wrap: wrap; gap: 6px 8px; align-items: center; }
+.flcard.is-comp { border-color: var(--pen-red) !important; box-shadow: none; padding-top: 0; }
+.fl-banner { margin: 0 -16px; padding: 9px 16px; border-radius: 9px 9px 0 0; background: var(--pen-red); color: var(--sheet); font: 800 .86rem/1.25 var(--f-ui); letter-spacing: .06em; text-transform: uppercase; }
+.fl-banner small { display: block; font-weight: 600; letter-spacing: .02em; text-transform: none; font-size: .82rem; opacity: .92; }
+.comp-legend { display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; font: 600 .95rem/1.4 var(--f-ui); }
 #fl-cats, #fl-lens { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
 #fl-cats .btn[aria-pressed="true"], #fl-lens .btn[aria-pressed="true"] { background: var(--teal); border-color: var(--teal); color: var(--on-teal); }
 .fl-n { font-weight: 400; opacity: .75; margin-left: 2px; }
@@ -288,7 +295,8 @@ details.sol .sol-in { display: grid; gap: 12px; min-width: 0; }
 
   <section class="card compbox compcard" id="compito">
     <h2>Il compito vero <span class="bollino">domande del compito</span></h2>
-    <p>Abbiamo la traccia della verifica (4ª B INF, 5 novembre 2026): quattro domande, tutte di conti con sinusoidi e frecce. Nessuna domanda di teoria. Le tappe con il <span class="bollino sm">bollino rosso</span> sono quelle che servono per il compito.</p>
+    <p>Abbiamo la traccia della verifica (4ª B INF, 5 novembre 2026): quattro domande, tutte di conti con sinusoidi e frecce. Nessuna domanda di teoria.</p>
+    <p class="comp-legend"><span class="bollino">compito</span> Quando vedi questo bollino rosso, o una riga rossa sul bordo, è una cosa del compito: studiala per prima.</p>
     <ol>
       <li><span class="n">1</span><span><b>Due sinusoidi: somma, differenza, prodotto e rapporto</b>, poi il disegno delle frecce.<small>Servono le tappe 3, 4, 5, 6, 7, 8 e 9.</small></span></li>
       <li><span class="n">2</span><span><b>Lo stesso con altri numeri</b>: un angolo è 0° e le due ω sono diverse (da far notare).<small>Come la 1.</small></span></li>
@@ -2675,12 +2683,14 @@ details.sol .sol-in { display: grid; gap: 12px; min-width: 0; }
     const g = F.G[box.dataset.g], api = { box: box, kind: box.dataset.g };
     let first = true;
     function build() {
-      const p = first && box.dataset.p ? JSON.parse(box.dataset.p) : g.gen(T.makeRng(newSeed())), ex = g.make(p);
+      const fixed = !!(first && box.dataset.p), p = fixed ? JSON.parse(box.dataset.p) : g.gen(T.makeRng(newSeed())), ex = g.make(p);
+      const comp = fixed && !!box.closest('#tc');
+      box.classList.toggle('is-comp', comp);
       first = false;
       api.ex = ex; api.p = p;
       const id = box.dataset.g + '-' + GX.indexOf(api);
       setTimeout(() => { if (window.GLOSS && window.GLOSS.ready) window.GLOSS.link(box); }, 0);
-      box.innerHTML = '<p class="lab">Prova tu · ' + g.title + '</p><p>' + ex.intro + '</p><ol class="gsteps">' + ex.steps.map((st, i) => {
+      box.innerHTML = '<div class="labrow"><p class="lab">Prova tu · ' + g.title + '</p>' + (comp ? '<span class="bollino sm">numeri veri del compito</span>' : '') + '</div><p>' + ex.intro + '</p><ol class="gsteps">' + ex.steps.map((st, i) => {
         const inp = st.kind === 'choice' ? '<div class="choices">' + st.options.map((o, j) => '<button type="button" class="btn" data-c="' + j + '">' + o + '</button>').join('') + '</div>' :
           '<div class="inrow"><input type="text" id="' + id + '-s' + i + '" inputmode="' + (st.neg || st.kind === 'ang' || st.ans < 0 ? 'text' : 'decimal') + '" autocomplete="off" aria-label="Risposta del passo ' + (i + 1) + '"><span class="unit">' + (st.unit || (st.kind === 'ang' ? '°' : '')) + '</span><button type="button" class="btn small" data-a="minus" aria-label="Inserisci il segno meno">−</button></div>';
         return '<li data-i="' + i + '"' + (i ? ' hidden' : '') + '><p>' + st.q + '</p>' + inp + '<div class="row"><button type="button" class="btn primary" data-a="check"' + (st.kind === 'choice' ? ' hidden' : '') + '>Controlla</button><button type="button" class="btn" data-a="hint">Aiuto</button><button type="button" class="btn ghost" data-a="show">Mostra la risposta</button></div><p class="hint" hidden>' + st.hint + '</p><p class="fb" aria-live="polite"></p></li>';
@@ -2797,8 +2807,11 @@ details.sol .sol-in { display: grid; gap: 12px; min-width: 0; }
     $$('[data-ct]').forEach(d => { const c = T.COMPITO[Number(d.dataset.ct)]; d.innerHTML = T.TYPES[c.type].make(c.p).prompt; });
     $$('details[data-cs]').forEach(d => { const c = T.COMPITO[Number(d.dataset.cs)]; const box = document.createElement('div'); box.className = 'sol-in'; box.innerHTML = T.TYPES[c.type].make(c.p).solution; d.appendChild(box); });
   }
+  function markComp() {
+    $$('.tappa, .base, .recipe, .sheet > div').forEach(e => { if (e.classList.contains('compbox') || e.querySelector(':scope > h2 .bollino, :scope > h3 .bollino')) { e.classList.add('is-comp'); } });
+  }
   function init() {
-    compito();
+    compito(); markComp();
     $$('[data-k]').forEach(e => { e.textContent = K[e.dataset.k](); });
     $$('figure[data-fig]').forEach(f => f.insertBefore(FIG[f.dataset.fig](), f.firstChild));
     $$('.solved').forEach(renderSolved);
@@ -2982,7 +2995,8 @@ details.sol .sol-in { display: grid; gap: 12px; min-width: 0; }
       '<div class="inrow"><input type="text" id="fl-in" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="' + PH[it.k] + '" aria-label="La tua risposta">' +
       (it.unit && it.k === 'num' ? '<span class="unit">' + it.unit + '</span>' : it.k === 'ang' ? '<span class="unit">°</span>' : '') +
       TOOLS[it.k].map(t => '<button type="button" class="btn small" data-ins="' + t + '" aria-label="Scrivi ' + t + '">' + t + '</button>').join('') + '</div>';
-    box.innerHTML = '<div class="fl-meta"><span>Domanda ' + (G.i + 1) + ' di ' + G.list.length + '</span>' + (it.c ? '<span class="bollino sm">' + (it.nuovo ? 'come il compito' : 'dal compito') + '</span>' : '') + '<span class="fl-bar"><i style="width:' + (100 * G.i / G.list.length) + '%"></i></span></div>' +
+    box.classList.toggle('is-comp', !!it.c);
+    box.innerHTML = (it.c ? '<div class="fl-banner">★ ' + (it.nuovo ? 'Come il compito<small>stesso tipo di domanda della verifica, con numeri nuovi</small>' : 'Domanda del compito<small>numeri veri della verifica del 5/11</small>') + '</div>' : '') + '<div class="fl-meta"><span>Domanda ' + (G.i + 1) + ' di ' + G.list.length + '</span><span class="fl-bar"><i style="width:' + (100 * G.i / G.list.length) + '%"></i></span></div>' +
       '<p class="fl-q">' + it.q + '</p>' + inp +
       '<div class="row"><button type="button" class="btn primary" data-a="check"' + (it.k === 'choice' ? ' hidden' : '') + '>Controlla</button><button type="button" class="btn" data-a="hint">Aiuto</button><button type="button" class="btn ghost" data-a="show">Mostra la risposta</button><button type="button" class="btn next" data-a="next" hidden>' + (G.i + 1 < G.list.length ? 'Avanti →' : 'Vedi il risultato →') + '</button></div>' +
       '<p class="hint" hidden>' + it.h + '</p><p class="fb" aria-live="polite"></p>';
@@ -3021,8 +3035,9 @@ details.sol .sol-in { display: grid; gap: 12px; min-width: 0; }
     const n = G.list.length, ok = G.first.filter(Boolean).length, k = S.cat + ':' + S.len, b = S.best[k];
     if (!b || ok / n > b.ok / b.n) { S.best[k] = { ok: ok, n: n }; save(); }
     const wrong = G.list.filter((_, i) => !G.first[i]);
+    $('#fl-card').classList.toggle('is-comp', false);
     $('#fl-card').innerHTML = '<p class="fl-q">Fine del giro: <b>' + ok + ' su ' + n + '</b> giuste al primo colpo. ' + (ok === n ? 'Perfetto!' : ok >= n * 0.7 ? 'Bene: ripassa solo quelle sbagliate.' : 'Rifai le sbagliate e rileggi le tappe con il bollino.') + '</p>' +
-      (wrong.length ? '<ul class="fl-wrong">' + wrong.map(it => '<li>' + it.q + ' → <b>' + answerText(it) + '</b></li>').join('') + '</ul>' : '') +
+      (wrong.length ? '<ul class="fl-wrong">' + wrong.map(it => '<li>' + (it.c ? '<span class="bollino sm">compito</span> ' : '') + it.q + ' → <b>' + answerText(it) + '</b></li>').join('') + '</ul>' : '') +
       '<div class="row">' + (wrong.length ? '<button type="button" class="btn primary" data-a="redo">Rifai le ' + wrong.length + ' sbagliate</button>' : '') + '<button type="button" class="btn' + (wrong.length ? '' : ' primary') + '" data-a="new">Nuovo giro</button></div>';
     G.wrong = wrong.map(it => it.src);
     $('#fl-score').textContent = bestTxt();
