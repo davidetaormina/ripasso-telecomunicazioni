@@ -252,6 +252,17 @@ details.sol > summary { cursor: pointer; font-weight: 700; color: var(--ok); }
 details.sol[open] > summary { margin-bottom: 12px; }
 details.sol .sol-in { display: grid; gap: 12px; min-width: 0; }
 .cdx { min-width: 0; }
+#fl-cats, #fl-lens { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+#fl-cats .btn[aria-pressed="true"], #fl-lens .btn[aria-pressed="true"] { background: var(--teal); border-color: var(--teal); color: var(--on-teal); }
+.fl-n { font-weight: 400; opacity: .75; margin-left: 2px; }
+.flcard { border: 2px solid var(--teal); border-radius: 12px; padding: 16px; display: grid; gap: 12px; grid-template-columns: minmax(0, 1fr); background: var(--sheet); }
+.flcard > * { min-width: 0; }
+.fl-meta { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; font: 600 .85rem/1.2 var(--f-ui); color: var(--ink-2); }
+.fl-bar { flex: 1 1 120px; height: 6px; background: var(--rule); border-radius: 99px; overflow: hidden; }
+.fl-bar i { display: block; height: 100%; background: var(--teal); }
+.fl-q { font: 400 1.2rem/1.55 var(--f-body); margin: 0; }
+.fl-w { font-weight: 400; color: var(--ink); }
+.fl-wrong { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; font: 400 .98rem/1.5 var(--f-body); }
 </style>
 </head>
 <body>
@@ -284,7 +295,7 @@ details.sol .sol-in { display: grid; gap: 12px; min-width: 0; }
       <li><span class="n">3</span><span><b>Una sinusoide da scrivere come freccia</b>, con l'angolo −270° (che è uguale a +90°).<small>Servono le tappe 0 (angoli), 8 e 9.</small></span></li>
       <li><span class="n">4</span><span><b>Tre numeri complessi da trasformare in onde</b> e da disegnare su assi cartesiani.<small>Servono le tappe 5, 6 e 9.</small></span></li>
     </ol>
-    <div class="row"><a class="btn primary" href="#tc">Vai alle domande risolte passo passo</a><a class="btn" href="#ts">Prima la tappa che manca: sinusoide e freccia</a></div>
+    <div class="row"><a class="btn primary" href="#tc">Vai alle domande risolte passo passo</a><a class="btn" href="#ts">Prima la tappa che manca: sinusoide e freccia</a><a class="btn" href="#flash" data-flash="compito">Domande flash sul compito</a></div>
   </section>
 
   <nav class="card" aria-label="Tappe">
@@ -304,7 +315,7 @@ details.sol .sol-in { display: grid; gap: 12px; min-width: 0; }
       <li><a href="#tc"><span>Il compito vero, domanda per domanda<span class="bollino sm">compito</span></span></a></li>
       <li><a href="#t10">Le parole della teoria</a></li>
     </ol>
-    <p class="small muted">In fondo trovi il foglietto con tutte le formule spiegate e undici domande di verifica.</p>
+    <p class="small muted">In fondo trovi il foglietto con tutte le formule spiegate, undici domande vero/falso e le <a href="#flash">domande flash</a> con la risposta da scrivere.</p>
   </nav>
 
 <!-- ===================== TAPPA 0 ===================== -->
@@ -701,6 +712,7 @@ details.sol .sol-in { display: grid; gap: 12px; min-width: 0; }
     <details class="sol" data-cs="3"><summary>Apri la soluzione completa, come scriverla sul foglio (con i disegni)</summary></details>
   </section>
   <p>Quando hai finito, prova la <a href="ripasso-corrente-alternata.html#simulazione">simulazione nella versione completa</a>: ha la stessa struttura della verifica, con numeri nuovi.</p>
+  <p>Per ripassare in fretta prima della verifica: <a href="#flash" data-flash="compito">domande flash sul compito</a>, in fondo alla pagina.</p>
   <label class="done"><input type="checkbox" data-done="tc"> Ho rifatto da solo le quattro domande del compito</label>
 </article>
 
@@ -753,6 +765,17 @@ details.sol .sol-in { display: grid; gap: 12px; min-width: 0; }
   <h2>Undici domande per vedere se hai capito</h2>
   <div id="quiz-list"></div>
   <p class="big" id="quiz-score"></p>
+</section>
+
+<!-- ===================== DOMANDE FLASH ===================== -->
+<section class="tappa" id="flash">
+  <h2><span>Domande flash <span class="bollino">tante dal compito</span></span></h2>
+  <p class="lead2">Una domanda alla volta: scrivi la risposta e premi «Controlla» (o Invio). Se sbagli puoi riprovare, chiedere un aiuto o vedere la risposta, e dopo ogni domanda c'è una riga che spiega perché. Quelle con il bollino usano i numeri veri della verifica; quelle «come il compito» hanno numeri nuovi a ogni giro.</p>
+  <p class="tip">Come scrivere: decimali con la virgola o con il punto; gli angoli in gradi (anche −135); i numeri complessi come <b>25,98 − j15</b> oppure <b>j100</b>; lunghezza e angolo come <b>450∠55</b>. I tasti −, j e ∠ accanto alla casella servono sul telefono.</p>
+  <div id="fl-cats" role="group" aria-label="Argomento"></div>
+  <div id="fl-lens" role="group" aria-label="Quante domande"></div>
+  <div class="flcard" id="fl-card" aria-live="polite"></div>
+  <p class="big" id="fl-score"></p>
 </section>
 </main>
 <footer class="foot"><div class="wrap">Versione facile del ripasso sul capitolo A3. Tutti i numeri degli esempi e degli esercizi sono calcolati dalla pagina e sono stati ricontrollati con Python. I progressi restano salvati in questo browser.</div></footer>
@@ -2790,6 +2813,246 @@ details.sol .sol-in { display: grid; gap: 12px; min-width: 0; }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();
 
+</script>
+<script>
+/* Domande flash: una domanda alla volta, risposta scritta e corretta dalla pagina (usa il motore TLC). */
+(function () {
+  'use strict';
+  const T = window.TLC, fmt = T.fmt, fdeg = T.fdeg;
+  const $ = (s, el) => (el || document).querySelector(s);
+  const $$ = (s, el) => Array.from((el || document).querySelectorAll(s));
+  const R2D = 180 / Math.PI;
+  const KEY = 'ripasso-facile-flash-v1';
+  let S = { v: 1, best: {}, cat: 'compito', len: 10 };
+  try { const s = JSON.parse(localStorage.getItem(KEY)); if (s && s.v === 1) S = Object.assign(S, s); } catch (e) { /* nessun salvataggio */ }
+  const save = () => { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) { /* ignorato */ } };
+
+  const V = n => '<span class="v">V</span>' + (n ? '<sub>' + n + '</sub>' : '');
+  const cx = (a, b) => T.fmtCH(T.C(a, b));
+  const pol = (m, d) => T.polar(m, d);
+  const r2 = x => Math.round(x * 100) / 100;
+  const arg = (a, b) => T.argDeg(T.C(a, b));
+  const QUAD = ['1° quadrante (in alto a destra)', '2° quadrante (in alto a sinistra)', '3° quadrante (in basso a sinistra)', '4° quadrante (in basso a destra)'];
+  const quadIx = (a, b) => (a > 0 ? (b > 0 ? 0 : 3) : (b > 0 ? 1 : 2));
+
+  // Ogni domanda: cat (onde, frecce, oper, parole), c = viene dal compito, q = testo, k = tipo di risposta
+  // (num, ang, cplx, pol, choice), ans, o = opzioni, h = aiuto, w = spiegazione dopo la risposta.
+  const BANK = [
+    // ---------- domanda 1 del compito ----------
+    { cat: 'frecce', c: 1, q: 'Domanda 1: <i>v</i><sub>1</sub>(<i>t</i>) = 125 sen(500<i>t</i> + 45°) V. Quanto è lunga la sua freccia?', k: 'num', ans: 125, unit: 'V', h: 'È il numero davanti a «sen».', w: 'La lunghezza della freccia è il valore massimo: 125 V.' },
+    { cat: 'frecce', c: 1, q: 'Domanda 1: in 125 sen(500<i>t</i> + 45°) che cosa è il 500?', k: 'choice', o: ['La pulsazione ω', 'Il valore massimo', 'La fase'], ans: 0, h: 'È il numero attaccato alla <i>t</i>.', w: 'È ω, la velocità con cui gira la lancetta: non entra nella freccia.' },
+    { cat: 'frecce', c: 1, q: 'Domanda 1: <i>v</i><sub>2</sub>(<i>t</i>) = 30 sen(500<i>t</i> − 30°) V. Che angolo ha la sua freccia?', k: 'ang', ans: -30, h: 'È l\'angolo dentro la parentesi, con il suo segno.', w: 'L\'angolo è la fase, con il meno: −30°.' },
+    { cat: 'frecce', c: 1, q: 'Domanda 1: scrivi la freccia ' + V(1) + ' = 125∠45° nella forma <i>a</i> + <i>jb</i>.', k: 'cplx', ans: pol(125, 45), h: '<i>a</i> = 125 × cos 45°, <i>b</i> = 125 × sen 45°.', w: '125 × cos 45° = 88,39 e 125 × sen 45° = 88,39.' },
+    { cat: 'frecce', c: 1, q: 'Domanda 1: scrivi la freccia ' + V(2) + ' = 30∠−30° nella forma <i>a</i> + <i>jb</i>.', k: 'cplx', ans: pol(30, -30), h: 'Il seno di un angolo negativo è negativo: la parte con la j viene col meno.', w: '30 × cos(−30°) = 25,98 e 30 × sen(−30°) = −15.' },
+    { cat: 'oper', c: 1, q: 'Domanda 1: somma (88,39 + <i>j</i>88,39) + (25,98 − <i>j</i>15).', k: 'cplx', ans: T.C(114.37, 73.39), h: 'Numeri senza j con numeri senza j, numeri con la j con numeri con la j.', w: '88,39 + 25,98 = 114,37 e 88,39 − 15 = 73,39.' },
+    { cat: 'oper', c: 1, q: 'Domanda 1: sottrai (88,39 + <i>j</i>88,39) − (25,98 − <i>j</i>15).', k: 'cplx', ans: T.C(62.41, 103.39), h: 'Il meno vale per tutti e due i numeri della seconda freccia: − (−15) fa + 15.', w: '88,39 − 25,98 = 62,41 e 88,39 + 15 = 103,39.' },
+    { cat: 'oper', c: 1, q: 'Domanda 1: quanto è lunga la freccia della somma, 114,37 + <i>j</i>73,39?', k: 'num', ans: Math.hypot(114.37, 73.39), unit: 'V', h: '√(114,37² + 73,39²).', w: '√(13080,5 + 5386,1) = √18466,6 ≈ 135,89 V.' },
+    { cat: 'oper', c: 1, q: 'Domanda 1: che angolo ha la somma 114,37 + <i>j</i>73,39?', k: 'ang', ans: arg(114.37, 73.39), h: 'arctg(73,39 ÷ 114,37). Il primo numero è positivo: nessuna correzione.', w: 'arctg(0,6417) ≈ 32,7°: la somma è 135,89∠32,7°.' },
+    { cat: 'oper', c: 1, q: 'Domanda 1: prodotto 125∠45° · 30∠−30°. Quanto vale la lunghezza?', k: 'num', ans: 3750, unit: 'V²', h: 'Nel prodotto le lunghezze si moltiplicano.', w: '125 × 30 = 3750 (in V²).' },
+    { cat: 'oper', c: 1, q: 'Domanda 1: prodotto 125∠45° · 30∠−30°. Quanto vale l\'angolo?', k: 'ang', ans: 15, h: 'Nel prodotto gli angoli si sommano.', w: '45° + (−30°) = 15°.' },
+    { cat: 'oper', c: 1, q: 'Domanda 1: rapporto 125∠45° ÷ 30∠−30°. Quanto vale l\'angolo?', k: 'ang', ans: 75, h: 'Nel rapporto gli angoli si sottraggono: quello di sopra meno quello di sotto.', w: '45° − (−30°) = 45° + 30° = 75°.' },
+    { cat: 'oper', c: 1, q: 'Domanda 1: rapporto 125∠45° ÷ 30∠−30°. Quanto vale la lunghezza?', k: 'num', ans: 125 / 30, d: 3, h: 'Nel rapporto le lunghezze si dividono.', w: '125 ÷ 30 ≈ 4,167, senza unità (volt diviso volt).' },
+    { cat: 'parole', c: 1, q: 'Domanda 1: «si dia una rappresentazione vettoriale dei risultati». Che cosa devi disegnare?', k: 'choice', o: ['Le frecce sul piano di Gauss, in scala', 'L\'onda su assi tempo e tensione', 'Una tabella con i numeri'], ans: 0, h: '«Vettore» vuol dire freccia.', w: 'Le frecce dal centro, lunghe quanto il modulo (in scala) e girate dell\'angolo.' },
+    // ---------- domanda 2 ----------
+    { cat: 'frecce', c: 1, q: 'Domanda 2: <i>v</i><sub>1</sub>(<i>t</i>) = 15 sen(100<i>t</i>) V. Che angolo ha la sua freccia?', k: 'ang', ans: 0, h: 'Nella parentesi non c\'è nessun angolo.', w: 'Se non c\'è nessun angolo, l\'angolo è 0°: la freccia è 15∠0° = 15.' },
+    { cat: 'frecce', c: 1, q: 'Domanda 2: scrivi 15∠0° nella forma <i>a</i> + <i>jb</i>.', k: 'cplx', ans: T.C(15, 0), h: 'cos 0° = 1 e sen 0° = 0.', w: 'È tutta in orizzontale: 15 + <i>j</i>0, cioè 15.' },
+    { cat: 'frecce', c: 1, q: 'Domanda 2: scrivi ' + V(2) + ' = 30∠55° nella forma <i>a</i> + <i>jb</i>.', k: 'cplx', ans: pol(30, 55), h: '30 × cos 55° e 30 × sen 55°.', w: '30 × cos 55° = 17,21 e 30 × sen 55° = 24,57.' },
+    { cat: 'parole', c: 1, q: 'Domanda 2: le due tensioni hanno ω = 100 e ω = 500. Le loro frecce girano insieme?', k: 'choice', o: ['No: girano a velocità diverse', 'Sì: girano sempre insieme'], ans: 0, h: 'Le frecce girano insieme solo se hanno la stessa ω.', w: 'No. A rigore le frecce si sommano solo a pari frequenza: sul foglio va scritto, poi si fanno comunque i conti richiesti.' },
+    { cat: 'oper', c: 1, q: 'Domanda 2: sottrai 15 − (17,21 + <i>j</i>24,57).', k: 'cplx', ans: T.C(-2.21, -24.57), h: '15 − 17,21 per la parte senza j; 0 − 24,57 per quella con la j.', w: '−2,21 − <i>j</i>24,57: tutti e due i numeri negativi.' },
+    { cat: 'oper', c: 1, q: 'Domanda 2: in quale quadrante sta la differenza −2,21 − <i>j</i>24,57?', k: 'choice', o: QUAD, ans: 2, h: 'Primo numero negativo = verso sinistra; numero con la j negativo = verso il basso.', w: 'In basso a sinistra: 3° quadrante. All\'angolo della calcolatrice va aggiunto 180°.' },
+    { cat: 'oper', c: 1, q: 'Domanda 2: per −2,21 − <i>j</i>24,57 la calcolatrice dà arctg(24,57 ÷ 2,21) = 84,9°. Qual è l\'angolo vero?', k: 'ang', ans: arg(-2.21, -24.57), h: 'Il primo numero è negativo: aggiungi 180°.', w: '84,9° + 180° = 264,9°, che è lo stesso di −95,1°.' },
+    { cat: 'oper', c: 1, q: 'Domanda 2: calcola il prodotto 15∠0° · 30∠55° (scrivilo come lunghezza∠angolo).', k: 'pol', ans: pol(450, 55), h: 'Lunghezze moltiplicate, angoli sommati.', w: '15 × 30 = 450 e 0° + 55° = 55°: 450∠55°.' },
+    { cat: 'oper', c: 1, q: 'Domanda 2: rapporto 15∠0° ÷ 30∠55°. Quanto vale l\'angolo?', k: 'ang', ans: -55, h: 'Quello di sopra meno quello di sotto.', w: '0° − 55° = −55°: il rapporto è 0,5∠−55°.' },
+    // ---------- domanda 3 ----------
+    { cat: 'frecce', c: 1, q: 'Domanda 3: la fase è −270°. Quanto diventa se la riporti tra −180° e 180°?', k: 'num', ans: 90, unit: '°', h: 'È negativa: aggiungi 360°.', w: '−270° + 360° = 90°: la freccia punta in alto.' },
+    { cat: 'frecce', c: 1, q: 'Domanda 3: scrivi la freccia di 100 sen(314<i>t</i> − 270°) V nella forma <i>a</i> + <i>jb</i>.', k: 'cplx', ans: T.C(0, 100), h: 'È 100∠90°: cos 90° = 0 e sen 90° = 1.', w: '100∠90° = 0 + <i>j</i>100 = <i>j</i>100.' },
+    { cat: 'onde', c: 1, q: 'Domanda 3: ω = 314 rad/s. Quanto vale circa la frequenza?', k: 'num', ans: 314 / (2 * Math.PI), unit: 'Hz', units: 'hz', h: '<i>f</i> = ω ÷ 2π = 314 ÷ 6,28.', w: '314 ÷ 6,28 ≈ 50 Hz: è la corrente di casa.' },
+    { cat: 'onde', c: 1, q: 'Domanda 3: quanto vale 100 sen(314<i>t</i> − 270°) all\'istante <i>t</i> = 0?', k: 'num', ans: 100, unit: 'V', h: '100 × sen(−270°), oppure 100 × sen(90°).', w: 'sen(−270°) = sen(90°) = 1, quindi 100 V: l\'onda parte dal massimo.' },
+    // ---------- domanda 4 ----------
+    { cat: 'frecce', c: 1, q: 'Domanda 4: quanto vale il valore massimo del segnale ' + V(1) + ' = −5 − <i>j</i>5?', k: 'num', ans: Math.hypot(5, 5), unit: 'V', h: 'È la lunghezza: √((−5)² + (−5)²).', w: '√(25 + 25) = √50 ≈ 7,07 V.' },
+    { cat: 'frecce', c: 1, q: 'Domanda 4: che fase ha il segnale ' + V(1) + ' = −5 − <i>j</i>5?', k: 'ang', ans: -135, h: 'arctg(−5 ÷ −5) = 45°, ma il primo numero è negativo.', w: '45° + 180° = 225°, che è lo stesso di −135°.' },
+    { cat: 'frecce', c: 1, q: 'Domanda 4: in quale quadrante sta ' + V(2) + ' = −15 + <i>j</i>30?', k: 'choice', o: QUAD, ans: 1, h: 'Primo numero negativo, numero con la j positivo.', w: 'In alto a sinistra: 2° quadrante, quindi + 180° all\'angolo della calcolatrice.' },
+    { cat: 'frecce', c: 1, q: 'Domanda 4: che fase ha il segnale ' + V(2) + ' = −15 + <i>j</i>30?', k: 'ang', ans: arg(-15, 30), h: 'arctg(30 ÷ −15) = −63,4° sulla calcolatrice, poi + 180°.', w: '−63,4° + 180° = 116,6°: <i>v</i><sub>2</sub>(<i>t</i>) = 33,54 sen(ω<i>t</i> + 116,6°).' },
+    { cat: 'frecce', c: 1, q: 'Domanda 4: quanto vale il valore massimo del segnale ' + V(3) + ' = 25 − <i>j</i>60?', k: 'num', ans: 65, unit: 'V', h: '√(25² + 60²) = √(625 + 3600).', w: '√4225 = 65 V.' },
+    { cat: 'frecce', c: 1, q: 'Domanda 4: che fase ha il segnale ' + V(3) + ' = 25 − <i>j</i>60?', k: 'ang', ans: arg(25, -60), h: 'arctg(−60 ÷ 25). Il primo numero è positivo: nessuna correzione.', w: '≈ −67,4°: <i>v</i><sub>3</sub>(<i>t</i>) = 65 sen(ω<i>t</i> − 67,4°).' },
+    { cat: 'onde', c: 1, q: 'Domanda 4: il segnale di ' + V(3) + ' = 25 − <i>j</i>60 quanto vale all\'istante 0? (è il punto di partenza del disegno)', k: 'num', ans: -60, unit: 'V', h: 'All\'istante 0 l\'onda vale il numero con la j.', w: '−60 V: l\'onda parte da −60 e oscilla tra +65 e −65.' },
+    { cat: 'parole', c: 1, q: 'Domanda 4: «dare una rappresentazione cartesiana del segnale». Che cosa devi disegnare?', k: 'choice', o: ['L\'onda su assi tempo (ωt) e tensione', 'Le frecce sul piano di Gauss', 'Solo la forma a + jb'], ans: 0, h: '«Cartesiana» vuol dire su due assi, come un grafico.', w: 'L\'onda in un periodo: tempo in orizzontale, tensione in verticale, partendo da <i>v</i>(0) = <i>b</i>.' },
+    { cat: 'parole', c: 1, q: 'Per sommare o sottrarre due frecce quale forma conviene?', k: 'choice', o: ['Binomia a + jb (i passi)', 'Lunghezza∠angolo'], ans: 0, h: 'Si sommano i passi: mele con mele, pere con pere.', w: 'Con i passi: parti reali tra loro, parti con la j tra loro.' },
+    { cat: 'parole', c: 1, q: 'Per moltiplicare o dividere due frecce quale forma conviene?', k: 'choice', o: ['Lunghezza∠angolo (esponenziale)', 'Binomia a + jb'], ans: 0, h: 'Lunghezze × o ÷, angoli + o −.', w: 'Con lunghezza e angolo bastano due conti.' },
+    // ---------- generali: onde ----------
+    { cat: 'onde', q: 'Un\'onda si ripete ogni <i>T</i> = 20 ms. Quanto vale la frequenza?', k: 'num', ans: 50, unit: 'Hz', units: 'hz', h: 'Prima 20 ms = 0,02 s, poi 1 ÷ 0,02.', w: '1 ÷ 0,02 = 50 Hz.' },
+    { cat: 'onde', q: 'La frequenza è 50 Hz. Quanti millisecondi dura un periodo?', k: 'num', ans: 20, unit: 'ms', h: '<i>T</i> = 1 ÷ 50 in secondi, poi × 1000.', w: '1 ÷ 50 = 0,02 s = 20 ms.' },
+    { cat: 'onde', q: 'La frequenza è 50 Hz. Quanto vale la pulsazione ω?', k: 'num', ans: 2 * Math.PI * 50, unit: 'rad/s', h: 'ω = 2π × <i>f</i> ≈ 6,28 × 50.', w: '≈ 314 rad/s.' },
+    { cat: 'onde', q: 'Il valore massimo è 311 V. Quanto vale il valore efficace?', k: 'num', ans: 311 / Math.SQRT2, unit: 'V', units: 'v', h: 'Dividi per √2 ≈ 1,414.', w: '311 ÷ 1,414 ≈ 220 V: è il numero scritto sulle prese.' },
+    { cat: 'onde', q: 'Il valore massimo è 10 V. Quanto vale il picco-picco?', k: 'num', ans: 20, unit: 'V', units: 'v', h: 'Dal punto più basso al più alto.', w: '2 × 10 = 20 V.' },
+    { cat: 'onde', q: 'Quanto vale il valore medio di una sinusoide in un periodo intero?', k: 'num', ans: 0, tolAbs: 0.001, h: 'La parte sopra lo zero e quella sotto sono uguali.', w: '0: i valori positivi e negativi si annullano.' },
+    { cat: 'onde', q: '<i>v</i>(<i>t</i>) = 311 sen(314<i>t</i> + 30°) V. Quanto vale <i>v</i>(0)?', k: 'num', ans: 311 * 0.5, unit: 'V', units: 'v', h: '311 × sen 30°, e sen 30° = 0,5.', w: '311 × 0,5 = 155,5 V.' },
+    { cat: 'onde', q: '2 kHz quanti hertz sono?', k: 'num', ans: 2000, unit: 'Hz', units: 'hz', h: 'k vuol dire per 1000.', w: '2 × 1000 = 2000 Hz.' },
+    // ---------- generali: frecce ----------
+    { cat: 'frecce', q: 'Quanto è lunga la freccia 3 + <i>j</i>4?', k: 'num', ans: 5, h: '√(3² + 4²) = √(9 + 16).', w: '√25 = 5.' },
+    { cat: 'frecce', q: 'Che angolo ha la freccia 3 + <i>j</i>4?', k: 'ang', ans: arg(3, 4), h: 'arctg(4 ÷ 3).', w: '≈ 53,1°.' },
+    { cat: 'frecce', q: 'Che angolo ha la freccia −3 + <i>j</i>4?', k: 'ang', ans: arg(-3, 4), h: 'La calcolatrice dà −53,1°, ma il primo numero è negativo.', w: '−53,1° + 180° = 126,9°.' },
+    { cat: 'frecce', q: 'Scrivi il coniugato di 3 + <i>j</i>4.', k: 'cplx', ans: T.C(3, -4), h: 'Cambia solo il segno del numero con la j.', w: '3 − <i>j</i>4: la freccia specchiata.' },
+    { cat: 'frecce', q: 'Scrivi 10∠120° nella forma <i>a</i> + <i>jb</i>.', k: 'cplx', ans: pol(10, 120), h: '10 × cos 120° e 10 × sen 120°.', w: '10 × cos 120° = −5 e 10 × sen 120° = 8,66.' },
+    { cat: 'frecce', q: 'Quanto fa <i>j</i> × <i>j</i>?', k: 'num', ans: -1, tolAbs: 0.001, h: 'Due giri di 90° fanno mezzo giro.', w: '−1: la freccia punta al contrario.' },
+    { cat: 'frecce', q: 'Di quanti gradi gira una freccia se la moltiplichi per <i>j</i>?', k: 'num', ans: 90, unit: '°', h: 'Un quarto di giro.', w: '90°, al contrario delle lancette.' },
+    { cat: 'frecce', q: 'L\'angolo 270° a quale angolo tra −180° e 180° corrisponde?', k: 'num', ans: -90, unit: '°', h: 'È positivo e più grande di 180°: togli 360°.', w: '270° − 360° = −90°: la freccia punta in basso.' },
+    // ---------- generali: operazioni ----------
+    { cat: 'oper', q: 'Calcola (2 + <i>j</i>3) + (4 − <i>j</i>7).', k: 'cplx', ans: T.C(6, -4), h: '2 + 4 e 3 + (−7).', w: '6 − <i>j</i>4.' },
+    { cat: 'oper', q: 'Calcola (2 + <i>j</i>3) − (4 − <i>j</i>7).', k: 'cplx', ans: T.C(-2, 10), h: '2 − 4 e 3 − (−7).', w: '−2 + <i>j</i>10.' },
+    { cat: 'oper', q: 'Calcola 4∠30° · 2∠20° (scrivilo come lunghezza∠angolo).', k: 'pol', ans: pol(8, 50), h: 'Lunghezze moltiplicate, angoli sommati.', w: '8∠50°.' },
+    { cat: 'oper', q: 'Calcola 8∠60° ÷ 2∠20° (scrivilo come lunghezza∠angolo).', k: 'pol', ans: pol(4, 40), h: 'Lunghezze divise, angoli sottratti.', w: '4∠40°.' },
+    { cat: 'oper', q: 'Due tensioni in fase, 10∠30° e 5∠30°: quanto è lunga la somma?', k: 'num', ans: 15, unit: 'V', h: 'Se l\'angolo è lo stesso, le frecce sono allineate.', w: '15 V: solo in questo caso le lunghezze si sommano.' },
+    // ---------- generali: parole ----------
+    { cat: 'parole', q: 'Grandezze «isofrequenziali» vuol dire…', k: 'choice', o: ['Con la stessa frequenza', 'Con lo stesso valore massimo', 'Con la stessa fase'], ans: 0, h: '«Iso» vuol dire uguale.', w: 'Stessa frequenza: le frecce girano insieme e si disegnano ferme.' },
+    { cat: 'parole', q: 'Il piano di Gauss mostra la frequenza della sinusoide?', k: 'choice', o: ['No', 'Sì'], ans: 0, h: 'La freccia è disegnata ferma.', w: 'No: mostra solo lunghezza e angolo.' },
+    { cat: 'parole', q: 'Il fattore di forma è…', k: 'choice', o: ['Valore efficace ÷ valore medio', 'Valore massimo ÷ valore efficace', 'Picco-picco ÷ 2'], ans: 0, h: '<i>k</i><sub>f</sub> = <i>V</i> ÷ <i>V</i><sub>m</sub>.', w: 'Efficace diviso medio: dice com\'è fatta l\'onda.' },
+    { cat: 'parole', q: 'Il valore efficace di una sinusoide rispetto al massimo è…', k: 'choice', o: ['Più piccolo', 'Più grande', 'Uguale'], ans: 0, h: 'Si divide per √2.', w: 'Più piccolo: massimo ÷ 1,414.' },
+    // ---------- con numeri nuovi a ogni giro (stile compito) ----------
+    rng => { const VM = rng.pick([20, 40, 50, 80, 100]), p = rng.pick([30, -30, 60, -60, 45, 120, -120]), w = rng.pick([100, 314, 500]);
+      return { cat: 'frecce', c: 1, nuovo: 1, q: 'Numeri nuovi: scrivi la freccia di ' + T.senStr(VM, w, p, '<i>v</i>', 'V') + ' nella forma <i>a</i> + <i>jb</i>.', k: 'cplx', ans: pol(VM, p), h: '<i>a</i> = ' + fmt(VM) + ' × cos(' + fdeg(p) + '), <i>b</i> = ' + fmt(VM) + ' × sen(' + fdeg(p) + ').', w: VM + '∠' + fdeg(p) + ' = ' + T.fmtCH(pol(VM, p)) + '.' }; },
+    rng => { const ph = rng.pick([-300, -330, -240, -210, 210, 240, 300, 330, 390]), n = T.normDeg(ph);
+      return { cat: 'frecce', c: 1, nuovo: 1, q: 'Numeri nuovi: la fase è ' + fdeg(ph) + '. Quanto diventa se la riporti tra −180° e 180°?', k: 'num', ans: n, unit: '°', h: ph < 0 ? 'È negativa: aggiungi 360°.' : 'È positiva: togli 360°.', w: fdeg(ph) + (ph < 0 ? ' + 360° = ' : ' − 360° = ') + fdeg(n) + '.' }; },
+    rng => { const t = rng.pick([[3, 4], [6, 8], [5, 12], [8, 15], [9, 12]]), a = t[0] * rng.pick([1, -1]), b = t[1] * rng.pick([1, -1]);
+      return { cat: 'frecce', c: 1, nuovo: 1, q: 'Numeri nuovi: in quale quadrante sta ' + cx(a, b) + '?', k: 'choice', o: QUAD, ans: quadIx(a, b), h: 'Guarda i segni: primo numero = destra o sinistra, numero con la j = su o giù.', w: QUAD[quadIx(a, b)] + (a < 0 ? ': il primo numero è negativo, quindi all\'angolo della calcolatrice si aggiunge 180°.' : ': nessuna correzione.') }; },
+    rng => { const t = rng.pick([[3, 4], [6, 8], [5, 12], [8, 15], [20, 15]]), a = t[0] * rng.pick([1, -1]), b = t[1] * rng.pick([1, -1]), d = arg(a, b);
+      return { cat: 'frecce', c: 1, nuovo: 1, q: 'Numeri nuovi: ' + V() + ' = ' + cx(a, b) + ' è un segnale. Che fase ha?', k: 'ang', ans: d, h: 'arctg(' + fmt(b) + ' ÷ ' + fmt(a) + ')' + (a < 0 ? ', poi + 180° perché il primo numero è negativo.' : '; il primo numero è positivo.'), w: 'Fase ' + fdeg(d) + (Math.abs(d) > 90 && a < 0 ? ' (o ' + fdeg(d < 0 ? d + 360 : d) + ')' : '') + ': <i>v</i>(<i>t</i>) = ' + fmt(Math.hypot(a, b)) + ' sen(ω<i>t</i> ' + (d < 0 ? '− ' + fdeg(-d) : '+ ' + fdeg(d)) + ').' }; },
+    rng => { const M1 = rng.pick([10, 20, 50, 100]), p1 = rng.pick([0, 30, 45, 60]), M2 = rng.pick([2, 4, 5, 10]), p2 = rng.pick([-30, -20, 15, 25]), x = rng.chance(0.5);
+      const m = x ? M1 * M2 : M1 / M2, a = x ? p1 + p2 : p1 - p2;
+      return { cat: 'oper', c: 1, nuovo: 1, q: 'Numeri nuovi: calcola ' + M1 + '∠' + fdeg(p1) + (x ? ' · ' : ' ÷ ') + M2 + '∠' + fdeg(p2) + ' (scrivilo come lunghezza∠angolo).', k: 'pol', ans: pol(m, a), h: x ? 'Lunghezze moltiplicate, angoli sommati.' : 'Lunghezze divise, angoli sottratti.', w: fmt(m, 3) + '∠' + fdeg(a) + '.' }; },
+  ];
+
+  const CATS = [['compito', 'Dal compito'], ['tutte', 'Tutte'], ['onde', 'Onde'], ['frecce', 'Frecce'], ['oper', 'Operazioni'], ['parole', 'Parole']];
+  const LENS = [[10, '10'], [20, '20'], [0, 'Tutte']];
+  const PH = { num: 'scrivi un numero, es. 7,07', ang: 'gradi, es. −135', cplx: 'es. 25,98 − j15', pol: 'es. 450∠55' };
+  const TOOLS = { num: ['−'], ang: ['−'], cplx: ['−', 'j'], pol: ['∠', '−'] };
+
+  function field(it) {
+    if (it.k === 'num') return { kind: 'num', ans: it.ans, tolAbs: it.tolAbs !== undefined ? it.tolAbs : (Math.abs(it.ans) < 0.5 ? Math.abs(it.ans) * 0.01 + 1e-9 : 0.011), tolRel: it.tolRel !== undefined ? it.tolRel : 0.01, units: it.units || null };
+    if (it.k === 'ang') return { kind: 'ang', ans: it.ans, tolDeg: 1 };
+    if (it.k === 'cplx') return { kind: 'cplx', ans: { re: it.ans.re, im: it.ans.im }, forms: ['bin'], tolAbs: 0.05 };
+    if (it.k === 'pol') return { kind: 'pol', ans: { re: it.ans.re, im: it.ans.im }, forms: ['exp', 'pol', 'trig'] };
+    return null;
+  }
+  function answerText(it) {
+    if (it.k === 'choice') return it.o[it.ans];
+    if (it.k === 'num') return fmt(it.ans, it.d === undefined ? 2 : it.d) + (it.unit ? (it.unit === '°' ? '°' : ' ' + it.unit) : '');
+    if (it.k === 'ang') return fdeg(it.ans);
+    if (it.k === 'cplx') return T.fmtCH(it.ans);
+    return fmt(T.abs(it.ans), 3) + '∠' + fdeg(T.argDeg(it.ans));
+  }
+  // la risposta come la scriverebbe lo studente nella casella (testo semplice, senza unità)
+  function answerInput(it) {
+    if (it.k === 'choice') return String(it.ans);
+    if (it.k === 'num') return fmt(it.ans, it.d === undefined ? 2 : it.d);
+    if (it.k === 'ang') return fmt(it.ans, 1);
+    if (it.k === 'cplx') return T.fmtC(it.ans);
+    return fmt(T.abs(it.ans), 3) + '∠' + fmt(T.argDeg(it.ans), 1);
+  }
+  function check(it, value) {
+    if (it.k === 'choice') return { ok: Number(value) === it.ans };
+    return T.checkField(field(it), value);
+  }
+
+  const G = { list: [], i: 0, first: [], tries: 0, done: false };
+  function pool(cat) { return BANK.filter(it => { const c = typeof it === 'function' ? it(T.makeRng(1)) : it; return cat === 'tutte' || (cat === 'compito' ? c.c : c.cat === cat); }); }
+  function shuffle(a) { const r = T.makeRng(Math.floor(Math.random() * 2147483646) + 1); return r.shuffle(a); }
+  function start(items) {
+    const rng = T.makeRng(Math.floor(Math.random() * 2147483646) + 1);
+    G.list = items.map(it => (typeof it === 'function' ? Object.assign(it(rng), { src: it }) : Object.assign({}, it, { src: it })));
+    G.i = 0; G.first = []; G.done = false;
+    render();
+  }
+  function newRound() {
+    let items = shuffle(pool(S.cat));
+    if (S.len) items = items.slice(0, S.len);
+    start(items);
+  }
+  function chips() {
+    $('#fl-cats').innerHTML = CATS.map(c => '<button type="button" class="btn small" data-cat="' + c[0] + '" aria-pressed="' + (S.cat === c[0]) + '">' + c[1] + ' <span class="fl-n">' + pool(c[0]).length + '</span></button>').join('');
+    $('#fl-lens').innerHTML = '<span class="small muted">Quante:</span>' + LENS.map(l => '<button type="button" class="btn small" data-len="' + l[0] + '" aria-pressed="' + (S.len === l[0]) + '">' + l[1] + '</button>').join('');
+  }
+  function bestTxt() { const b = S.best[S.cat + ':' + S.len]; return b ? 'Record in questa scelta: ' + b.ok + ' su ' + b.n + ' al primo colpo.' : ''; }
+  function render() {
+    const box = $('#fl-card');
+    if (G.i >= G.list.length) return finish();
+    const it = G.list[G.i];
+    G.tries = 0; G.answered = false;
+    const inp = it.k === 'choice' ? '<div class="choices">' + it.o.map((o, j) => '<button type="button" class="btn" data-c="' + j + '">' + o + '</button>').join('') + '</div>' :
+      '<div class="inrow"><input type="text" id="fl-in" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="' + PH[it.k] + '" aria-label="La tua risposta">' +
+      (it.unit && it.k === 'num' ? '<span class="unit">' + it.unit + '</span>' : it.k === 'ang' ? '<span class="unit">°</span>' : '') +
+      TOOLS[it.k].map(t => '<button type="button" class="btn small" data-ins="' + t + '" aria-label="Scrivi ' + t + '">' + t + '</button>').join('') + '</div>';
+    box.innerHTML = '<div class="fl-meta"><span>Domanda ' + (G.i + 1) + ' di ' + G.list.length + '</span>' + (it.c ? '<span class="bollino sm">' + (it.nuovo ? 'come il compito' : 'dal compito') + '</span>' : '') + '<span class="fl-bar"><i style="width:' + (100 * G.i / G.list.length) + '%"></i></span></div>' +
+      '<p class="fl-q">' + it.q + '</p>' + inp +
+      '<div class="row"><button type="button" class="btn primary" data-a="check"' + (it.k === 'choice' ? ' hidden' : '') + '>Controlla</button><button type="button" class="btn" data-a="hint">Aiuto</button><button type="button" class="btn ghost" data-a="show">Mostra la risposta</button><button type="button" class="btn next" data-a="next" hidden>' + (G.i + 1 < G.list.length ? 'Avanti →' : 'Vedi il risultato →') + '</button></div>' +
+      '<p class="hint" hidden>' + it.h + '</p><p class="fb" aria-live="polite"></p>';
+    const i = $('#fl-in', box); if (i && G.focus) i.focus({ preventScroll: true });
+    if (window.GLOSS && window.GLOSS.ready) window.GLOSS.link(box);
+  }
+  function settle(it, ok, shown) {
+    if (G.first[G.i] === undefined) G.first[G.i] = ok && G.tries === 1 && !shown;
+    G.answered = true;
+    const box = $('#fl-card'), fb = $('.fb', box);
+    fb.className = 'fb ' + (shown ? 'shown' : 'ok');
+    fb.innerHTML = (shown ? 'La risposta è <b>' + answerText(it) + '</b>. ' : '✓ Giusto! ') + '<span class="fl-w">' + it.w + '</span>';
+    $$('input, button[data-c], button[data-a="check"], button[data-a="show"], button[data-ins]', box).forEach(e => { e.disabled = true; });
+    const n = $('button[data-a="next"]', box); n.hidden = false; n.focus({ preventScroll: true });
+    score();
+  }
+  function judge(value) {
+    const it = G.list[G.i], box = $('#fl-card'), fb = $('.fb', box);
+    if (G.answered) return;
+    if (it.k !== 'choice' && (!value || !String(value).trim())) { fb.className = 'fb'; fb.textContent = 'Scrivi la risposta.'; return; }
+    G.tries++;
+    const r = check(it, value);
+    if (r.invalid || r.wrongForm) { G.tries--; fb.className = 'fb ko'; fb.textContent = r.msg || 'Non riesco a leggerlo.'; return; }
+    if (r.ok) return settle(it, true, false);
+    if (G.first[G.i] === undefined) G.first[G.i] = false;
+    fb.className = 'fb ko'; fb.textContent = '✗ Non ancora. Premi «Aiuto» e riprova.';
+    if (it.k === 'choice') $$('button[data-c]', box).forEach(b => { if (b.dataset.c === String(value)) { b.classList.add('sel-ko'); b.disabled = true; } });
+    score();
+  }
+  function score() {
+    const n = G.first.filter(x => x !== undefined).length, ok = G.first.filter(Boolean).length;
+    $('#fl-score').textContent = n ? 'Giuste al primo colpo: ' + ok + ' su ' + n + '.' : bestTxt();
+  }
+  function finish() {
+    G.done = true;
+    const n = G.list.length, ok = G.first.filter(Boolean).length, k = S.cat + ':' + S.len, b = S.best[k];
+    if (!b || ok / n > b.ok / b.n) { S.best[k] = { ok: ok, n: n }; save(); }
+    const wrong = G.list.filter((_, i) => !G.first[i]);
+    $('#fl-card').innerHTML = '<p class="fl-q">Fine del giro: <b>' + ok + ' su ' + n + '</b> giuste al primo colpo. ' + (ok === n ? 'Perfetto!' : ok >= n * 0.7 ? 'Bene: ripassa solo quelle sbagliate.' : 'Rifai le sbagliate e rileggi le tappe con il bollino.') + '</p>' +
+      (wrong.length ? '<ul class="fl-wrong">' + wrong.map(it => '<li>' + it.q + ' → <b>' + answerText(it) + '</b></li>').join('') + '</ul>' : '') +
+      '<div class="row">' + (wrong.length ? '<button type="button" class="btn primary" data-a="redo">Rifai le ' + wrong.length + ' sbagliate</button>' : '') + '<button type="button" class="btn' + (wrong.length ? '' : ' primary') + '" data-a="new">Nuovo giro</button></div>';
+    G.wrong = wrong.map(it => it.src);
+    $('#fl-score').textContent = bestTxt();
+  }
+  function init() {
+    const sec = $('#flash'); if (!sec) return;
+    chips();
+    sec.addEventListener('click', ev => {
+      const b = ev.target.closest('button, a[data-flash]'); if (!b) return;
+      if (b.dataset.cat) { S.cat = b.dataset.cat; save(); chips(); G.focus = false; newRound(); score(); return; }
+      if (b.dataset.len !== undefined) { S.len = Number(b.dataset.len); save(); chips(); G.focus = false; newRound(); score(); return; }
+      const box = $('#fl-card'); if (!box.contains(b)) return;
+      G.focus = true;
+      const it = G.list[G.i];
+      if (b.dataset.a === 'new') return newRound();
+      if (b.dataset.a === 'redo') return start(shuffle(G.wrong));
+      if (b.dataset.a === 'next') { G.i++; return render(); }
+      if (b.dataset.c !== undefined) return judge(b.dataset.c);
+      if (b.dataset.a === 'check') return judge($('#fl-in').value);
+      if (b.dataset.a === 'hint') { $('.hint', box).hidden = false; return; }
+      if (b.dataset.a === 'show') { if (G.first[G.i] === undefined) G.first[G.i] = false; const i = $('#fl-in'); if (i) i.value = answerInput(it); return settle(it, false, true); }
+      if (b.dataset.ins) { const i = $('#fl-in'); const p = i.selectionStart !== null ? i.selectionStart : i.value.length; i.value = i.value.slice(0, p) + b.dataset.ins + i.value.slice(i.selectionEnd !== null ? i.selectionEnd : p); i.focus(); i.setSelectionRange(p + b.dataset.ins.length, p + b.dataset.ins.length); }
+    });
+    sec.addEventListener('keydown', ev => { if (ev.key === 'Enter' && ev.target.id === 'fl-in') { ev.preventDefault(); G.focus = true; judge(ev.target.value); } });
+    $$('a[data-flash]').forEach(a => a.addEventListener('click', () => { S.cat = a.dataset.flash; save(); chips(); G.focus = false; newRound(); score(); }));
+    newRound(); score();
+    window.__flash = { BANK: BANK, G: G, check: check, answerText: answerText, answerInput: answerInput, judge: judge, start: start, newRound: newRound, S: () => S };
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+})();
 </script>
 </body>
 </html>
