@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Ripasso corrente alternata</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&family=Barlow:wght@400;600&display=swap">
+<style>
+:root { --paper: #F3F6F8; --sheet: #FFFFFF; --ink: #15202B; --ink-2: #4B5967; --rule: #D6DEE5; --teal: #0A7F98; --teal-ink: #06667B; --on-teal: #FFFFFF; color-scheme: light; }
+@media (prefers-color-scheme: dark) { :root { --paper: #0D141B; --sheet: #141E28; --ink: #E3EAF0; --ink-2: #A0B1C0; --rule: #273746; --teal: #3FB6CF; --teal-ink: #6FCDE1; --on-teal: #04222B; color-scheme: dark; } }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 400 18px/1.55 "Barlow", system-ui, sans-serif; }
+main { max-width: 760px; margin: 0 auto; padding: 40px max(16px, env(safe-area-inset-right, 0px)) 40px max(16px, env(safe-area-inset-left, 0px)); display: grid; gap: 22px; }
+.a3 { font: 700 3rem/.9 "Barlow Condensed", "Arial Narrow", sans-serif; color: var(--teal); }
+h1 { font: 700 clamp(1.8rem, 5vw, 2.5rem)/1.1 "Barlow Condensed", "Arial Narrow", sans-serif; margin: 0; }
+p { margin: 0; color: var(--ink-2); }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px; }
+a.card { display: grid; gap: 8px; padding: 20px; background: var(--sheet); border: 1px solid var(--rule); border-radius: 14px; color: var(--ink); text-decoration: none; }
+a.card:hover { border-color: var(--teal); }
+a.card:focus-visible { outline: 3px solid #F2A900; outline-offset: 2px; }
+a.card b { font: 700 1.5rem/1.1 "Barlow Condensed", "Arial Narrow", sans-serif; color: var(--teal-ink); }
+a.card span.go { justify-self: start; margin-top: 6px; background: var(--teal); color: var(--on-teal); font-weight: 600; padding: 9px 14px; border-radius: 8px; }
+</style>
+</head>
+<body>
+<main>
+  <div class="a3" aria-hidden="true">A3</div>
+  <h1>Ripasso di Telecomunicazioni: corrente alternata</h1>
+  <p>Grandezze sinusoidali e numeri complessi, capitolo A3. Scegli la versione che fa per te: puoi passare dall'una all'altra quando vuoi.</p>
+  <div class="cards">
+    <a class="card" href="ripasso-facile.html"><b>Versione facile</b><p>Per chi parte da zero. Prima le basi di matematica, poi dodici tappe brevi con ogni formula spiegata ed esercizi guidati un passaggio alla volta, fino a quattro esercizi svolti con tutti i conti.</p><span class="go">Apri la versione facile</span></a>
+    <a class="card" href="ripasso-corrente-alternata.html"><b>Versione completa</b><p>Esercizi svolti con i disegni dei vettori, teoria completa con gli errori del libro corretti, laboratorio, esercizi su tre livelli, quiz e simulazione di verifica da 10 punti.</p><span class="go">Apri la versione completa</span></a>
+  </div>
+  <p>I progressi restano salvati nel browser di chi apre la pagina.</p>
+</main>
+</body>
+</html>
